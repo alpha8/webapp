@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>购物车</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta http-equiv="x-dns-prefetch-control" content="on" />
+  <!-- <link rel="dns-prefetch" href="http://localhost" /> -->
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" type="text/css" href="styles/shop.css">
+  <!-- endbuild -->
+</head>
+<body>
+  <div class="cart">
+    <div class="header">
+      <div id="logo">
+        <a href="#" title="一虎一席交易平台"><h1>购物车</h1></a>
+      </div>
+      <div class="search">
+        <form name="searchForm">
+          <div class="btn-group">
+            <input type="text" autocomplete="off" placeholder="搜索关键字" id="keyword" class="searchKey">
+            <input type="button" value="搜索" class="button">
+          </div>
+        </form>
+      </div>
+    </div><!-- cart header end -->
+
+    <div class="container">
+      <div class="cart-filter-bar">
+        <ul class="switch-cart">
+          <li class="btn-switch-cart current">
+            <a href=""><em>全部商品</em><span class="number">1</span></a>
+          </li>
+        </ul>
+        <div class="cart-sum">
+          <span class="pay-text">已选商品(不含运费)</span>
+          <strong class="price">
+            <em class="total">
+              <span class="total-symbol">￥</span>0.00
+            </em>
+          </strong>
+          <a href="" class="submit-btn">结&nbsp;算</a>
+        </div>
+        <div class="wrap-line">
+          <div class="floater"></div>
+        </div>
+      </div>
+
+      <div class="cart-main">
+        <div class="cart-thead">
+          <div class="col t-checkbox">
+            <div class="cart-checkbox">
+              <input type="checkbox" name="checkboxes" class="checkbox">
+              <label for="">勾选全部商品</label>
+            </div>全选
+          </div>
+          <div class="col t-goods">商品</div>
+          <div class="col t-props"></div>
+          <div class="col t-price">单价(元)</div>
+          <div class="col t-amount">数量</div>
+          <div class="col t-sum">小计(元)</div>
+          <div class="col t-ops">操作</div>
+        </div>
+
+        <div id="cart-list">
+          <div class="cart-item-list">
+            <div class="cart-tbody" id="vender01">
+              <div class="shop">
+                <div class="cart-checkbox">
+                  <input type="checkbox" name="checkShop" class="checkbox">
+                  <label for="">勾选店铺内全部商品</label>
+                </div>
+                <span class="shop-txt">
+                  <!-- <i class="shop-icon"></i> -->
+                  店铺：
+                  <a href="" class="shop-name" id="venderId01">自营</a>
+                </span>
+                <div class="shop-extra">
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="item-list">
+                <div class="item-item">
+                  <div class="item-form">
+                    <div class="cell p-checkbox">
+                      <div class="cart-checkbox">
+                        <input type="checkbox" name="checkItem" class="checkbox">
+                        <label for="">勾选商品</label>
+                      </div>
+                    </div>
+                    <div class="cell p-goods">
+                      <div class="cell-inner">
+                        <div class="item-pic">
+                          <a href="#"><img src="https://img.alicdn.com/bao/uploaded/i3/740958699/TB2eHZuaqzyQeBjy0FbXXbZapXa_!!740958699.jpg_80x80.jpg" alt="" /></a>
+                        </div>
+                        <div class="item-info">
+                          <div class="item-basic-info"><a href="#">雷士照明 LED护眼台灯折叠调光卧室床头学习灯学生书桌节能阅读灯</a></div>
+                          <div class="item-other-info"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cell p-props">
+                      <div class="item-props">
+                        <p class="sku-line">开关类型：触摸开关</p>
+                        <p class="sku-line">颜色分类：【奥莉学习款】三档调光/素雅白</p>
+                      </div>
+                    </div>
+                    <div class="cell p-price">
+                      <div class="cell-inner">
+                        <strong>￥89.00</strong>
+                      </div>
+                    </div>
+                    <div class="cell p-amount">
+                      <div class="cell-inner">
+                        <div class="amount-wrapper">
+                          <div class="item-amount">
+                            <a href="" class="minus">-</a>
+                            <a href="" class="plus">+</a>
+                            <input type="text" class="text-amount" autocomplete="off" value="1">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cell p-sum">
+                      <div class="cell-inner">
+                        <em class="number">￥89.00</em>
+                      </div>
+                    </div>
+                    <div class="cell p-o4ps">
+                      <div class="cell-inner">
+                        <a href="#" class="btn-fav">移入收藏夹</a>
+                        <a href="#" class="btn-del">删除</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-line"></div>
+                </div>
+              </div>
+            </div>
+          </div><!-- cart item list end -->
+        </div><!-- cart list end -->
+      </div><!-- cart main end-->
+
+      <div class="cart-floatbar">
+        <div class="float-bar-wrapper">
+          <div id="selectAll" class="select-all"></div>
+          <div class="operations">
+            <a href="">删除</a>
+            <a href="">移入收藏夹</a>
+            <a href="">分享</a>
+          </div>
+          <div class="float-bar-right">
+            <div class="amount-sum">
+              <span class="txt">已选商品</span>
+              <em class="amount">1</em>
+              <span class="txt">件</span>
+            </div>
+            <div class="price-sum">
+              <span class="txt">合计(不含运费)</span>
+              <strong class="price">
+                <em class="total">
+                  <span class="total-symbol">￥</span>89.00
+                </em>
+              </strong>
+            </div>
+            <div class="btn-area">
+              <a href="" class="submit-btn"><i></i><span>结&nbsp;算</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- container end -->
+  </div> <!--cart end -->
+
+  <!-- 侧边导航条 -->
+  <div class="toolbar-wrap">
+    <div class="toolbar">
+      <div class="toolbar-tabs">
+        <div class="toolbar-tab toolbar-tab-vip">
+          <a href="javascript:void(0)">
+            <i class="tab-ico"></i>
+            <em class="tab-text">我的会员</em>
+          </a>
+        </div>
+        <div class="toolbar-tab toolbar-tab-follow">
+          <a href="javascript:void(0)">
+            <i class="tab-ico"></i>
+            <em class="tab-text">我的关注</em>
+          </a>
+        </div>
+        <div class="toolbar-tab toolbar-tab-history">
+          <a href="javascript:void(0)">
+            <i class="tab-ico"></i>
+            <em class="tab-text">我的足迹</em>
+          </a>
+        </div>
+      </div>
+      <div class="toolbar-footer">
+        <div class="toolbar-tab toolbar-tab-top">
+          <a href="javascript:void(0)" id="goTop">
+            <i class="tab-ico"></i>
+            <em class="tab-text">返回顶部</em>
+          </a>
+        </div>
+        <div class="toolbar-tab toolbar-tab-feedback">
+          <a href="javascript:void(0)">
+            <i class="tab-ico"></i>
+            <em class="tab-text">反馈</em>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/libs/requirejs/require.js" data-main="scripts/cart.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<!-- endbuild -->
+</body>
+</html>
