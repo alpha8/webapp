@@ -116,12 +116,12 @@
           <div class="choose-amount">
             <div class="wrap-input">
               <input type="text" class="text buy-num" value="1" id="buy-num" />
-              <a href="javascript:void(0)" class="btn-reduce">-</a>
+              <a href="javascript:void(0)" class="btn-reduce disabled">-</a>
               <a href="javascript:void(0)" class="btn-add">+</a>
             </div>
           </div>
 
-          <a href="javascript:void(0)" class="btn-lg btn-red">加入购物车</a>
+          <a href="shop_cart.html" class="btn-lg btn-red">加入购物车</a>
           <a href="javascript:void(0)" class="btn-lg btn-green">立即购买</a>
           <a href="javascript:void(0)" class="btn-lg btn-white">到货通知</a>
         </div>  
@@ -140,7 +140,7 @@
           </ul>
           <div class="extra">
             <div class="addcart-mini">
-              <a href="javascript:void(0)" class="btn-primary">加入购物车</a>
+              <a href="shop_cart.html" class="btn-primary">加入购物车</a>
             </div>
           </div>
         </div>        
@@ -184,22 +184,6 @@
               <div class="panel-header"><h3>商品评价</h3></div>
               <div class="panel-body">
                 <div class="item-detail">
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="item recommend" id="recommend">
-            <div class="panel">
-              <div class="panel-header">
-                <h3>猜你喜欢</h3>
-                <div class="extra">
-                  <a href="#" class="change"><i class="refresh-icon"></i><span class="txt">换一批</span></a>
-                </div>
-              </div>
-              <div class="panel-body">
-                <div class="item-detail">
                   <ul>
                     <li>aaaa</li>
                     <li>bbbb</li>
@@ -210,38 +194,126 @@
             </div>
           </div>
 
-          <div class="item history" id="history">
-            <div class="panel">
-              <div class="panel-header">
-                <h3>我的足迹</h3>
-                <div class="extra">
-                  <a href="#">更多浏览记录</a>
-                </div>
-              </div>
-              <div class="panel-body">
-                <div class="item-detail">
-                  <ul>
-                    <li>aaaa</li>
-                    <li>bbbb</li>
-                    <li>
-                      cccc
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div><!--tab-body end -->
       </div><!-- tab end -->      
     </div>
-    <!-- 商品详情 end -->
 
+    <div class="m recommend" id="recommend">
+      <div class="mt">
+        <h2 class="title">猜你喜欢</h2>
+        <div class="extra">
+          <a href="#" class="change">
+            <i class="refresh-icon"></i>
+            <span class="txt">换一批</span>
+          </a>
+        </div>
+      </div>
+      <div class="mc image-player">
+        <a href="#" class="arrow-prev">&lt;</a>
+        <a href="#" class="arrow-next">&gt;</a>
+        <div class="recommend-scroll">
+          <ul class="recommend-list">
+            <li>
+              <div class="p-img">
+                <a href="#" title="海尔（Haier）LS55A51 55英寸 4K安卓智能网络超窄边框UHD高清LED液晶电视">
+                  <img src="http://img10.360buyimg.com/n4/s160x160_jfs/t2923/156/1091069615/266877/680c74c9/57761263N5a6598e2.jpg" alt="" width="160" height="160">
+                </a>
+                <div class="p-name">
+                  <a href="#">海尔（Haier）LS55A51 55英寸 4K安卓智能网络超窄边框UHD高清LED液晶电视</a>
+                </div>
+              </div>
+              <div class="p-price">￥29.90</div>
+            </li>
+            <li>
+              <div class="p-img">
+                <a href="#" title="蓝月亮 机洗至尊3倍浓缩洗衣液机洗专用亮白增艳素雅兰香2.36kg礼盒装">
+                  <img src="http://img10.360buyimg.com/n2/jfs/t2281/151/2109938094/259979/6ad793a4/56a59d6dN8897066f.jpg" alt="" width="160" height="160">
+                </a>
+                <div class="p-name">
+                  <a href="#">蓝月亮 机洗至尊3倍浓缩洗衣液机洗专用亮白增艳素雅兰香2.36kg礼盒装</a>
+                </div>
+              </div>
+              <div class="p-price">￥89.90</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="m history-view" id="history-view">
+      <div class="mt">
+        <h2 class="title">我的足迹</h2>
+        <div class="extra">
+          <a href="#">
+            <span class="txt">更多浏览记录</span>
+          </a>
+        </div>
+      </div>
+      <div class="mc">
+        <ul class="history-view-list">
+          <li>
+            <div class="p-img">
+              <a href="#">
+                <img src="images/56ebe501Nba62be22_w45.jpg" alt="海伦凯勒太阳镜女款" width="70px" height="70px"></a>
+            </div>
+            <div class="p-price">￥468.00</div>
+          </li>
+          <li>
+            <div class="p-img">
+              <a href="#">
+                <img src="images/56ebe501Nba62be22_w45.jpg" alt="海伦凯勒太阳镜女款" width="70px" height="70px"></a>
+            </div>
+            <div class="p-price">￥468.00</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div> <!-- 商品详情 end -->
+
+  <!-- 侧边导航条 -->
+  <div class="toolbar-wrap">
+    <div class="toolbar">
+      <div class="toolbar-tabs">
+        <div class="toolbar-tab toolbar-tab-vip">
+          <a href="javascript:void(0)">
+            <i class="tab-ico"></i>
+            <em class="tab-text">我的会员</em>
+          </a>
+        </div>
+        <div class="toolbar-tab toolbar-tab-follow">
+          <a href="javascript:void(0)">
+            <i class="tab-ico"></i>
+            <em class="tab-text">我的关注</em>
+          </a>
+        </div>
+        <div class="toolbar-tab toolbar-tab-history">
+          <a href="javascript:void(0)">
+            <i class="tab-ico"></i>
+            <em class="tab-text">我的足迹</em>
+          </a>
+        </div>
+      </div>
+      <div class="toolbar-footer">
+        <div class="toolbar-tab toolbar-tab-top">
+          <a href="javascript:void(0)" id="goTop">
+            <i class="tab-ico"></i>
+            <em class="tab-text">返回顶部</em>
+          </a>
+        </div>
+        <div class="toolbar-tab toolbar-tab-feedback">
+          <a href="javascript:void(0)">
+            <i class="tab-ico"></i>
+            <em class="tab-text">反馈</em>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
-  <script data-main="scripts/main" src="/libs/requirejs/require.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/libs/requirejs/require.js" data-main="scripts/main.js" type="text/javascript" charset="utf-8"></script>
   <!-- endbower -->
   <!-- endbuild -->
   

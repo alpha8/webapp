@@ -5,15 +5,17 @@ require.config({
 		},
 		'shop':{
 			deps: ['css!../styles/shop.css','jquery', 'jqzoom']
-		}
+		}, 
+    'toolbar': {
+      deps: ['jquery']
+    }
 	},
   paths: {
-    jquery: '/libs/jquery/dist/jquery',
+    jquery: '/libs/jquery/dist/jquery.min',
     domReady: '/libs/domReady/domReady',
-    jqzoom: '/libs/jqzoom/jquery.jqzoom.min',
-    shop: 'shop'
+    jqzoom: '/libs/jqzoom/jquery.jqzoom.min'
   }
 });
 
-require(['shop'], function($){
+require(['shop', './toolbar'], function($){
 });

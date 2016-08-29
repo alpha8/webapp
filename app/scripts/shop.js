@@ -61,6 +61,9 @@ define(['jquery', 'jqzoom'], function($){
     var buyNum = parseInt($("#buy-num").val());
     if(buyNum > 1){
       $("#buy-num").val(--buyNum);
+      if(buyNum <= 1){
+        $(this).addClass("disabled");
+      }
     }
   });
 
@@ -69,6 +72,7 @@ define(['jquery', 'jqzoom'], function($){
 
     var buyNum = parseInt($("#buy-num").val());
     if(buyNum >= 1){
+      $(".btn-reduce").removeClass("disabled");
       $("#buy-num").val(++buyNum);
     }
   });
