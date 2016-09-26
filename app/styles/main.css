@@ -132,7 +132,7 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 
 .m .mc { position: relative; padding-bottom: 10px; }
 
-.m .mc .title { width: 20%; height: 62px; line-height: 62px; float: left; overflow: hidden; border-bottom: 1px solid #1ab394; margin-bottom: 0; }
+.m .mc .title { width: 20%; height: 60px; line-height: 60px; float: left; overflow: hidden; border-bottom: 1px solid #1ab394; margin-bottom: 0; }
 
 .m .mc .title h2 { padding-left: 20px; }
 
@@ -152,7 +152,7 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 
 .tab .tips { display: inline-block; padding: 10px 15px; line-height: 30px; }
 
-.dropdown-menu { display: none; position: absolute; top: 100%; left: 0; z-index: 1000; float: left; min-width: 160px; padding: 5px 0; margin: 2px 0 0; font-size: 14px; text-align: left; background: #fff; background-color: #fff; -webkit-background-clip: padding-box; background-clip: padding-box; border: 1px solid #1ab394; border-radius: 4px; -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); border-top: 0; border-top-right-radius: 0; border-top-left-radius: 0; }
+.dropdown-menu { display: none; position: absolute; top: 100%; left: 0; z-index: 1000; float: left; min-width: 160px; padding: 5px 0; margin: 2px 0 0; text-align: left; background: #fff; background-color: #fff; -webkit-background-clip: padding-box; background-clip: padding-box; border: 1px solid #1ab394; border-radius: 4px; -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); border-top: 0; border-top-right-radius: 0; border-top-left-radius: 0; }
 
 .dropdown-menu li { display: block; float: none; position: relative; margin: 0; }
 
@@ -216,12 +216,17 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 
 .gallery .more button.on { background: #1ab394; color: #fff; }
 
+/** 无忧体验区 */
+.tab-pane.gallery { height: 400px; }
+
 /** 站点地图 */
 #sitemap { display: inline-block; padding: 10px 0; width: 100%; height: auto; overflow: hidden; }
 
 #sitemap dl { width: 20%; display: inline-block; float: left; }
 
 #sitemap dl dt { padding: 6px 0; font: 400 16px/24px "Microsoft YaHei"; }
+
+#sitemap dl dd { padding: 3px 0; }
 
 @media (max-width: 767px) { .hidden-xs { display: none !important; } }
 

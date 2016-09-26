@@ -375,8 +375,8 @@ h2, h3{
 
     .title{
       width: 20%;
-      height: 62px;
-      line-height: 62px;
+      height: 60px;
+      line-height: 60px;
       float: left;
       overflow: hidden;
       border-bottom: 1px solid $active-border-color;
@@ -458,7 +458,6 @@ h2, h3{
   min-width: 160px;
   padding:5px 0;
   margin: 2px 0 0;
-  font-size: 14px;
   text-align: left;
   background: #fff;
   background-color: #fff;
@@ -668,6 +667,11 @@ h2, h3{
   }
 }
 
+/** 无忧体验区 */
+.tab-pane.gallery{
+  height: 400px;
+}
+
 /** 站点地图 */
 #sitemap{
   display: inline-block;
@@ -684,6 +688,10 @@ h2, h3{
     dt{
       padding: 6px 0;
       font: 400 16px/24px "Microsoft YaHei";
+    }
+
+    dd{
+      padding: 3px 0;
     }
   }
 }
