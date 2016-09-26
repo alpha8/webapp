@@ -1,0 +1,9 @@
+{
+  "total": 6,
+  "result":[
+    {"image": "images/upload/13.jpg", "width": 236, "height": 229, "name": "舞者", "author": "毛贞元"},
+    {"image": "images/upload/14.jpg", "width": 236, "height": 120, "name": "西班牙流浪者之歌", "author": "毛贞元"},
+    {"image": "images/upload/15.jpg", "width": 236, "height": 353, "name": "百乐门", "author": "毛贞元"},
+    {"image": "images/upload/16.jpg", "width": 236, "height": 361, "name": "何以赠之", "author": "毛贞元"}
+  ]
+}

@@ -346,7 +346,6 @@ img{ border: 0px; vertical-align: middle; }
   padding: 0 26px;
   font-size: 18px;
   font-family: "microsoft yahei";
-  font-weight: 700;
 }
 .btn-disable:hover {
   border-color: #ebebeb;
@@ -403,6 +402,12 @@ img{ border: 0px; vertical-align: middle; }
 }
 
 /** 购物车 */
+.cart a{
+  color: #666;
+}
+.cart a:hover, a:active{
+  color:#e4393c;
+}
 .cart .header, .cart .footer, .cart .container{
   width: 990px;
   margin: 0 auto;
@@ -440,7 +445,7 @@ img{ border: 0px; vertical-align: middle; }
   border: 0px;
   height: 30px;
   line-height: 30px;
-  width: 360px;
+  width: 300px;
   padding: 3px 15px;
   outline: 0;
 }
@@ -449,11 +454,11 @@ img{ border: 0px; vertical-align: middle; }
   vertical-align: top;
   width: 88px;
   height: 35px;
-  background: #df3033;
+  background: #e54346;
   text-align: center;
   color: #fff;
-  font-weight: 700;
   font-size: 18px;
+  font-family: "Microsoft YaHei";
   -webkit-apperance: none;
   border: none;
   outline: none;
@@ -520,7 +525,7 @@ img{ border: 0px; vertical-align: middle; }
   display: inline-block;
   width: 55px;
   color: #fff;
-  background: #f40;
+  background: #e54346;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
@@ -528,6 +533,9 @@ img{ border: 0px; vertical-align: middle; }
   text-align: center;
   cursor: pointer;
   text-decoration: none;
+}
+.cart-sum a.submit-btn:hover{
+  color: #fff;
 }
 .wrap-line{
   clear: both;
@@ -549,8 +557,8 @@ img{ border: 0px; vertical-align: middle; }
 }
 .cart-thead{
   display: block;
-  height: 42px;
-  line-height: 42px;
+  height: 32px;
+  line-height: 32px;
   margin: 0 0 10px;
   padding: 5px 0;
   background: #f3f3f3;
@@ -561,6 +569,7 @@ img{ border: 0px; vertical-align: middle; }
 .cart-thead {
   width: 990px;
   margin: 0 auto;
+  margin-bottom: 10px;
 }
 .cart-main .col{
   float: left;
@@ -579,8 +588,8 @@ img{ border: 0px; vertical-align: middle; }
   _height:10px;
 }
 .cart-main .cart-thead .t-checkbox{
-  height: 42px;
-  line-height: 42px;
+  height: 32px;
+  line-height: 32px;
   width: 122px;
   padding-left: 11px;
 }
@@ -601,6 +610,9 @@ img{ border: 0px; vertical-align: middle; }
 }
 .cart-checkbox label{
   display: none;
+}
+.cart-item-list .cart-tbody{
+  display: block;
 }
 .cart-tbody .p-props{
   padding-right: 20px;
@@ -634,9 +646,11 @@ img{ border: 0px; vertical-align: middle; }
   width: 80px;
   text-align: right;
 }
+.cart-main .cart-thead .t-amount{
+  text-align: center;
+}
 .cart-main .cart-thead .t-sum{
-  padding-right: 40px;
-  text-align: right;
+  text-align: center;
 }
 .cart-main .cart-thead .t-price, .cart-tbody .p-price{
   width: 120px;
@@ -648,6 +662,12 @@ img{ border: 0px; vertical-align: middle; }
 }
 .cart-main .cart-thead .t-ops, .cart-tbody .p-ops{
   width: 75px;
+}
+.cart-main .cart-thead .t-ops{
+  text-align: center;
+}
+.cart-tbody .p-ops a{
+  display: block;
 }
 .cart-tbody .p-price strong{
   display: block;
@@ -661,7 +681,6 @@ img{ border: 0px; vertical-align: middle; }
   height: 30px;
   line-height: 30px;
   padding-left: 11px;
-  font-weight: 700;
 }
 .cart-checkbox{
   position: relative;
@@ -683,34 +702,25 @@ img{ border: 0px; vertical-align: middle; }
   float: left;
   width: 538px;
   _width:530px;
-}
-.cart-tbody .shop .shop-name{
-  width: 54px;
-  height: 18px;
-  overflow: hidden;
-  line-height: 99em;
-  color: #e4393c;
-  display: inline-block;
-  max-width: 144px;
-  vertical-align: middle;
+  color: #000;
 }
 .cart-tbody .shop .extra{
   float: right;
   font-weight: 400;
 }
-.cart-tbody .item-list{
+.item-list{
   border-style: solid;
   border-width: 2px 1px 1px;
   _border-width: 1px;
   border-color: #aaa #f1f1f1 #f1f1f1;
   background: #fff;
 }
-.cart-tbody .item-item{
+.item-list .item-item{
   position: relative;
   padding: 0 10px 1px 40px;
   line-height: 20px;
   _height:116px;
-  background: #fff;
+  background: #fcfcfc;
   border: 0;
 }
 .cart-tbody .shop-icon{
@@ -719,9 +729,9 @@ img{ border: 0px; vertical-align: middle; }
   display: inline-block;
   vertical-align: middle;
 }
-.cart-tbody .item-form{
+.cart-tbody .item-list .item-form{
   border-top: 1px solid #f1f1f1;
-  display: block;
+  display: inline-block;
 }
 .cart-tbody .item-item .p-checkbox{
   position: absolute;
@@ -844,9 +854,9 @@ img{ border: 0px; vertical-align: middle; }
   border: 1px solid #cacbcb;
   right: 0;
 }
-.cart-tbody .item-amount .minus:hover, .cart-tbody .item-amount .plus:hover{
+/*.cart-tbody .item-amount .minus:hover, .cart-tbody .item-amount .plus:hover{
   border: 1px solid #f40;
-}
+}*/
 .cart-tbody .item-amount .text-amount{
   width: 39px;
   height: 15px;
@@ -862,7 +872,87 @@ img{ border: 0px; vertical-align: middle; }
   top:0;
   outline: 0;
 }
-
+.float-bar-wrapper{
+  height: 50px;
+  border: 1px solid #f0f0f0;
+  background: #fff;
+  position: relative;
+}
+.cart-floatbar .select-all{
+  float: left;
+  height: 18px;
+  line-height: 18px;
+  padding: 16px 0 16px 9px;
+  white-space: nowrap;
+}
+.cart-floatbar .operations{
+  float: left;
+  height: 50px;
+  width: 310px;
+  line-height: 50px;
+}
+.cart-floatbar .operations a {
+  float: left;
+  margin-left: 10px;
+  color: #666;
+}
+.float-bar-right{
+  position: absolute;
+  height: 50px;
+  right: 0;
+  top: -1px;
+  width: 610px;
+}
+.float-bar-right .amount-sum{
+  float: right;
+  color: #999;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+}
+.float-bar-right .amount-sum em{
+  color: #e4393c;
+  font-family: verdana;
+  font-weight: 700;
+  margin: 0 3px;
+}
+.float-bar-right .price-sum{
+  float: right;
+  height: 50px;
+  line-height: 50px;
+  color: #666;
+  width: auto;
+  position: relative;
+  text-align: center;
+  padding-right: 20px;
+}
+.float-bar-right .price-sum .txt {
+  float: left;
+  width: 50px;
+  text-align: right;
+  color: #999;
+}
+.float-bar-right .price-sum .totalPrice em{
+  font-size: 16px;
+  color: #e4393c;
+  font-weight: 700;
+}
+.float-bar-right .btn-area{
+  float: right;
+}
+.float-bar-right .btn-area .submit-btn{
+  display: block;
+  position: relative;
+  width: 96px;
+  height: 52px;
+  line-height: 52px;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Microsoft YaHei";
+  background: #e54346;
+  overflow: hidden;
+}
 .cart-empty{
   height: 98px;
   padding: 80px 0 120px;

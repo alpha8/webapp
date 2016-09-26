@@ -1,5 +1,5 @@
-define(['jquery'], function($){
-  $(document.body).ready(function(){
+define(['jquery', 'domReady'], function($, domReady){
+  domReady(function(){
     $(".toolbar-wrap .toolbar-tab").hover(function(){
       $(this).toggleClass('toolbar-tab-hover');
     });

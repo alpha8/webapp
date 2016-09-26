@@ -1,0 +1,9 @@
+{
+  "total": 6,
+  "result":[
+    {"image": "images/upload/4.jpg", "width": 236, "height": 184, "name": "玛雅三丽", "author": "毛贞元"},
+    {"image": "images/upload/7.jpg", "width": 236, "height": 231, "name": "枇杷歌", "author": "毛贞元"},
+    {"image": "images/upload/1.jpg", "width": 236, "height": 137, "name": "八音盒子", "author": "毛贞元"},
+    {"image": "images/upload/5.jpg", "width": 236, "height": 154, "name": "毛贞元肖像", "author": "毛贞元"}
+  ]
+}
