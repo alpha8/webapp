@@ -160,8 +160,8 @@
                     </ul>                      
                   </div>
                   <div class="btns fr">
-                    <button class="btn"><i class="fa fa-camera-retro">收藏</i></button>
-                    <button class="btn"><i class="fa fa-heart-o">喜爱</i></button>
+                    <button class="btn"><i class="fa fa-camera-retro"></i> 收藏</button>
+                    <button class="btn"><i class="fa fa-heart-o"></i> 喜爱</button>
                   </div>
                 </div>
               </div>
@@ -340,11 +340,11 @@
               <li class="dropdown">
                 <a href="javascript:void(0)"><span>所有价格区</span><i class="fa fa-caret-down"></i><em>(248)</em></a>
                 <ul class="dropdown-menu">
-                  <li><a href="" data-count="199">1-99万</a></li>
-                  <li><a href="" data-count="22">100-199万</a></li>
-                  <li><a href="" data-count="332">1000-1999万</a></li>
-                  <li><a href="" data-count="112">2000万以上</a></li>
-                  <li><a href="" data-count="248">所有价格区</a></li>
+                  <li data-trigger="waterfall"><a href="#all" data-count="199" data-query="1-99">1-99万</a></li>
+                  <li data-trigger="waterfall"><a href="#all" data-count="22" data-query="100-199">100-199万</a></li>
+                  <li data-trigger="waterfall"><a href="#all" data-count="332" data-query="1000-1999">1000-1999万</a></li>
+                  <li data-trigger="waterfall"><a href="#all" data-count="112" data-query="2000">2000万以上</a></li>
+                  <li data-trigger="waterfall"><a href="#all" data-count="248" data-query="all">所有价格区</a></li>
                 </ul>
               </li>
               <span class="tips">(由高至低)</span>
@@ -363,7 +363,7 @@
                     .x.x.x.xlsddfsjlfsf...XXXXX<br/>
                   </p>
                 </dd>
-                <dd class="text-right"><button class="btn small-btn" id="btn-detail">详情</button></dd>
+                <dd class="text-right"><button class="btn small-btn btn-detail">详情</button></dd>
               </dl>
 
               <div class="waterfall"></div>
@@ -399,6 +399,16 @@
               <div class="waterfall"></div>
               <div class="more">
                 <button class="btn" id="btn-more-gh">展开更多(还有<span class="num">0</span>幅) <i class="fa fa-caret-down"></i></button>
+                <button class="btn bigPage"><i class="fa fa-unlock-alt"></i>&nbsp;大页面</button>
+              </div>
+            </div>
+
+            <div class="tab-pane gallery" id="all">
+              <p>所有价格区</p>
+
+              <div class="waterfall"></div>
+              <div class="more">
+                <button class="btn" id="btn-more-all">展开更多(还有<span class="num">0</span>幅) <i class="fa fa-caret-down"></i></button>
                 <button class="btn bigPage"><i class="fa fa-unlock-alt"></i>&nbsp;大页面</button>
               </div>
             </div>

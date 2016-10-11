@@ -10,6 +10,7 @@ em, i, u{font-style: normal; }
 ul, ol, li{ list-style: none; }
 a, a:hover, a:visited{ color: #005EA7; text-decoration: none; }
 img{ border: 0px; vertical-align: middle; }
+button{-webkit-appearance : none;outline: none;}
 .clearfix{}
 .clearfix:after{
   content: ".";
@@ -459,7 +460,7 @@ img{ border: 0px; vertical-align: middle; }
   color: #fff;
   font-size: 18px;
   font-family: "Microsoft YaHei";
-  -webkit-apperance: none;
+  -webkit-appearance : none;
   border: none;
   outline: none;
 }

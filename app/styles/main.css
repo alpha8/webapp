@@ -9,7 +9,7 @@ ul, ol, li { list-style: none; }
 
 img { border: 0px; vertical-align: middle; }
 
-button { outline: none; }
+button { outline: none; -webkit-appearance: none; }
 
 a, a:hover, a:active, a:visited { text-decoration: none; color: #666; }
 
@@ -46,7 +46,7 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 @media only screen and (min-width: 1100px) { .w { width: 1210px; } }
 
 /** 页面顶部 */
-.header { padding-bottom: 3px; }
+.header { padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; }
 
 #logo { position: relative; z-index: 8; float: left; width: 300px; height: 60px; padding: 5px 0; overflow: hidden; }
 
@@ -65,7 +65,7 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 .stats strong { font-weight: 600; font-family: "Microsoft YaHei"; color: #e54346; }
 
 /** 导航条 */
-.navbar { position: relative; display: block; border: 1px solid #e0e0e0; width: 990px; }
+.navbar { position: relative; display: block; border-bottom: 1px solid #e0e0e0; width: 990px; }
 
 @media only screen and (min-width: 1100px) { .navbar { width: 1210px; } }
 
@@ -89,6 +89,23 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 
 .navbar .grid .nav-list .wideline { line-height: 50px; padding: 0px; }
 
+.navbar .navbar-nav { list-style: none; clear: both; width: 100%; height: 50px; font: 400 16px/24px "Microsoft YaHei"; }
+
+.navbar .navbar-nav > li { position: relative; display: block; float: left; }
+
+.navbar .navbar-nav > li > a { padding: 15px; line-height: 20px; position: relative; display: block; }
+
+/** 面包屑 */
+.breadcrumb { padding: 15px; list-style: none; background-color: #f5f5f5; border-radius: 4px; border-bottom: 1px solid #e0e0e0; font: 400 16px/24px "Microsoft YaHei"; }
+
+.breadcrumb > li { display: inline-block; }
+
+.breadcrumb > .active { color: #666; }
+
+.breadcrumb > .search-key { font-weight: 700; }
+
+.breadcrumb .crumb-arrow { padding: 0 5px 0 8px; font-family: SimSun; font-style: normal; }
+
 /** banner轮播 */
 #bannerSlider { width: 990px; border-left: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0; }
 
@@ -107,7 +124,7 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 
 .signUp button { height: 50px; padding: 10px; float: left; margin-top: 25px; margin-left: 20px; font-size: 18px; }
 
-.signIn { border-right: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; margin-right: -1px; height: 100px; }
+.signIn { border-right: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; margin-right: -2px; height: 100px; }
 
 .signIn form { padding: 6px 0px 0px 50px; font-size: 14px; }
 
@@ -130,11 +147,17 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 
 .m .mt h2 { font-size: 20px; color: #333; line-height: 36px; padding-left: 5px; }
 
+.m .mt > .title { width: 20%; height: 36px; line-height: 36px; float: left; overflow: hidden; margin-bottom: 0; }
+
+.m .mt .right { width: 80%; float: left; }
+
 .m .mc { position: relative; padding-bottom: 10px; }
 
-.m .mc .title { width: 20%; height: 60px; line-height: 60px; float: left; overflow: hidden; border-bottom: 1px solid #1ab394; margin-bottom: 0; }
+.m .mc dt { font-size: 14px; font-weight: 400; }
 
-.m .mc .title h2 { padding-left: 20px; }
+.m .mc > .title { width: 20%; height: 60px; line-height: 60px; float: left; overflow: hidden; border-bottom: 1px solid #1ab394; margin-bottom: 0; }
+
+.m .mc > .title h2 { padding-left: 20px; }
 
 .m .mc .right { width: 80%; float: left; }
 
@@ -160,10 +183,6 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 
 .dropdown-menu > li > a { display: block; padding: 3px 20px; clear: both; font-weight: 400; line-height: 1.42857143; color: #333; white-space: nowrap; border: none; margin: 0; }
 
-.hide { display: none; }
-
-.show { display: block; }
-
 .tab-content { clear: both; position: relative; width: 100%; height: auto; overflow: hidden; }
 
 .tab-content .tab-pane { display: none; min-height: 60px; height: auto; width: 100%; }
@@ -186,8 +205,10 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 
 .category li.active > a, .category li.active > a:hover, .category li.active > a:focus { color: #555; cursor: default; background-color: #fff; border-bottom: 2px solid #1ab394; }
 
+.category .tips { display: inline-block; line-height: 37px; padding-left: 10px; }
+
 /** 室内效果 */
-#indoor .category { width: 405px; }
+#indoor .category { width: 415px; }
 
 /** 瀑布流 */
 .gallery { width: 100%; height: 400px; overflow-x: hidden; overflow-y: auto; display: none; }
@@ -198,7 +219,7 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 
 .gallery .thumbnail img { min-height: 80px; _height: 80px; }
 
-.gallery .thumbnail:hover { -webkit-opacity: 0.75; -moz-opacity: 0.75; -khtml-opacity: 0.75; opacity: .75; filter: alpha(opacity=75); }
+.gallery .thumbnail:hover { -webkit-opacity: 0.9; -moz-opacity: 0.9; -khtml-opacity: 0.9; opacity: .9; filter: alpha(opacity=90); }
 
 .gallery .extra { position: relative; width: 100%; height: 40px; padding: 3px 0px; overflow: hidden; }
 
@@ -206,7 +227,7 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 
 .gallery .extra .btns { height: 45px; line-height: 45px; }
 
-.gallery .extra .btn { padding: 4px 8px; }
+.gallery .extra .btn { padding: 4px 4px; }
 
 .gallery .more { clear: both; display: block; width: 100%; padding: 10px 0px; margin: 0 auto; text-align: center; }
 
@@ -215,6 +236,35 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 .gallery .more button i.fa-caret-down { padding-left: 20px; }
 
 .gallery .more button.on { background: #1ab394; color: #fff; }
+
+/** 等高瀑布流 */
+.waterflow { width: 100%; height: 800px; overflow-x: auto; overflow-y: hidden; display: none; }
+
+.waterflow > .picasa { width: 1500px; }
+
+.waterflow .block { float: left; display: inline-block; overflow: hidden; padding: 15px 0px 0px 15px; }
+
+.waterflow .thumbnail { position: relative; outline: none; border: 1px solid #ccc; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -webkit-box-shadow: 0 0 5px #ccc; -moz-box-shadow: 0 0 5px #ccc; box-shadow: 0 0 5px #ccc; text-align: center; }
+
+.waterflow .thumbnail img { min-height: 80px; _height: 80px; }
+
+.waterflow .thumbnail:hover { -webkit-opacity: 0.9; -moz-opacity: 0.9; -khtml-opacity: 0.9; opacity: .9; filter: alpha(opacity=90); }
+
+.waterflow .extra { position: relative; width: 100%; height: 40px; padding: 3px 0px; overflow: hidden; }
+
+.waterflow .extra .info li { line-height: 23px; }
+
+.waterflow .extra .btns { height: 45px; line-height: 45px; }
+
+.waterflow .extra .btn { padding: 4px 4px; }
+
+.waterflow .more { clear: both; display: block; width: 100%; padding: 10px 0px; margin: 0 auto; text-align: center; }
+
+.waterflow .more button { margin-right: 10px; }
+
+.waterflow .more button i.fa-caret-down { padding-left: 20px; }
+
+.waterflow .more button.on { background: #1ab394; color: #fff; }
 
 /** 无忧体验区 */
 .tab-pane.gallery { height: 400px; }
@@ -237,10 +287,52 @@ h2, h3 { font-family: "Microsoft YaHei"; font-weight: 400; }
 @media (min-width: 1200px) { .hidden-lg { display: none !important; } }
 
 /** 页面底部 */
-#footer { border-top: 1px solid #e5e5e5; padding: 20px 0 30px; text-align: center; }
+#footer { border-top: 1px solid #e0e0e0; padding: 20px 0 30px; text-align: center; }
 
 #footer .links a { margin: 0 10px; }
 
 #footer .copyright { margin: 10px 0; }
 
 #footer .authentication a { margin: 0 5px; }
+
+/** 个人中心 */
+#art .mt, #paint .mt { margin-top: 10px; height: 48px; }
+
+.mc dt > button { margin-left: 200px; margin-top: 5px; }
+
+/** 文章组件 */
+.article { width: 100%; height: 400px; overflow-x: hidden; overflow-y: auto; display: none; }
+
+.article .item { clear: both; padding: 15px; border-top: 1px solid #fff; border-bottom: 1px solid #ddd; vertical-align: bottom; display: inline-block; }
+
+.article .thumbnail { float: left; position: relative; width: 236px; }
+
+.article .thumbnail a { display: block; width: 226px; max-height: 230px; border: 1px solid #ccc; overflow: hidden; border-radius: 3px; }
+
+.article .thumbnail:hover { -webkit-opacity: 0.9; -moz-opacity: 0.9; -khtml-opacity: 0.9; opacity: .9; filter: alpha(opacity=90); }
+
+.article .body { float: left; width: 690px; margin-left: 10px; font-size: 16px; }
+
+@media only screen and (min-width: 1100px) { .article .body { width: 910px; } }
+
+.article .body > .title { font-size: 18px; font-weight: bold; margin: 0 0 5px 0; }
+
+.article .body .meta > span { display: inline-block; font-size: 14px; padding: 5px 20px 5px 0px; color: #bbb; }
+
+.article .body .intro { padding: 10px 0; line-height: 20px; text-indent: 16px; overflow: hidden; max-height: 110px; border-top: 1px dashed #fff; color: #888; }
+
+.article .body .tags { float: left; max-width: 500px; height: 20px; overflow: hidden; }
+
+.article .body .tags li { float: left; border: none; margin-right: 6px; line-height: 20px; font-size: 14px; vertical-align: bottom; }
+
+.article .more { clear: both; display: block; width: 100%; padding: 10px 0px; margin: 0 auto; text-align: center; }
+
+.article .more button { margin-right: 10px; }
+
+.article .more button i.fa-caret-down { padding-left: 20px; }
+
+.article .more button.on { background: #1ab394; color: #fff; }
+
+.hide { display: none; }
+
+.show { display: block; }

@@ -11,6 +11,9 @@ require.config({
     },
     'waterfall':{
       deps: ['jquery', 'handlebars']
+    },
+    'waterflow':{
+      deps: ['jquery', 'handlebars']
     }
   },
   paths: {
@@ -18,11 +21,12 @@ require.config({
     domReady: '/libs/domReady/domReady',
     slideBox: 'jquery.slideBox',
     handlebars: '/libs/handlebars/handlebars',
-    waterfall: 'waterfall.min'
+    waterfall: 'waterfall.min',
+    waterflow: 'waterflow'
   }
 });
 
-require(['jquery', 'domReady', 'slideBox', 'waterfall'], function($, domReady){
+require(['jquery', 'domReady', 'slideBox', 'waterfall', 'waterflow'], function($, domReady){
   domReady(function(){
     //广告轮播
     $('#bannerSlider').slideBox({
@@ -113,8 +117,8 @@ require(['jquery', 'domReady', 'slideBox', 'waterfall'], function($, domReady){
       }
     });
 
-    //TAB内部分类列表切换
-    $('.tab-pane .category>li').bind('touchstart click', function(e){
+    //小分类列表切换
+    $('.category>li').bind('touchstart click', function(e){
       e.preventDefault();
       
       $(this).addClass('active').siblings().removeClass('active');
@@ -143,57 +147,67 @@ require(['jquery', 'domReady', 'slideBox', 'waterfall'], function($, domReady){
       });
     });
 
+    //加载用户书画藏品
+    $('#paint-gallery>.picasa').waterflow({
+      itemCls: 'block',
+      gutterWidth: 10,
+      gutterHeight: 10,
+      prefix: 'paint',
+      maxPage: 2,
+      path: function(page) {
+        return '/mock/usercollect.json?page='+page;
+      }
+    });
+
+    //加载用户艺术类藏品
+    $('#art-gallery>.waterfall').waterfall({
+      itemCls: 'box',
+      // colWidth: 252,  
+      gutterWidth: 10,
+      gutterHeight: 10,
+      checkImagesLoaded: false,
+      align: 'left',
+      prefix: 'art',
+      maxPage: 1,
+      path: function(page) {
+        return '/mock/sf.json?page='+page;
+      }
+    });
+
+    //加载用户美术稿文章列表
+    $.ajax({
+      url: '/mock/article/list.json',
+      dataType: 'json',
+      cache: true,
+      async: true,
+      success:function(data){
+        var tpl = $('#article-tpl').html();
+        var template = Handlebars.compile(tpl);
+        $('#postArt>.articlelist').html(template(data));
+      }
+    });
+
+    //加载用户收藏品排行榜
+    $.ajax({
+      url: '/mock/article/rank.json',
+      dataType: 'json',
+      cache: true,
+      async: true,
+      success:function(data){
+        var tpl = $('#article-tpl').html();
+        var template = Handlebars.compile(tpl);
+        $('#artRank>.articlelist').html(template(data));
+      }
+    });
+
+    //大页面按钮事件绑定
     $('.bigPage').bind('touchstart click', function(e){
       e.preventDefault();
 
       $(this).toggleClass('on').children('i').toggleClass('fa-unlock-alt').toggleClass('fa-lock');
     });
 
-    //初始化瀑布流（价值->主人房）
-    $('#masterRoom>.waterfall').waterfall({
-      itemCls: 'box',
-      colWidth: 252,  
-      gutterWidth: 10,
-      gutterHeight: 10,
-      checkImagesLoaded: false,
-      align: 'left',
-      prefix: 'masterRoom',
-      maxPage: 1,
-      path: function(page) {
-        return '/mock/masterRoom.json?page='+page;
-      }
-    });
-
-    //初始化瀑布流（交易->国画）
-    $('#chinaPaint>.waterfall').waterfall({
-      itemCls: 'box',
-      colWidth: 252,  
-      gutterWidth: 10,
-      gutterHeight: 10,
-      checkImagesLoaded: false,
-      prefix: 'chinaPaint',
-      align: 'left',
-      maxPage: 1,
-      path: function(page) {
-        return '/mock/chinaPaint.json?page='+page;
-      }
-    });
-
-    //加载国画交易数据
-    $('#gh>.waterfall').waterfall({
-      itemCls: 'box',
-      colWidth: 252,  
-      gutterWidth: 10,
-      gutterHeight: 10,
-      checkImagesLoaded: false,
-      prefix: 'gh',
-      align: 'left',
-      maxPage: 1,
-      path: function(page) {
-        return '/mock/gh.json?page='+page;
-      }
-    });
-
+    //详情/收起按钮事件绑定
     $('.tab-pane .btn-detail').bind('touchstart click', function(e){
       e.preventDefault();
       var that = $(this);
