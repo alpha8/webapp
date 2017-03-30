@@ -334,25 +334,57 @@ button{-webkit-appearance : none;outline: none;}
   text-align: center;
   color: #e4393c;
 }
-.btn{
+.shop .btn{
   height: 38px;
   line-height: 38px;
   margin-top: 8px;
   margin-bottom: 5px;
   float: left;
 }
-.btn-lg{
+.shop .btn-lg{
   height: 46px;
   line-height: 46px;
   padding: 0 26px;
   font-size: 18px;
   font-family: "microsoft yahei";
 }
-.btn-disable:hover {
+.shop .btn-red{
+  background-color: #df3033;
+  color: #fff;
+}
+.shop .btn-white{
+  background: #fff;
+  border: 1px solid #e4393c;
+  color: #e4393c;
+}
+.shop .btn-green{
+  background-color: #85c360;
+  color:#fff;
+}
+.shop .btn-red, .btn-green, .btn-white{
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.shop .btn-white:hover{
+  color: #e4393c;
+}
+.shop .btn-red:hover, .btn-green:hover{
+  color: #fff;  
+}
+.shop .btn-primary{
+  height: 28px;
+  line-height: 28px;
+  padding: 0 16px;
+  background-color: #df3033;
+  color: #fff;
+}
+.shop .btn-disable:hover {
   border-color: #ebebeb;
   color: #ccc;
 }
-.btn-disable {
+.shop .btn-disable {
   border: 1px solid #ebebeb;
   color: #ccc;
   background-color: #f7f7f7;
@@ -368,38 +400,6 @@ button{-webkit-appearance : none;outline: none;}
 }
 .choose-btns a.btn-white{
   color:#e4393c;
-}
-.btn-red{
-  background-color: #df3033;
-  color: #fff;
-}
-.btn-white{
-  background: #fff;
-  border: 1px solid #e4393c;
-  color: #e4393c;
-}
-.btn-green{
-  background-color: #85c360;
-  color:#fff;
-}
-.btn-red, .btn-green, .btn-white{
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-}
-.btn-white:hover{
-  color: #e4393c;
-}
-.btn-red:hover, .btn-green:hover{
-  color: #fff;  
-}
-.btn-primary{
-  height: 28px;
-  line-height: 28px;
-  padding: 0 16px;
-  background-color: #df3033;
-  color: #fff;
 }
 
 /** 购物车 */
@@ -418,7 +418,7 @@ button{-webkit-appearance : none;outline: none;}
   position: relative;
   height: 35px;
 }
-#logo{
+.cart #logo{
   padding-left: 5px;
   float: left;
   position: relative;
@@ -426,12 +426,12 @@ button{-webkit-appearance : none;outline: none;}
   height: 35px;
   line-height: 35px;
 }
-#logo a{
+.cart #logo a{
   display: block;
   width: 100px;
   background: #fff;
 }
-#logo h1{
+.cart #logo h1{
   color: #666;
   display: block;
 }
@@ -538,13 +538,13 @@ button{-webkit-appearance : none;outline: none;}
 .cart-sum a.submit-btn:hover{
   color: #fff;
 }
-.wrap-line{
+.cart .wrap-line{
   clear: both;
   background: #e6e6e6;
   height: 2px;
   position: relative;
 }
-.wrap-line .floater{
+.cart .wrap-line .floater{
   background: #f40;
   height: 2px;
   width: 123px;
@@ -709,14 +709,14 @@ button{-webkit-appearance : none;outline: none;}
   float: right;
   font-weight: 400;
 }
-.item-list{
+.cart-tbody .item-list{
   border-style: solid;
   border-width: 2px 1px 1px;
   _border-width: 1px;
   border-color: #aaa #f1f1f1 #f1f1f1;
   background: #fff;
 }
-.item-list .item-item{
+.cart-tbody .item-list .item-item{
   position: relative;
   padding: 0 10px 1px 40px;
   line-height: 20px;
@@ -1003,45 +1003,45 @@ button{-webkit-appearance : none;outline: none;}
 }
 
 /** 通用面板组件 */
-.m{
+.shop .m{
   padding: 0 9px;
   border: 1px solid #ddd;
   border-top: 2px solid #999;
 }
-.m, .mb, .mc, .mt, .sm, .smb, .smc, .smt{
+.shop .m, .shop .mb, .shop .mc, .shop .mt, .shop .sm, .shop .smb, .shop .smc, .shop .smt{
   overflow: hidden;
   zoom:1;
 }
-.m, .sm{
+.shop .m, .shop .sm{
   margin-bottom: 10px;
 }
-.mt, .smt{
+.shop .mt, .shop .smt{
   cursor: default;
 }
-.mt{
+.shop .mt{
   height: 30px;
   line-height: 30px;
 }
-.mt .title{
+.shop .mt .title{
   width: 50%;
   float: left;
   font-weight: 400;
 }
-.mt h2, .smt h3{
+.shop .mt h2, .shop .smt h3{
   font-family: "microsoft yahei";
   font-size: 14px;
 }
-.mt .extra{
+.shop .mt .extra{
   float: right;
   display: inline;
   font-weight: 400;
 }
-.mt .extra{
+.shop .mt .extra{
   width:50%;
   float: right;
   text-align: right;
 }
-.mc{
+.shop .mc{
   position: relative;
   min-height: 120px;
   overflow: hidden;
@@ -1074,17 +1074,17 @@ button{-webkit-appearance : none;outline: none;}
   position: relative;
   background-color: #fff;
 }
-.p-img{
+.shop .p-img{
   padding: 5px 0;
 }
-.p-price{
+.shop .p-price{
   color: #e3393c;
 }
-.p-img, .p-price, .p-name{
+.shop .p-img, .shop .p-price, .shop .p-name{
   overflow: hidden;
   position: relative;
 }
-.p-name{
+.shop .p-name{
   word-break: break-all;
   word-wrap: break-word;
 }
@@ -1142,23 +1142,23 @@ button{-webkit-appearance : none;outline: none;}
   text-align: center;
   border: 1px solid #fff;
 }
-.extra .change{
+.shop .extra .change{
   display: inline-block;
 }
-.extra .change .refresh-icon{
+.shop .extra .change .refresh-icon{
   display: inline-block;
   width: 16px;
   height: 16px;
   margin-right: 5px;
   background: url(../images/update.png) no-repeat;
 }
-.extra .change .refresh-icon, .extra .change .txt{
+.shop .extra .change .refresh-icon, .shop .extra .change .txt{
   display: inline-block;
   vertical-align: middle;
 }
 
 /** TAB插件 */
-.tab-main{
+.shop .tab-main{
   position: relative;
   overflow: visible;
   z-index: 2;
@@ -1168,18 +1168,18 @@ button{-webkit-appearance : none;outline: none;}
   display: block;
 }
 
-.tab-main.detail-top-fixed{
+.shop .tab-main.detail-top-fixed{
   position: fixed;
   top: 0px;
   z-index: 30;
   width: 1180px;
 }
 
-.tab .tab-header{
+.shop .tab .tab-header{
   margin-top: -1px;
 }
 
-.tab .tab-header li{
+.shop .tab .tab-header li{
   padding: 10px 25px;
   font-size: 14px;
   position: relative;
@@ -1188,45 +1188,45 @@ button{-webkit-appearance : none;outline: none;}
   cursor: pointer;
 }
 
-.tab .tab-header li.current{
+.shop .tab .tab-header li.current{
   background-color: #e4393c;
   color: #fff;
   cursor: default;
 }
 
-.tab .extra{
+.shop .tab .extra{
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.tab .extra .addcart-mini{
+.shop .tab .extra .addcart-mini{
   float: right;
   margin-right: 10px;
   margin-top: 5px;
 }
 
-.tab .extra .addcart-mini a{
+.shop .tab .extra .addcart-mini a{
   padding: 8px 15px;
   color: #fff;
 }
 
-.tab .extra .addcart-mini a:hover{
+.shop .tab .extra .addcart-mini a:hover{
   color: #fff;
 }
 
-.tab .tab-body{
+.shop .tab .tab-body{
   padding: 10px 0;
   overflow: hidden;
 }
 
-.tab ul.attrs-list{
+.shop .tab ul.attrs-list{
   padding: 20px 0 15px;
   overflow: hidden;
   border-bottom: 1px solid #eee;
 }
 
-.tab ul.attrs-list li{
+.shop .tab ul.attrs-list li{
   width: 200px;
   padding-left: 42px;
   float: left;
@@ -1237,12 +1237,12 @@ button{-webkit-appearance : none;outline: none;}
 }
 
 /** 售后服务 */
-.tab-body .item{
+.shop .tab-body .item{
   margin-bottom: 15px;
   border: 1px solid #ddd;
 }
 
-.tab-body .item .panel-header{
+.shop .tab-body .item .panel-header{
   position: relative;
   padding: 10px;
   zoom: 1;
@@ -1250,11 +1250,11 @@ button{-webkit-appearance : none;outline: none;}
   border: 1px solid #eee;
 }
 
-.tab-body .item .panel-header h3{
+.shop .tab-body .item .panel-header h3{
   font: 700 14px "microsoft yahei";
 }
 
-.tab-body .item .extra{
+.shop .tab-body .item .extra{
   padding: 10px;
   width: 50%;
   float: right;
@@ -1264,16 +1264,16 @@ button{-webkit-appearance : none;outline: none;}
   height: 100%;
 }
 
-.tab-body .item-detail{
+.shop .tab-body .item-detail{
   padding: 0 10px;
   line-height: 180%;
 }
 
-.item-detail .service-agree{
+.shop .item-detail .service-agree{
   padding: 20px 20px 20px 62px;
 }
 
-.item-detail .service-agree dt{
+.shop .item-detail .service-agree dt{
   display: block;
   height: 32px;
   line-height: 32px;
@@ -1283,7 +1283,7 @@ button{-webkit-appearance : none;outline: none;}
   font-family: "microsoft yahei";
 }
 
-.item-detail .service-agree dd{
+.shop .item-detail .service-agree dd{
   display: block;
   padding: 10px 0 30px;
   line-height: 18px;

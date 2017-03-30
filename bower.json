@@ -2,11 +2,19 @@
   "name": "webapp",
   "private": true,
   "dependencies": {
-    "requirejs": "~2.2.0",
-    "font-awesome": "^4.6.3"
+    "font-awesome": "^4.6.3",
+    "jquery": "v1.12.4",
+    "handlebars": "^4.0.5",
+    "jqzoom": "^2.3.0",
+    "waterfall": "http://wlog.cn/demo/waterfall/js/waterfall.js",
+    "jquery.slideBox": "http://ishere.cn/demo/jquery.slideBox/js/jquery.slideBox.js",
+    "waterflow": "./app/plugins/waterflow",
+    "layer": "./app/plugins/layer/",
+    "jquery_lazyload": "jquery.lazyload#^1.9.7",
+    "plupload": "^2.1.9",
+    "kindeditor": "*"
   },
   "devDependencies": {
-    "chai": "~3.5.0",
-    "mocha": "~3.0.2"
+    "fly": "./app/plugins/fly"
   }
 }

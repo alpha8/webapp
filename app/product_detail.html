@@ -2,29 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>产品详情页</title>
+  <title>一虎一席名家书画交易网与艺术生活社区 -- 产品详情页</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
   <meta http-equiv="x-dns-prefetch-control" content="on" />
   <!-- <link rel="dns-prefetch" href="http://localhost" /> -->
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" type="text/css" href="/libs/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/libs/jquery.slideBox/jquery.slideBox.css">
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:css styles/main.css -->
-  <link rel="stylesheet" type="text/css" href="styles/shop.css">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
   <!-- endbuild -->
 </head>
 <body>
-  <div class="container">
+  <!-- 顶部固定导航栏 -->
+  <div class="w-big top-navbar">
+    <div class="search-form">
+      <form action="search.html" method="GET">
+        <input type="text" autocomplete="off" placeholder="全站搜索" id="keyword" name="keyword" class="search-input">
+        <input type="submit" id="search_submit" value="">
+      </form>
+    </div>
+    <img src="images/sprite/head.png" alt="" usemap="#Map" border="0" hidefocus="true">
+    <map name="Map">
+      <area shape="rect" coords="661,15,728,37" href="home.html#follow" target="_blank" alt="我的待阅/关注">
+      <area shape="rect" coords="760,13,797,38" href="home.html#history" target="_blank" alt="我的足迹">
+      <area shape="rect" coords="828,15,897,37" href="home.html" target="_blank" alt="个人空间">
+      <area shape="rect" coords="927,14,980,38" href="shop_cart.html" target="_blank" alt="购物车">
+      <area shape="rect" coords="3,2,265,47" href="index.html" alt="首页">
+    </map>
+  </div>
+  <div class="w-big navmenu">
+    <img src="images/sprite/slogan.png" alt="" border="0" hidefocus="true">
+  </div><!-- 顶部固定导航栏 end -->
+
+  <!-- 面包屑导航 -->
+  <div class="w-big">
+    <ol class="breadcrumb">
+      <li><a href="index.html"><i class="fa fa-home"></i> 首页</a><i class="crumb-arrow">&gt;</i></li>
+      <li><a href="search.html"> 商品列表</a><i class="crumb-arrow">&gt;</i></li>
+      <li class="active"><span class="productName"></span></li>
+    </ol>
+  </div><!-- 面包屑导航 end -->
+  
+  <script type="text/x-handlebars-template" id="product-tpl">
     <!-- 商品简述 -->
     <div class="product-intro clearfix">
       <!-- 商品预览区域 -->
       <div class="preview-wrap">
         <div class="preview" id="preview">
           <div id="spec-n1" class="main-img">
-            <img id="spec-img" width="350" border="0" jqimg="images/56ebe501Nba62be22_big.jpg" src="images/56ebe501Nba62be22.jpg" alt="海伦凯勒太阳镜女款 2016年林志玲设计款金属眉框奢华诠释魅惑女性魅力墨镜 H85301 白框+樱花粉镀膜N13" />
+            <img id="spec-img" width="405" border="0" jqimg="{{ps pictures.[0].id}}" src="{{ps pictures.[0].id}}?w=405&h=405" alt="{{name}}" height="405" />
             <i></i>
           </div>
           <div class="spec-list">
@@ -32,39 +64,41 @@
             <a id="spec-backward" href="javascript:void(0)" class="arrow-next"><i class="sprite-arrow-next"></i></a>
             <div id="spec-list" class="spec-items">
               <ul>
-                <li><img alt="海伦凯勒太阳镜女款 2016年林志玲设计款金属眉框奢华诠释魅惑女性魅力墨镜 H85301 白框+樱花粉镀膜N13" data-url="images/56ebe501Nba62be22_big.jpg" src="images/56ebe501Nba62be22_w45.jpg" width="50" height="50"></li>
-                <li><img alt="海伦凯勒太阳镜女款 2016年林志玲设计款金属眉框奢华诠释魅惑女性魅力墨镜 H85301 白框+樱花粉镀膜N13" data-url="images/56cd53bfN8a702a64_big.jpg" src="images/56cd53bfN8a702a64_w45.jpg" width="50" height="50"></li>
-                <li><img alt="海伦凯勒太阳镜女款 2016年林志玲设计款金属眉框奢华诠释魅惑女性魅力墨镜 H85301 白框+樱花粉镀膜N13" data-url="images/56cd53bfN8a702a64_big.jpg" src="images/56cd53bfN8a702a64_w45.jpg" width="50" height="50"></li>
-                <li><img alt="海伦凯勒太阳镜女款 2016年林志玲设计款金属眉框奢华诠释魅惑女性魅力墨镜 H85301 白框+樱花粉镀膜N13" data-url="images/56cd53bfN8a702a64_big.jpg" src="images/56cd53bfN8a702a64_w45.jpg" width="50" height="50"></li>
-                <li><img alt="海伦凯勒太阳镜女款 2016年林志玲设计款金属眉框奢华诠释魅惑女性魅力墨镜 H85301 白框+樱花粉镀膜N13" data-url="images/56cd53bfN8a702a64_big.jpg" src="images/56cd53bfN8a702a64_w45.jpg" width="50" height="50"></li>
-                <li><img alt="海伦凯勒太阳镜女款 2016年林志玲设计款金属眉框奢华诠释魅惑女性魅力墨镜 H85301 白框+樱花粉镀膜N13" data-url="images/56cd53bfN8a702a64_big.jpg" src="images/56cd53bfN8a702a64_w45.jpg" width="50" height="50"></li>
-                <li><img alt="海伦凯勒太阳镜女款 2016年林志玲设计款金属眉框奢华诠释魅惑女性魅力墨镜 H85301 白框+樱花粉镀膜N13" data-url="images/56ebe501Nba62be22_big.jpg" src="images/56ebe501Nba62be22_w45.jpg" width="50" height="50"></li>
+              {{#each pictures}}
+                <li><img alt="{{../name}}" data-url="{{ps this.id}}" data-preview="{{ps this.id}}?w=405&h=405" src="{{ps this.id}}?h=90" height="90"></li>
+              {{/each}}
               </ul>
             </div>
           </div>
-          <div class="preview-info">
-            <div class="sku">商品编号：<span>102903525823</span></div>
-            <div class="btns">
-              <a href="javascript:void(0)" class="follow" data-id="1000"><i class="sprite-follow-sku"></i><em>关注</em></a>
-              <a href="javascript:void(0)" class="share"><i class="sprite-share"></i><em>分享</em></a>
-            </div>
-          </div>
+          
         </div>
       </div>
 
       <!-- 商品简介：名称、库存等 -->
       <div class="itemInfo-wrap">
-        <div class="sku-name">海伦凯勒太阳镜女款 2016年林志玲设计款金属眉框奢华诠释魅惑女性魅力墨镜 H85301 白框+樱花粉镀膜N13</div>
+        <div class="sku-name">{{name}}</div>
         <div class="news">
-          <div class="item" title="花样姐姐林志玲倾力推荐海伦凯勒眼镜 满300-20,支持货到付款">花样姐姐林志玲倾力推荐海伦凯勒眼镜 满300-20,支持货到付款</div>
+          <div class="item" title="{{name}}">{{name}}</div>
         </div>
+
+        <div class="summary">
+          <div class="summary-pno-wrap">
+            <dl class="summary-pno">
+              <dt>商品编号</dt>
+              <dd>
+                <span>{{id}}</span>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        
         <div class="summary summary-first">
           <div class="summary-price-wrap">
             <dl class="summary-price">
               <dt>商品价格</dt>
               <dd>
                 <span class="currency">￥</span>
-                <span class="num">468.00</span>
+                <span class="num">{{price}}</span>
               </dd>
             </dl>
           </div>
@@ -90,22 +124,29 @@
             </dd>
           </dl>
 
-          <!-- 颜色 -->
+          <!-- 款式 -->
           <dl id="choose-color">
             <dt>选择颜色</dt>
             <dd class="li clearfix p-choose">
               <div class="item selected">
                 <b></b>
-                <a href="javascript:void(0)" title="白框+樱花粉镀膜N13">
-                  <img src="images/56ebe501Nba62be22_w45.jpg" width="40" height="40">
-                  <i>白框+樱花粉镀膜N13</i>
+                <a href="javascript:void(0)" title="卷袖款" data-price="5000.00">
+                  <img src="{{ps pictures.[0].id}}?w=40&h=40" width="40" height="40">
+                  <i>卷袖款</i>
                 </a>
               </div>
               <div class="item">
                 <b></b>
-                <a href="javascript:void(0)" title="白框+樱花粉镀膜N13">
-                  <img src="images/56ebe501Nba62be22_w45.jpg" width="40" height="40">
-                  <i>白框+樱花粉镀膜N04</i>
+                <a href="javascript:void(0)" title="红木框" data-price="5000.00">
+                  <img src="{{ps pictures.[0].id}}?w=40&h=40" width="40" height="40">
+                  <i>红木框</i>
+                </a>
+              </div>
+              <div class="item">
+                <b></b>
+                <a href="javascript:void(0)" title="梨花木框" data-price="20000.00">
+                  <img src="{{ps pictures.[0].id}}?w=40&h=40" width="40" height="40">
+                  <i>梨花木框</i>
                 </a>
               </div>
             </dd>
@@ -122,7 +163,7 @@
             </div>
           </div>
 
-          <a href="shop_cart.html" class="btn-lg btn-red">加入购物车</a>
+          <a href="javascript:void(0)" class="btn-lg btn-red" onclick="Yihu.addCart('{{id}}', '{{name}}', $('#buy-num').val(),'{{ps pictures.[0].id}}?w=80&h=80');">加入购物车</a>
           <a href="javascript:void(0)" class="btn-lg btn-green">立即购买</a>
           <a href="javascript:void(0)" class="btn-lg btn-white">到货通知</a>
         </div>  
@@ -141,7 +182,7 @@
           </ul>
           <div class="extra">
             <div class="addcart-mini">
-              <a href="shop_cart.html" class="btn-primary">加入购物车</a>
+              <a href="javascript:void(0)" class="btn-primary" onclick="Yihu.addCart('{{id}}', '{{name}}', $('#buy-num').val(),'{{ps pictures.[0].id}}?w=80&h=80');"><i class="fa fa-shopping-cart"></i> 加入购物车</a>
             </div>
           </div>
         </div>        
@@ -149,18 +190,15 @@
         <div class="tab-body">
           <div class="item" id="goods">
             <ul class="attrs-list">
-              <li>商品名称：海伦凯勒太阳镜女款 2016年林志玲设计款金属眉框奢华诠释魅惑女性魅力墨镜 H85301 白框+樱花粉镀膜N13</li>
-              <li>商品编号：1029302323</li>
-              <li>商品毛重：200.00g</li>
-              <li>商品毛重：200.00g</li>
-              <li>商品毛重：200.00g</li>
-              <li>商品毛重：200.00g</li>
-              <li>商品毛重：200.00g</li>
-              <li>商品毛重：200.00g</li>
+              <li>作品名称：{{name}}</li>
+              <li>作品编号：{{id}}</li>
+              <li>作品单价：￥{{price}}</li>
+              <li>艺术家：{{artworkAuthor.name}}</li>
+              <li>分类：{{artworkCategory.name}}</li>
             </ul>
 
             <div class="detail-content">
-              <img src="images/56ebe501Nba62be22_big.jpg" />
+              {{{content}}}
             </div>
           </div>
           
@@ -170,10 +208,12 @@
               <div class="panel-body">
                 <div class="item-detail">
                   <dl class="service-agree">
-                    <dt>测试1</dt>
-                    <dd>测试111111</dd>
-                    <dt>测试2</dt>
-                    <dd>测试222222</dd>
+                    <dt>正品保障</dt>
+                    <dd></dd>
+                    <dt>无忧退换货</dt>
+                    <dd></dd>
+                    <dt>专家鉴定</dt>
+                    <dd></dd>
                   </dl>
                 </div>
               </div>
@@ -184,12 +224,36 @@
             <div class="panel">
               <div class="panel-header"><h3>商品评价</h3></div>
               <div class="panel-body">
-                <div class="item-detail">
-                  <ul>
-                    <li>aaaa</li>
-                    <li>bbbb</li>
-                    <li>cccc</li>
-                  </ul>
+                <div class="post-comments">
+                  <div class="add-comment">
+                    <div class="avator">
+                      <img src="images/profile_small.jpg" alt="" class="profile">
+                    </div>
+                    <div class="text">
+                      <textarea name="message" id="message" class="comment-msg" autocomplete="off" onkeyup="Comment.checkContentLength(this)"></textarea>
+                      <div class="comment-toolbar">
+                        <div class="editor-toolbar">
+                          <span class="editor-outline" id="btnUpload">
+                            <i class="editor-toolbar-icon editor-icon-image"></i>
+                          </span>
+                        </div>
+                        <div class="wb_counter">还可以输入<em class="wordNum">300</em>字</div>
+                        <a href="javascript:void(0)" class="btn14 disabled btn-comment" id="postComment" onclick="Comment.postComment()">评论</a>
+                      </div>
+                      <span class="clr"></span>
+
+                      <div class="upload-imglist">
+                        <a href="javascript:void(0)" class="arrow-prev"><i class="sprite-arrow-prev"></i></a>
+                        <a href="javascript:void(0)" class="arrow-next"><i class="sprite-arrow-next"></i></a>
+                        <div id="img-list" class="imglist">
+                          <ul></ul>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="clr"></span>
+                  </div>
+
+                  <ol class="comments-list"></ol>
                 </div>
               </div>
             </div>
@@ -198,75 +262,182 @@
         </div><!--tab-body end -->
       </div><!-- tab end -->      
     </div>
+  </script>
 
-    <div class="m recommend" id="recommend">
-      <div class="mt">
-        <h2 class="title">猜你喜欢</h2>
-        <div class="extra">
-          <a href="#" class="change">
-            <i class="refresh-icon"></i>
-            <span class="txt">换一批</span>
-          </a>
+  <script type="text/x-handlebars-template" id="comments-tpl">
+  {{#comments}}
+  <li class="comment" id="{{id}}">
+    <img src="images/profile_small.jpg" alt="" class="profile">
+    <div class="comment-body">
+      <h4 class="comment-heading">
+        <span class="comment-nick">{{#if from.userId}}{{from.userName}}{{else}}匿名({{from.ip}}){{/if}}</span>
+        <div class="comment-action">
+          <span class="comment-date">{{timeAgo createdAt}}</span>
+          {{#ifyours from.userId}}
+          <a href="javascript:void(0)" onclick="Comment.removeComment('{{id}}')">删除</a>&nbsp;&nbsp;
+          {{/ifyours}}
+          <a class="comment-reply" href="javascript:void(0)" onclick="Comment.addComment(this)" data-id="{{id}}" data-uid="{{from.userId}}" data-uname="{{from.userName}}" data-rcount="{{count}}" data-time="{{createdAt}}"><i class="fa fa-comment-o"></i> 回复</a>
+        </div>
+      </h4>
+      <p class="comment-content">{{content}}</p>
+
+      {{#if pictures}}
+      <div class="preview-imglist"><!-- 评论预览图 -->
+        <a href="javascript:void(0)" class="arrow-prev"><i class="sprite-arrow-prev"></i></a>
+        <a href="javascript:void(0)" class="arrow-next"><i class="sprite-arrow-next"></i></a>
+        <div class="imglist">
+          <ul style="width: {{plus pictures.length 180}}px">
+            {{#each pictures}}
+            <li id="{{this.pid}}"><img alt="" class="lazy"  data-original="{{ps this.pid}}?h=90" data-big="{{ps this.pid}}?h=420" src="images/transparent.png" height="90" onclick="BigPic.show(this)"/></li>
+            {{/each}}               
+          </ul>
         </div>
       </div>
-      <div class="mc image-player">
-        <a href="#" class="arrow-prev">&lt;</a>
-        <a href="#" class="arrow-next">&gt;</a>
-        <div class="recommend-scroll">
-          <ul class="recommend-list">
-            <li>
-              <div class="p-img">
-                <a href="#" title="海尔（Haier）LS55A51 55英寸 4K安卓智能网络超窄边框UHD高清LED液晶电视">
-                  <img src="http://img10.360buyimg.com/n4/s160x160_jfs/t2923/156/1091069615/266877/680c74c9/57761263N5a6598e2.jpg" alt="" width="160" height="160">
-                </a>
-                <div class="p-name">
-                  <a href="#">海尔（Haier）LS55A51 55英寸 4K安卓智能网络超窄边框UHD高清LED液晶电视</a>
-                </div>
-              </div>
-              <div class="p-price">￥29.90</div>
-            </li>
-            <li>
-              <div class="p-img">
-                <a href="#" title="蓝月亮 机洗至尊3倍浓缩洗衣液机洗专用亮白增艳素雅兰香2.36kg礼盒装">
-                  <img src="http://img10.360buyimg.com/n2/jfs/t2281/151/2109938094/259979/6ad793a4/56a59d6dN8897066f.jpg" alt="" width="160" height="160">
-                </a>
-                <div class="p-name">
-                  <a href="#">蓝月亮 机洗至尊3倍浓缩洗衣液机洗专用亮白增艳素雅兰香2.36kg礼盒装</a>
-                </div>
-              </div>
-              <div class="p-price">￥89.90</div>
-            </li>
-          </ul>
+      <div class="big-photos">
+        <!--<div class="photos-action">
+          <a href="javascript:void(0)" class="hide-big-show" onclick="BigPic.hide(this)">
+            <i class="fa fa-angle-double-up"></i>
+            <span> 收起</span>
+          </a>
+          <a href="javascript:void(0)" class="photo-left" onclick="BigPic.rotate('left', this)">
+            <i class="fa fa-rotate-left"></i>
+            <span> 向左旋转</span>
+          </a>
+          <a href="javascript:void(0)" class="photo-right" onclick="BigPic.rotate('right', this)">
+            <i class="fa fa-rotate-right"></i>
+            <span> 向右旋转</span>
+          </a>
+        </div>-->
+        <div class="photos-wrap">
+          <img src="{{ps pictures.[0].pid}}?h=420" alt="" class="big-img" height="420"/>
+          <div class="cursor-left photo-prev" onclick="BigPic.prev(this)"></div>
+          <div class="cursor-small hide-big-show" onclick="BigPic.hide(this)"></div>
+          <div class="cursor-right photo-next" onclick="BigPic.next(this)"></div>
+        </div>
+      </div><!-- 评论预览图 end-->
+      {{/if}}
+
+      {{#if replys}}
+      {{#each replys}}
+      <!-- L1 回复 -->
+      <div class="comment" rid="{{this.replyId}}">
+        <img src="images/profile_small.jpg" alt="" class="profile">
+        <div class="comment-body">
+          <h4 class="comment-heading">
+            <span class="comment-nick">{{#if this.from.userId}}{{this.from.userName}}{{else}}匿名({{this.from.ip}}){{/if}}</span> &nbsp;回复&nbsp; {{this.to.userName}} &nbsp;
+            <div class="comment-action">
+              <span class="comment-date">{{timeAgo this.createdAt}}</span>
+              {{#ifyours this.from.userId}}
+              <a href="javascript:void(0)" onclick="Comment.viewTalk(this)" data-id="{{../../id}}" data-uid="{{this.from.userId}}" data-uname="{{this.from.userName}}" data-time="{{this.createdAt}}" data-rid="{{this.replyId}}" data-rcount="{{../../count}}" class="red-text">查看对话</a>&nbsp;&nbsp;
+              <a href="javascript:void(0)" onclick="Comment.removeComment('{{../../id}}', '{{this.replyId}}')">删除</a>&nbsp;&nbsp;
+              {{/ifyours}}
+              <a class="comment-reply" href="javascript:void(0)" onclick="Comment.addComment(this)" data-id="{{../id}}" data-uid="{{this.from.userId}}" data-uname="{{this.from.userName}}" data-rcount="{{../count}}" data-time="{{this.createdAt}}"><i class="fa fa-comment-o"></i> 回复</a>
+            </div>
+          </h4>
+          <p class="comment-content">{{this.content}}</p>
+          
+        </div>
+      </div><!-- L1 回复 end -->
+      {{/each}}
+      {{/if}}
+    </div>
+  </li>
+  {{/comments}}
+  </script>
+
+  <div class="container shop">    
+    <div id="product-info"></div>
+
+    <script type="text/x-handlebars-template" id="waterflow-tpl">
+    {{#artworks}}
+      <div class="block">
+        <div class="thumbnail">
+          <a href="product_detail.html?id={{id}}" target="_blank">
+            {{#if pictures}}
+            <img src="{{ps pictures.[0].id}}?h=280" alt="" width="{{pictures.[0].thHeight.width}}" height="280" />
+            {{else}}
+            <img src="images/transparent.png" alt="" width="208" height="280" />
+            {{/if}}
+          </a>
+        </div>
+        <div class="extra">
+          <div class="info fl">
+            <ul>
+              <li class="artist">【{{artworkAuthor.value}}】{{name}}</li>
+              <li class="red-price">￥{{easyPrice this.price}}</li>
+            </ul>                      
+          </div>
+          <div class="btns fr">
+            <button class="btn" onclick="Yihu.mark('{{id}}', 1, this)"><i class="fa fa-heart"></i> 待阅</button>
+          </div>
+        </div>
+      </div>
+    {{/artworks}}
+    </script>
+    <div class="m" id="recommend">
+      <div class="mt">
+        <h2 class="title">相关推荐</h2>
+      </div>
+      <div class="mc">
+        <div class="waterflow show">
+          <div class="picasa"></div>
         </div>
       </div>
     </div>
 
-    <div class="m history-view" id="history-view">
+    <div class="m" id="sys_recommend">
       <div class="mt">
-        <h2 class="title">我的足迹</h2>
-        <div class="extra">
-          <a href="#">
-            <span class="txt">更多浏览记录</span>
-          </a>
-        </div>
+        <h2 class="title">系统推荐</h2>
       </div>
       <div class="mc">
-        <ul class="history-view-list">
-          <li>
-            <div class="p-img">
-              <a href="#">
-                <img src="images/56ebe501Nba62be22_w45.jpg" alt="海伦凯勒太阳镜女款" width="70px" height="70px"></a>
-            </div>
-            <div class="p-price">￥468.00</div>
-          </li>
-          <li>
-            <div class="p-img">
-              <a href="#">
-                <img src="images/56ebe501Nba62be22_w45.jpg" alt="海伦凯勒太阳镜女款" width="70px" height="70px"></a>
-            </div>
-            <div class="p-price">￥468.00</div>
-          </li>
-        </ul>
+        <div class="waterflow show">
+          <div class="picasa"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m" id="guess-like">
+      <div class="mt">
+        <h2 class="title">猜你喜欢</h2>
+      </div>
+      <div class="mc">
+        <div class="waterflow show">
+          <div class="picasa"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/x-handlebars-template" id="history-tpl">
+    {{#histories}}
+      <div class="block">
+        <div class="thumbnail">
+          <a href="product_detail.html?id={{pid}}" target="_blank">
+            {{#if icons}}
+            <img src="{{ps icons.[0].id}}?h=180" alt="" width="{{icons.[0].thHeight.width}}" height="180" />
+            {{else}}
+            <img src="images/transparent.png" alt="" width="208" height="180" />
+            {{/if}}
+          </a>
+        </div>
+        <div class="extra">
+          <div class="info fl">
+            <ul>
+              <li class="artist">【{{name}}】</li>
+              <li class="red-price">￥{{easyPrice this.price}}</li>
+            </ul>                      
+          </div>
+        </div>
+      </div>
+    {{/histories}}
+    </script>
+    <div class="m recommend" id="history-view">
+      <div class="mt">
+        <h2 class="title">我的足迹</h2>
+      </div>
+      <div class="mc">
+        <div class="waterflow show">
+          <div class="picasa"></div>
+        </div>
       </div>
     </div>
 
@@ -275,29 +446,9 @@
   <!-- 侧边导航条 -->
   <div class="toolbar-wrap">
     <div class="toolbar">
-      <div class="toolbar-tabs">
-        <div class="toolbar-tab toolbar-tab-vip">
-          <a href="javascript:void(0)">
-            <i class="tab-ico"></i>
-            <em class="tab-text">我的会员</em>
-          </a>
-        </div>
-        <div class="toolbar-tab toolbar-tab-follow">
-          <a href="javascript:void(0)">
-            <i class="tab-ico"></i>
-            <em class="tab-text">我的关注</em>
-          </a>
-        </div>
-        <div class="toolbar-tab toolbar-tab-history">
-          <a href="javascript:void(0)">
-            <i class="tab-ico"></i>
-            <em class="tab-text">我的足迹</em>
-          </a>
-        </div>
-      </div>
       <div class="toolbar-footer">
         <div class="toolbar-tab toolbar-tab-top">
-          <a href="javascript:void(0)" id="goTop">
+          <a href="javascript:void(0)" id="goTop" onclick="Yihu.goTop()">
             <i class="tab-ico"></i>
             <em class="tab-text">返回顶部</em>
           </a>
@@ -311,14 +462,106 @@
       </div>
     </div>
   </div>
+  <!-- 侧边导航条 end -->
+
+  <!-- 站点地图 -->
+  <div class="w-big">
+    <div id="sitemap">
+      <dl>
+        <dt>购物指南</dt>
+        <dd><a href="">购物流程</a></dd>
+        <dd><a href="">会员介绍</a></dd>
+        <dd><a href="">常见问题</a></dd>
+        <dd><a href="">联系客服</a></dd>
+      </dl>
+      <dl>
+        <dt>配送方式</dt>
+        <dd><a href="">连锁展示厅自提</a></dd>
+        <dd><a href="">配送服务查询</a></dd>
+        <dd><a href="">配送费收取标准</a></dd>
+      </dl>
+      <dl>
+        <dt>支付方式</dt>
+        <dd><a href="">货到付款</a></dd>
+        <dd><a href="">在线支付</a></dd>
+        <dd><a href="">分期付款</a></dd>
+        <dd><a href="">公司转账</a></dd>
+      </dl>
+      <dl>
+        <dt>售后服务</dt>
+        <dd><a href="">售后政策</a></dd>
+        <dd><a href="">价格保护</a></dd>
+        <dd><a href="">退款说明</a></dd>
+        <dd><a href="">取消订单</a></dd>
+        <dd><a href="">退换货</a></dd>
+      </dl>
+      <dl>
+        <dt>特色服务</dt>
+        <dd><a href="">礼品卡</a></dd>
+        <dd><a href="">积分兑换</a></dd>
+      </dl>
+    </div>
+  </div><!-- 站点地图 end-->
+
+  <!-- 页面底部 -->
+  <div class="w-big">
+    <div id="footer">
+      <div class="links">
+        <a href="">关于我们</a>|
+        <a href="">联系我们</a>|
+        <a href="">联系客服</a>|
+        <a href="">艺术机构入驻</a>|
+        <a href="">连锁展示厅</a>|
+        <a href="">社区</a>
+      </div>
+      <div class="copyright">
+        <p>Copyright © 2013 - 2017  深圳市一虎一席艺术有限公司 版权所有 | 粤ICP备:16104018号-1</p>
+      </div>
+      <div class="authentication">
+        <a target="_blank" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007080200026">
+          <img width="103" height="32" alt="经营性网站备案中心" src="images/auth_icons/2.png" class="err-product">
+        </a>
+        
+        <a target="_blank" id="urlknet" tabindex="-1" href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&amp;ct=df&amp;pa=294005">
+          <img border="true" width="103" height="32" oncontextmenu="return false;" name="CNNIC_seal" alt="可信网站" src="images/auth_icons/3.png" class="err-product">
+        </a>
+        <a target="_blank" href="http://www.bj.cyberpolice.cn/index.do">
+          <img width="103" height="32" alt="网络警察" src="images/auth_icons/4.jpg" class="err-product">
+        </a>
+        <a target="_blank" href="https://search.szfw.org/cert/l/CX20120111001803001836">
+          <img width="103" height="32" src="images/auth_icons/5.png" class="err-product">
+        </a>
+        <a target="_blank" href="http://www.12377.cn">
+          <img width="103" height="32" src="images/auth_icons/6.jpg">
+        </a>
+        <a target="_blank" href="http://www.12377.cn/node_548446.htm">
+          <img width="103" height="32" src="images/auth_icons/1.jpg">
+        </a>
+      </div>
+    </div>
+  </div><!-- 页面底部 end -->
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
-  <script src="/libs/requirejs/require.js" data-main="scripts/loader.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/libs/jquery/dist/jquery.js"></script>
+  <script src="/libs/handlebars/handlebars.js"></script>
+  <script src="/libs/jqzoom/js/jquery.jqzoom.min.js"></script>
+  <script src="/libs/waterfall/waterfall.js"></script>
+  <script src="/libs/jquery.slideBox/jquery.slideBox.js"></script>
+  <script src="/libs/waterflow/waterflow.js"></script>
+  <script src="/libs/layer/layer.js"></script>
+  <script src="/libs/jquery_lazyload/jquery.lazyload.js"></script>
+  <script src="/libs/kindeditor/kindeditor.js"></script>
+  <script src="/libs/plupload/js/plupload.full.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
+
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js" type="text/javascript" charset="utf-8"></script>
+  <!-- endbuild -->
   
-  <!-- build:js scripts/main.js -->
+  <!-- build:js scripts/shop.js -->
+  <script src="scripts/shop.js" type="text/javascript" charset="utf-8"></script>
   <!-- endbuild -->
 </body>
 </html>

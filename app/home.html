@@ -2,83 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>个人中心</title>
+  <title>一虎一席名家书画交易网与艺术生活社区 -- 个人中心</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
   <meta http-equiv="x-dns-prefetch-control" content="on" />
   <!-- <link rel="dns-prefetch" href="http://localhost" /> -->
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" type="text/css" href="/libs/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/libs/jquery.slideBox/jquery.slideBox.css">
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" type="text/css" href="styles/main.css">
-  <link rel="stylesheet" type="text/css" href="/libs/font-awesome/css/font-awesome.min.css">
   <!-- endbuild -->
 </head>
 <body>
-  <!-- 页面顶部 -->
-  <div class="w">
-    <div class="header">
-      <div id="logo">
-        <a href="#"></a>
-      </div>
-      <div class="slogan">
-        <div class="row">
-          <span class="line">中国名家书画交易平台　yihuyixi.com</span>
-          <span class="line">买得放心 卖得容易</span>
-        </div>
-        <div class="row">
-          <span class="line">全程无忧的当代名家书画交易平台</span>
-          <span class="line">持久增值 藏家社区</span>
-        </div>
-      </div>
-      <span class="clr"></span>
-
-      <div class="stats">
-        <strong>125</strong>位名家（<strong>258</strong>幅精品，<strong>1620</strong>幅作品）  <strong>119</strong>家知名画廊 <strong>6926</strong>位收藏家
-      </div>
-    </div> 
-  </div><!-- 页面顶部 end-->
-
-  <!-- 面包屑导航 -->
-  <div class="w">
-    <ol class="breadcrumb">
-      <li><a href="main.html"><i class="fa fa-home"></i> 首页</a><i class="crumb-arrow">&gt;</i></li>
-      <li class="active"><i class="fa fa-user"></i> 用户社区</li>
-    </ol>
-  </div><!-- 面包屑导航 end -->
+  <!-- 顶部固定导航栏 -->
+  <div class="w-big top-navbar">
+    <div class="search-form">
+      <form action="search.html" method="GET">
+        <input type="text" autocomplete="off" placeholder="全站搜索" id="keyword" name="keyword" class="search-input">
+        <input type="submit" id="search_submit" value="">
+      </form>
+    </div>
+    <img src="images/sprite/head.png" alt="" usemap="#Map" border="0" hidefocus="true">
+    <map name="Map">
+      <area shape="rect" coords="661,15,728,37" href="home.html#follow" target="_blank" alt="我的待阅/关注">
+      <area shape="rect" coords="760,13,797,38" href="home.html#history" target="_blank" alt="我的足迹">
+      <area shape="rect" coords="828,15,897,37" href="home.html" target="_blank" alt="个人空间">
+      <area shape="rect" coords="927,14,980,38" href="shop_cart.html" target="_blank" alt="购物车">
+      <area shape="rect" coords="3,2,265,47" href="index.html" alt="首页">
+    </map>
+  </div>
+  <div class="w-big navmenu">
+    <img src="images/sprite/slogan.png" alt="" border="0" hidefocus="true">
+  </div><!-- 顶部固定导航栏 end -->
 
   <!-- 导航栏 -->
-  <div class="w">
+  <div class="w-big">
     <div class="navbar">
       <ul class="navbar-nav">
         <li><a href="">名家书画藏品</a></li>
         <li><a href="">艺术类藏品</a></li>
         <li><a href="">美文投稿</a></li>
         <li><a href="">收藏家排行榜</a></li>
-        <li><a href="">活动</a></li>
+        <li><a href="activity.html">活动</a></li>
       </ul>
     </div>
   </div><!-- 导航栏 end -->
 
-  <!-- 广告轮播区域 -->
-  <div class="w">
-    <div class="sliders">
-      <div id="bannerSlider" class="slideBox">
-        <ul class="items">
-          <li><a href="#" title="买得放心"><img src="images/sliders/1.jpg" height="300"></a></li>
-          <li><a href="#" title="卖得容易"><img src="images/sliders/2.jpg" height="300"></a></li>
-          <li><a href="#" title="持久增值"><img src="images/sliders/3.jpg" height="300"></a></li>
-          <li><a href="#" title="安全保障"><img src="images/sliders/4.jpg" height="300"></a></li>
-        </ul>
-      </div>
-    </div>
-  </div><!-- 广告轮播区域 end -->
+  <!-- 面包屑导航 -->
+  <div class="w-big">
+    <ol class="breadcrumb">
+      <li><a href="index.html"><i class="fa fa-home"></i> 首页</a><i class="crumb-arrow">&gt;</i></li>
+      <li class="active"><i class="fa fa-user"></i> 个人中心</li>
+    </ol>
+  </div><!-- 面包屑导航 end -->
 
   <!-- 用户名家书画藏品 -->
-  <div class="w">
+  <div class="w-big">
     <div class="m" id="paint">
       <div class="mt">
         <div class="title">
@@ -95,48 +79,35 @@
       </div>
 
       <div class="mc">
-        <script type="text/x-handlebars-template" id="waterfall-tpl">
-        {{#result}}
-          <div class="box">
-            <div class="thumbnail">
-              <a href=""><img src="{{image}}" alt="" width="{{width}}" height="{{height}}" /></a>
-            </div>
-            <div class="extra">
-              <div class="info fl">
-                <ul>
-                  <li>作品：{{name}}</li>
-                  <li>画家：{{author}}</li>
-                </ul>                      
-              </div>
-              <div class="btns fr">
-                <button class="btn"><i class="fa fa-camera-retro"></i> 收藏</button>
-                <button class="btn"><i class="fa fa-heart-o"></i> 喜爱</button>
-              </div>
-            </div>
-          </div>
-        {{/result}}
-        </script>
-
         <script type="text/x-handlebars-template" id="waterflow-tpl">
-        {{#result}}
+        {{#artworks}}
           <div class="block">
             <div class="thumbnail">
-              <a href=""><img src="{{image}}" alt="" width="{{width}}" height="{{height}}" /></a>
+              <a href="product_detail.html?id={{id}}" target="_blank" title="[{{artworkAuthor.value}}] {{name}}">
+                {{#if pictures}}
+                <img src="{{ps pictures.[0].id}}?h=280" alt="" width="{{pictures.[0].thHeight.width}}" height="280" />
+                {{else}}
+                <img src="images/transparent.png" alt="" width="208" height="280" />
+                {{/if}}
+              </a>
             </div>
             <div class="extra">
               <div class="info fl">
                 <ul>
-                  <li>作品：{{name}}</li>
-                  <li>画家：{{author}}</li>
+                  <li class="artist">【{{artworkAuthor.value}}】{{name}}</li>
+                  <li class="red-price">￥{{easyPrice this.price}}</li>
                 </ul>                      
               </div>
               <div class="btns fr">
-                <button class="btn"><i class="fa fa-camera-retro"></i> 收藏</button>
-                <button class="btn"><i class="fa fa-heart-o"></i> 喜爱</button>
+                {{#isMarked this.collected}}
+                <button class="btn selected"><i class="fa fa-heart"></i> 已关注</button>
+                {{else}}
+                <button class="btn" onclick="Yihu.mark('{{id}}', 1, this)"><i class="fa fa-heart"></i> 待阅</button>
+                {{/isMarked}}
               </div>
             </div>
           </div>
-        {{/result}}
+        {{/artworks}}
         </script>
         <div class="waterflow show" id="paint-gallery">
           <div class="picasa"></div>
@@ -151,7 +122,7 @@
   </div><!-- 用户名家书画藏品 end -->
 
   <!-- 用户艺术类藏品 -->
-  <div class="w">
+  <div class="w-big">
     <div class="m" id="art">
       <div class="mt">
         <div class="title">
@@ -159,9 +130,9 @@
         </div>
         <div class="right">
           <ul class="category">
-            <li class="first"><a href="#">实价</a></li>
-            <li><a href="#">询价</a></li>
-            <li><a href="#">分享观摩</a></li>
+            <li class="first"><a href="#"><span>实价</span></a></li>
+            <li><a href="#"><span>询价</span></a></li>
+            <li><a href="#"><span>分享观摩</span></a></li>
             <span class="tips">(按喜爱度排列)</span>
           </ul>
         </div>
@@ -172,12 +143,8 @@
           <dt><span>介绍XXXX</span> <button class="btn small-btn">上传成品</button></dt>
           <dd>介绍XXX, 服务介绍XXXX </dd>
         </dl>
-        <div class="gallery show" id="art-gallery">
-          <div class="waterfall"></div>
-          <div class="more">
-            <button class="btn" id="btn-more-gh">展开更多(还有<span class="num">0</span>幅) <i class="fa fa-caret-down"></i></button>
-            <button class="btn bigPage"><i class="fa fa-unlock-alt"></i>&nbsp;大页面</button>
-          </div>
+        <div class="waterflow show" id="art-gallery">
+          <div class="picasa"></div>
         </div>
 
       </div>
@@ -185,15 +152,15 @@
   </div><!-- 用户艺术类藏品 end -->
 
   <!-- 美术投稿 -->
-  <div class="w">
-    <div class="m" id="art">
+  <div class="w-big">
+    <div class="m" id="userArt">
       <div class="mt">
         <div class="title">
           <h2><i class="fa fa-send"></i> 美术投稿</h2>
         </div>
         <div class="right">
           <ul class="category">
-            <li class="first"><a href="#">投稿</a></li>
+            <li class="first" type="link"><a href="blog.html" target="_blank"><span>投稿</span></a></li>
             <span class="tips">(按喜爱度排列)</span>
           </ul>
         </div>
@@ -201,79 +168,253 @@
 
       <div class="mc">
         <script type="text/x-handlebars-template" id="article-tpl">
-        {{#result}}
-          <li class="item">
-            <div class="thumbnail">
-              <a href=""><img src="{{image}}" alt="" width="{{width}}" border="0"/></a>
+        {{#articles}}
+        <div class="article2017-box">
+          {{#compare layout 'big'}}
+          <div class="thumbnail">
+            <a href="article.html?id={{id}}">
+              {{#if icons}}
+              <img src="images/transparent.png" alt="" width="100%" height="176" border="0" style="background:url({{ps icons.[0].id}}?h=176) no-repeat center center; background-size: cover;"/>
+              {{else}}
+              <img src="images/transparent.png" alt="" width="100%" height="176" border="0"/>
+              {{/if}}
+            </a>
+          </div>
+          {{else}}
+            {{#iconlist id icons}}{{/iconlist}}
+          {{/compare}}
+          <div class="article-body">
+            <h2 class="title">
+              <a href="article.html?id={{id}}">{{title}}</a>
+            </h2>
+            <div class="intro">
+              &nbsp;&nbsp;{{summary}}
             </div>
-            <div class="body">
-              <h2 class="title">
-                <a href="">{{title}}</a>
-              </h2>
-              <div class="meta">
-                <span><i class="fa fa-clock-o"></i> {{time}}</span>
-                <span><i class="fa fa-comments-o"></i> {{comments}}</span>
-                <span><i class="fa fa-eye"></i> {{like}}</span>
-              </div>
-              <div class="intro">
-                &nbsp;&nbsp;{{intro}}
-              </div>
-              <ul class="tags">
-                <li><i class="fa fa-tags"></i> 标签：</li>
-                {{#each tags}}
-                <li><a href="">{{this}}</a></li>
-                {{/each}}
-              </ul>
-            </div>
-          </li>
-        {{/result}}
+          </div>
+        </div>
+        {{/articles}}
         </script>
 
-        <ul class="article show" id="postArt">
-          <div class="articlelist"></div>
-
-          <div class="more">
-            <button class="btn" id="btn-more-gh">展开更多(还有<span class="num">0</span>篇) <i class="fa fa-caret-down"></i></button>
-            <button class="btn bigPage"><i class="fa fa-unlock-alt"></i>&nbsp;大页面</button>
-          </div>          
-        </ul>
+        <div class="article-new" id="postArt">
+          <div class="picasa"></div>
+        </div>
 
       </div>
     </div>
   </div><!-- 美术投稿 end -->
    
   <!-- 用户收藏排行榜 -->
-  <div class="w">
+  <div class="w-big">
     <div class="m" id="collectArt">
       <div class="mt">
         <div class="title">
-          <h2><i class="fa fa-paw"></i> 用户收藏排行榜</h2>
+          <h2><i class="fa fa-heartbeat"></i> 用户收藏排行榜</h2>
         </div>
         <div class="right">
           <ul class="category">
-            <li class="first"><a href="#">按书画价值</a></li>
-            <li><a href="#">按名家书画数量</a></li>
-            <li><a href="#">领域知名度</a></li>
+            <li class="first"><a href="#"><span>按书画价值</span></a></li>
+            <li><a href="#"><span>按名家书画数量</span></a></li>
+            <li><a href="#"><span>领域知名度</span></a></li>
           </ul>
         </div>
       </div>
 
       <div class="mc">
-        <ul class="article show" id="artRank">
-          <div class="articlelist"></div>
-
-          <div class="more">
-            <button class="btn" id="btn-more-gh">展开更多(还有<span class="num">0</span>篇) <i class="fa fa-caret-down"></i></button>
-            <button class="btn bigPage"><i class="fa fa-unlock-alt"></i>&nbsp;大页面</button>
-          </div>          
-        </ul>
-
+        <script type="text/x-handlebars-template" id="user-artwork">
+        {{#userPublishs}}
+          <li class="rank-item">
+            <div class="avatar">
+              <a href="home.html?uid={{user.userId}}" target="_blank" class="avatar-icon">
+                {{#if user.icon}}
+                <img src="{{ps user.icon}}?w=80&h=80" alt="" width="80" height="80">
+                {{else}}
+                <img src="images/profile_small.jpg" alt="" width="80" height="80">
+                {{/if}}
+              </a>
+            </div>
+            <ol class="item-info">
+              <li class="item-li">
+                <span class="item-label">用户名称:</span>
+                <span class="item-value"><a href="home.html?uid={{user.userId}}" target="_blank">{{user.userName}}</a></span>
+              </li>
+              <li class="item-li">
+                <span class="item-label">上传艺术品:</span>
+                <span class="item-value">{{artworkTotal}}个</span>
+              </li>
+              <li class="item-li">
+                <span class="item-label">发布文章数:</span>
+                <span class="item-value">{{articleTotal}}篇</span>
+              </li>
+              
+            </ol>
+          </li>
+        {{/userPublishs}}
+        </script>
+        <div class="tab-pane active" id="usersRank">
+          <div class="waterflow show">
+            <div class="picasa"></div>
+          </div>
+        </div>
+        
       </div>
     </div>
   </div><!-- 用户收藏排行榜 end -->
 
+  <div class="w-big">
+    <div class="m">
+      <!-- 我的待阅 -->
+      <a name="follow"></a>
+      <div class="mt">
+        <div class="title">
+          <h2><i class="fa fa-heart"></i> 我的待阅</h2>
+        </div>
+        <div class="right">
+          <ul class="category">
+            <li class="first active"><a href="#artwork">待阅的商品</a></li>
+            <li><a href="#article">待阅的文章</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mc">
+        <div class="tab-content">
+          <script type="text/x-handlebars-template" id="artwork-follow">
+          {{#artworks}}
+          <div class="block">
+            <div class="thumbnail">
+              <a href="product_detail.html?id={{id}}" target="_blank" title="[{{artworkAuthor.value}}] {{name}}">
+                {{#if pictures}}
+                <img src="{{ps pictures.[0].id}}?h=280" alt="" width="{{pictures.[0].thHeight.width}}" height="280" />
+                {{else}}
+                <img src="images/transparent.png" alt="" width="208" height="280" />
+                {{/if}}
+              </a>
+              <span class="cancel-pin">待阅已取消</span>
+            </div>
+            <div class="extra">
+              <div class="info fl">
+                <ul>
+                  <li class="artist">【{{artworkAuthor.value}}】{{name}}</li>
+                  <li class="red-price">￥{{easyPrice this.price}}</li>
+                </ul>                      
+              </div>
+              <div class="btns fr">
+                <button class="btn selected" data-id="{{id}}" onclick="Yihu.unFollow('{{id}}', 1, this)"><i class="fa fa-heart"></i> 取消待阅</button>
+              </div>
+            </div>
+          </div>
+          {{/artworks}}
+          </script>
+          <script type="text/x-handlebars-template" id="article-follow">
+          {{#articles}}
+          <div class="article2017-box">
+            {{#compare layout 'big'}}
+            <div class="thumbnail">
+              <a href="article.html?id={{id}}">
+                {{#if icons}}
+                <img src="images/transparent.png" alt="" width="100%" height="176" border="0" style="background:url({{ps icons.[0].id}}?h=176) no-repeat center center; background-size: cover;"/>
+                {{else}}
+                <img src="images/transparent.png" alt="" width="100%" height="176" border="0"/>
+                {{/if}}
+              </a>
+              <span class="cancel-pin">待阅已取消</span>
+            </div>
+            {{else}}
+              {{#iconlist id icons}}{{/iconlist}}
+            {{/compare}}
+            <div class="article-body">
+              <h2 class="title">
+                <a href="article.html?id={{id}}">{{title}}</a>
+              </h2>
+              <div class="intro">
+                &nbsp;&nbsp;{{summary}}
+              </div>
+              <div class="ops">
+                <a href="javascript:void(0)" class="btn selected" onclick="Yihu.unFollow('{{id}}', 2, this)"><i class="fa fa-heart"></i>取消待阅</a>
+              </div>
+            </div>
+          </div>
+          {{/articles}}
+          </script>
+          <!-- 待阅的商品 -->
+          <div class="tab-pane active" id="artwork">
+            <div class="waterflow show">
+              <div class="picasa"></div>
+            </div>
+          </div><!-- 待阅的商品 end -->
+
+          <!-- 待阅的文章 -->
+          <div class="tab-pane" id="article">
+            <div class="article-new">
+              <div class="picasa"></div>
+            </div>
+          </div><!-- 待阅的文章 end -->
+        </div>
+      </div><!-- 我的待阅 end -->
+    </div>
+  </div>
+
+  <div class="w-big">
+    <!-- 我的足迹 -->
+    <script type="text/x-handlebars-template" id="history-tpl">
+    {{#histories}}
+      <div class="block">
+        <div class="thumbnail">
+          <a href="product_detail.html?id={{pid}}" target="_blank" title="{{name}}">
+            {{#if icons}}
+            <img src="{{ps icons.[0].id}}?h=180" alt="" width="{{icons.[0].thHeight.width}}" height="180" />
+            {{else}}
+            <img src="images/transparent.png" alt="" width="208" height="180" />
+            {{/if}}
+          </a>
+        </div>
+        <div class="extra">
+          <div class="info fl">
+            <ul>
+              <li class="artist">【{{name}}】</li>
+              <li class="red-price">￥{{easyPrice this.price}}</li>
+            </ul>                      
+          </div>
+        </div>
+      </div>
+    {{/histories}}
+    </script>
+    <a name="history"></a>
+    <div class="m recommend" id="history-view">
+      <div class="mt">
+        <h2 class="title">我的足迹</h2>
+      </div>
+      <div class="mc">
+        <div class="waterflow show">
+          <div class="picasa"></div>
+        </div>
+      </div>
+    </div><!-- 我的足迹 end -->
+  </div>
+
+  <!-- 侧边导航条 -->
+  <div class="toolbar-wrap">
+    <div class="toolbar">
+      <div class="toolbar-footer">
+        <div class="toolbar-tab toolbar-tab-top">
+          <a href="javascript:void(0)" id="goTop" onclick="Yihu.goTop()">
+            <i class="tab-ico"></i>
+            <em class="tab-text">返回顶部</em>
+          </a>
+        </div>
+        <div class="toolbar-tab toolbar-tab-feedback">
+          <a href="javascript:void(0)">
+            <i class="tab-ico"></i>
+            <em class="tab-text">反馈</em>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 侧边导航条 end -->
+
   <!-- 站点地图 -->
-  <div class="w">
+  <div class="w-big">
     <div id="sitemap">
       <dl>
         <dt>购物指南</dt>
@@ -284,7 +425,7 @@
       </dl>
       <dl>
         <dt>配送方式</dt>
-        <dd><a href="">上门自提</a></dd>
+        <dd><a href="">连锁展示厅自提</a></dd>
         <dd><a href="">配送服务查询</a></dd>
         <dd><a href="">配送费收取标准</a></dd>
       </dl>
@@ -293,7 +434,6 @@
         <dd><a href="">货到付款</a></dd>
         <dd><a href="">在线支付</a></dd>
         <dd><a href="">分期付款</a></dd>
-        <dd><a href="">邮局汇款</a></dd>
         <dd><a href="">公司转账</a></dd>
       </dl>
       <dl>
@@ -302,11 +442,10 @@
         <dd><a href="">价格保护</a></dd>
         <dd><a href="">退款说明</a></dd>
         <dd><a href="">取消订单</a></dd>
-        <dd><a href="">返修/退换货</a></dd>
+        <dd><a href="">退换货</a></dd>
       </dl>
       <dl>
         <dt>特色服务</dt>
-        <dd><a href="">延保服务</a></dd>
         <dd><a href="">礼品卡</a></dd>
         <dd><a href="">积分兑换</a></dd>
       </dl>
@@ -314,50 +453,66 @@
   </div><!-- 站点地图 end-->
 
   <!-- 页面底部 -->
-  <div class="w">
+  <div class="w-big">
     <div id="footer">
       <div class="links">
         <a href="">关于我们</a>|
         <a href="">联系我们</a>|
         <a href="">联系客服</a>|
-        <a href="">商家入驻</a>|
-        <a href="">营销中心</a>|
+        <a href="">艺术机构入驻</a>|
+        <a href="">连锁展示厅</a>|
         <a href="">社区</a>
       </div>
       <div class="copyright">
-        <p>Copyright © 2010 - 2016  深圳市一虎一席艺术有限公司 版权所有 | 京ICP证XXXXXXX号 |  消费者维权热线：4000000000</p>
+        <p>Copyright © 2013 - 2017  深圳市一虎一席艺术有限公司 版权所有 | 粤ICP备:16104018号-1</p>
       </div>
       <div class="authentication">
         <a target="_blank" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007080200026">
-          <img width="103" height="32" alt="经营性网站备案中心" src="/images/auth_icons/2.png" class="err-product">
+          <img width="103" height="32" alt="经营性网站备案中心" src="images/auth_icons/2.png" class="err-product">
         </a>
         
         <a target="_blank" id="urlknet" tabindex="-1" href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&amp;ct=df&amp;pa=294005">
-          <img border="true" width="103" height="32" oncontextmenu="return false;" name="CNNIC_seal" alt="可信网站" src="/images/auth_icons/3.png" class="err-product">
+          <img border="true" width="103" height="32" oncontextmenu="return false;" name="CNNIC_seal" alt="可信网站" src="images/auth_icons/3.png" class="err-product">
         </a>
         <a target="_blank" href="http://www.bj.cyberpolice.cn/index.do">
-          <img width="103" height="32" alt="网络警察" src="/images/auth_icons/4.jpg" class="err-product">
+          <img width="103" height="32" alt="网络警察" src="images/auth_icons/4.jpg" class="err-product">
         </a>
         <a target="_blank" href="https://search.szfw.org/cert/l/CX20120111001803001836">
-          <img width="103" height="32" src="/images/auth_icons/5.png" class="err-product">
+          <img width="103" height="32" src="images/auth_icons/5.png" class="err-product">
         </a>
         <a target="_blank" href="http://www.12377.cn">
-          <img width="103" height="32" src="/images/auth_icons/6.jpg">
+          <img width="103" height="32" src="images/auth_icons/6.jpg">
         </a>
         <a target="_blank" href="http://www.12377.cn/node_548446.htm">
-          <img width="103" height="32" src="/images/auth_icons/1.jpg">
+          <img width="103" height="32" src="images/auth_icons/1.jpg">
         </a>
       </div>
     </div>
-  </div>
+  </div><!-- 页面底部 end -->
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
-  <script src="/libs/requirejs/require.js" data-main="scripts/home.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/libs/jquery/dist/jquery.js"></script>
+  <script src="/libs/handlebars/handlebars.js"></script>
+  <script src="/libs/jqzoom/js/jquery.jqzoom.min.js"></script>
+  <script src="/libs/waterfall/waterfall.js"></script>
+  <script src="/libs/jquery.slideBox/jquery.slideBox.js"></script>
+  <script src="/libs/waterflow/waterflow.js"></script>
+  <script src="/libs/layer/layer.js"></script>
+  <script src="/libs/jquery_lazyload/jquery.lazyload.js"></script>
+  <script src="/libs/kindeditor/kindeditor.js"></script>
+  <script src="/libs/plupload/js/plupload.full.min.js"></script>
+  <script src="/libs/fly/requestAnimationFrame.js"></script>
+  <script src="/libs/fly/jquery.fly.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   
-  <!-- build:js scripts/main.js -->
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js" type="text/javascript" charset="utf-8"></script>
+  <!-- endbuild -->
+
+  <!-- build:js scripts/home.js -->
+  <script src="scripts/home.js" type="text/javascript" charset="utf-8"></script>
   <!-- endbuild -->
 </body>
 </html>

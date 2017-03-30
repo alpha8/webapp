@@ -2,118 +2,234 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>商品搜索</title>
+  <title>一虎一席名家书画交易网与艺术生活社区 -- 商品搜索</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
   <meta http-equiv="x-dns-prefetch-control" content="on" />
   <!-- <link rel="dns-prefetch" href="http://localhost" /> -->
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" type="text/css" href="/libs/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/libs/jquery.slideBox/jquery.slideBox.css">
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" type="text/css" href="styles/main.css">
-  <link rel="stylesheet" type="text/css" href="/libs/font-awesome/css/font-awesome.min.css">
   <!-- endbuild -->
 </head>
 <body>
-  <!-- 页面顶部 -->
-  <div class="w">
-    <div class="header">
-      <div id="logo">
-        <a href="#"></a>
-      </div>
-      <div class="slogan">
-        <div class="row">
-          <span class="line">中国名家书画交易平台　yihuyixi.com</span>
-          <span class="line">买得放心 卖得容易</span>
-        </div>
-        <div class="row">
-          <span class="line">全程无忧的当代名家书画交易平台</span>
-          <span class="line">持久增值 藏家社区</span>
-        </div>
-      </div>
-      <span class="clr"></span>
-
-      <div class="stats">
-        <strong>125</strong>位名家（<strong>258</strong>幅精品，<strong>1620</strong>幅作品）  <strong>119</strong>家知名画廊 <strong>6926</strong>位收藏家
-      </div>
-    </div> 
-  </div><!-- 页面顶部 end-->
-
-  <!-- 导航工具条 -->
-  <div class="w">
-    <div class="navbar">
-      <ul class="grid">
-        <li class="nav-header"><a href="">交&nbsp;&nbsp;易</a></li>
-        <li class="nav-list">
-          <a href="">无忧体验区</a>
-          <a href="">最新上架</a>
-          <a href="">作品库</a>
-          <a href="">众筹合购</a>
-          <a href="">拍卖</a>
-          <a href="">书法定制</a>
-        </li>
-        <li></li>
-        <li class="nav-header"><a href="">拍卖行</a></li>
-        <li class="nav-list">
-          <a class="wideline" href="">预展</a>
-          <a class="wideline" href="">历史数据</a>
-        </li>
-        <li class="nav-header"><a href="">价格指数</a></li>
-        <li class="nav-list">
-          <a class="wideline" href="">查询</a>
-          <a class="wideline" href="">排行榜</a>
-        </li>
-      </ul>
-
-      <ul class="grid">
-        <li class="nav-header"><a href="">展&nbsp;&nbsp;示</a></li>
-        <li class="nav-list">
-          <a class="wideline" href="">艺术家</a>
-          <a class="wideline" href="">知名画廊</a>
-          <a class="wideline" href="">画展</a>
-        </li>
-        <li class="nav-header"><a href="">资&nbsp;&nbsp;讯</a></li>
-        <li class="nav-list">
-          <a class="wideline" href="">500名家库</a>
-          <a class="wideline" href="">每日艺讯</a>
-          <a class="wideline" href="">艺术课堂</a>
-        </li>
-        <li class="nav-header"><a href="">社&nbsp;&nbsp;&nbsp;&nbsp;区</a></li>
-        <li class="nav-list">
-          <a class="wideline" href="">藏品交流社区</a>
-          <a class="wideline" href="">官方活动</a>
-        </li>
-      </ul>
+  <!-- 顶部固定导航栏 -->
+  <div class="w-big top-navbar">
+    <div class="search-form">
+      <form action="search.html" method="GET">
+        <input type="text" autocomplete="off" placeholder="全站搜索" id="keyword" name="keyword" class="search-input">
+        <input type="submit" id="search_submit" value="">
+      </form>
     </div>
-  </div> <!-- 导航工具条 end -->
+    <img src="images/sprite/head.png" alt="" usemap="#Map" border="0" hidefocus="true">
+    <map name="Map">
+      <area shape="rect" coords="661,15,728,37" href="home.html#follow" target="_blank" alt="我的待阅/关注">
+      <area shape="rect" coords="760,13,797,38" href="home.html#history" target="_blank" alt="我的足迹">
+      <area shape="rect" coords="828,15,897,37" href="home.html" target="_blank" alt="个人空间">
+      <area shape="rect" coords="927,14,980,38" href="shop_cart.html" target="_blank" alt="购物车">
+      <area shape="rect" coords="3,2,265,47" href="index.html" alt="首页">
+    </map>
+  </div>
+  <div class="w-big navmenu">
+    <img src="images/sprite/slogan.png" alt="" border="0" hidefocus="true">
+  </div><!-- 顶部固定导航栏 end -->
 
-  <!-- 广告轮播区域 -->
-  <div class="w">
-    <div class="sliders">
-      <div id="bannerSlider" class="slideBox">
-        <ul class="items">
-          <li><a href="#" title="买得放心"><img src="images/sliders/1.jpg" height="300"></a></li>
-          <li><a href="#" title="卖得容易"><img src="images/sliders/2.jpg" height="300"></a></li>
-          <li><a href="#" title="持久增值"><img src="images/sliders/3.jpg" height="300"></a></li>
-          <li><a href="#" title="安全保障"><img src="images/sliders/4.jpg" height="300"></a></li>
-        </ul>
-      </div>
-    </div>
-  </div><!-- 广告轮播区域 end -->
+  <!-- 面包屑导航 -->
+  <div class="w-big">
+    <ol class="breadcrumb">
+      <li><a href="javascript:void(0)">全部结果</a><i class="crumb-arrow">&gt;</i></li>
+      <li class="active search-key"></li>
+    </ol>
+  </div><!-- 面包屑导航 end -->
 
   <!-- 商品搜索区 -->
-  <div class="w">
-    <ol class="breadcrumb">
-      <li><a href="">全部结果</a><i class="crumb-arrow">&gt;</i></li>
-      <li class="active search-key">"毛贞元"</li>
-    </ol>
+  <script type="text/x-handlebars-template" id="search-tpl">
+  {{#childrens}}
+  <div class="selectLine s-{{propertyName}} {{#if status}}hide lv2Line{{/if}}">
+    <div class="sl-wrap">
+      <div class="sl-key"><span>{{value}}</span></div>
+      <div class="sl-value">
+        <div class="sl-v-list">
+          <div class="sl-scroll-list">
+            <ul class="valueList">
+              <li class="selectAll selected"><a href="javascript:void(0)" data-name="{{propertyName}}" data-value="" onclick="Search.go(this)">全部</a></li>
+              {{#each childrens}}
+                {{#if childrens}}
+                <li trigger="toggle"><a href="javascript:void(0)" onclick="Search.go(this)" data-name="{{../../propertyName}}" data-value="{{propertyName}}" data-show=".s-{{../propertyName}}">{{value}}<em>(0)</em> <i class="fa fa-angle-down"></i></a></li>
+                {{else}}
+                <li><a href="javascript:void(0)" onclick="Search.go(this)" data-name="{{../../propertyName}}" data-value="{{propertyName}}"><i></i>{{value}}<em>(0)</em></a></li>
+                {{/if}}
+              {{/each}}
+            </ul>
+          </div>
+          <div class="scrollBtns">
+            <i class="fa fa-arrow-up up" onclick="Search.moveUp(this)"></i>
+            <i class="fa fa-arrow-down down" onclick="Search.moveDown(this)"></i>
+          </div>
+        </div>
+
+        <div class="sl-b-selected">
+          <span class="sl-b-key">已选条件：</span>
+          <ul class="sl-v-list multi-selected">
+            <input type="hidden" name="{{propertyName}}" id="{{propertyName}}" value="" />
+          </ul>
+        </div>
+        <div class="sl-btns">
+          <a href="javascript:void(0)" class="btn btn-success" onclick="Search.multiGo(this)">确定</a>
+          <a href="javascript:void(0)" class="btn btn-default btn-dispose">取消</a>
+        </div>
+      </div>
+      <div class="sl-ext">
+        <a href="javascript:void(0)" class="sl-e-more">更多<i></i></a>
+        <a href="javascript:void(0)" class="sl-e-multiple"><i></i>多选</a>
+      </div>
+    </div>
+  </div>
+  {{/childrens}}  
+  </script>
+
+  <div class="w-big">
+    <div class="searchBox">
+      <div class="selector">
+        <div class="selectLine s-keyword">
+          <div class="sl-wrap">
+            <div class="sl-key"><span>关键字</span></div>
+            <div class="sl-value">
+              <div class="sl-v-list">
+                <input type="text" name="keyword" id="txtKeyword" class="searchKey" placeholder="牡丹 荷花 竹子 兰 彩色山水 狗 猫" onchange="Search.go(this)" />
+                <input type="radio" name="matcher" value="in" checked>匹配其中之一&nbsp;&nbsp;
+                <input type="radio" name="matcher" value="all">全部匹配
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="placeholder"></div>
+        
+        <!-- <div class="selectLine s-more-options">
+          <div class="sl-wrap">
+            <div class="sl-key"><span>更多选项</span></div>
+            <div class="sl-value">
+              <div class="sl-v-list">
+                <ul class="valueList">
+                  <li trigger="toggle"><a href="javascript:void(0)" data-show=".s-styles">风格 <i class="fa fa-angle-down"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <div class="selectLine s-styles hide">
+          <div class="sl-wrap">
+            <div class="sl-key"><span>风格</span></div>
+            <div class="sl-value">
+              <div class="sl-v-list">
+                <ul class="valueList">
+                  <li><a href="javascript:void(0)">抽象</a></li>
+                  <li><a href="javascript:void(0)">具象</a></li>
+                  <li><a href="javascript:void(0)">观念</a></li>
+                  <li><a href="javascript:void(0)">卡通</a></li>
+                  <li><a href="javascript:void(0)">传统国画</a></li>
+                  <li><a href="javascript:void(0)">实验水墨</a></li>
+                  <li><a href="javascript:void(0)">其他</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+
+      <div class="m-list">
+        <div class="ml-wrap">
+          <div class="filter">
+            <div class="f-line">
+              <div class="f-sort">
+                <a href="javascript:void(0)" class="active">内部专业评分</a>
+                <a href="javascript:void(0)" sortable="true">销量 <i class="fa fa fa-long-arrow-down hide"></i></a>
+                <a href="javascript:void(0)" sortable="true">价格 <i class="fa fa fa-long-arrow-down hide"></i></a>
+                <a href="javascript:void(0)">评论数</a>
+              </div>
+              <div class="f-result-search">
+                <input type="text" class="f-input-text" placeholder="在结果中搜索">
+                <a href="" class="f-search-btn"><i class="fa fa-search"></i> 确定</a>
+              </div>
+              <div class="f-result-sum">
+                共<span id="resultCount" class="num">0</span>件商品
+              </div>
+              <span class="clr"></span>
+            </div>
+          </div>
+
+          <script type="text/x-handlebars-template" id="waterfall-tpl">
+          {{#artworks}}
+            <div class="box">
+              <div class="thumbnail">
+                <a href="product_detail.html?id={{id}}" target="_blank" title="{{name}}">
+                  {{#if pictures}}
+                  <img src="{{ps pictures.[0].id}}?w=236" alt="" width="{{pictures.[0].thWidth.width}}" height="{{pictures.[0].thWidth.height}}" />
+                  {{else}}
+                  <img src="images/transparent.png" alt="" height="236" width="136" />
+                  {{/if}}
+                </a>
+              </div>
+              <div class="extra">
+                <div class="info fl">
+                  <ul>
+                    <li>【{{artworkAuthor.value}}】{{name}}</li>
+                    <li class="red-price">￥{{easyPrice this.price}}</li>
+                  </ul>                      
+                </div>
+                <div class="btns fr">
+                  <button class="btn" onclick="Yihu.mark('{{id}}', 1, this)"><i class="fa fa-heart"></i> 待阅</button>
+                </div>
+              </div>
+            </div>
+          {{/artworks}}
+          </script>
+          
+          <div class="goods-list" id="goods-list">
+            <ul class="gl-wrap">
+              <div class="gallery show" id="goods">
+                <div class="waterfall"></div>
+              </div>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- boxSearch end -->
   </div><!-- 商品搜索区 end -->
 
+  <!-- 侧边导航条 -->
+  <div class="toolbar-wrap">
+    <div class="toolbar">
+      <div class="toolbar-footer">
+        <div class="toolbar-tab toolbar-tab-top">
+          <a href="javascript:void(0)" id="goTop" onclick="Yihu.goTop()">
+            <i class="tab-ico"></i>
+            <em class="tab-text">返回顶部</em>
+          </a>
+        </div>
+        <div class="toolbar-tab toolbar-tab-feedback">
+          <a href="javascript:void(0)">
+            <i class="tab-ico"></i>
+            <em class="tab-text">反馈</em>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 侧边导航条 end -->
+
   <!-- 站点地图 -->
-  <div class="w">
+  <div class="w-big">
     <div id="sitemap">
       <dl>
         <dt>购物指南</dt>
@@ -124,7 +240,7 @@
       </dl>
       <dl>
         <dt>配送方式</dt>
-        <dd><a href="">上门自提</a></dd>
+        <dd><a href="">连锁展示厅自提</a></dd>
         <dd><a href="">配送服务查询</a></dd>
         <dd><a href="">配送费收取标准</a></dd>
       </dl>
@@ -133,7 +249,6 @@
         <dd><a href="">货到付款</a></dd>
         <dd><a href="">在线支付</a></dd>
         <dd><a href="">分期付款</a></dd>
-        <dd><a href="">邮局汇款</a></dd>
         <dd><a href="">公司转账</a></dd>
       </dl>
       <dl>
@@ -142,11 +257,10 @@
         <dd><a href="">价格保护</a></dd>
         <dd><a href="">退款说明</a></dd>
         <dd><a href="">取消订单</a></dd>
-        <dd><a href="">返修/退换货</a></dd>
+        <dd><a href="">退换货</a></dd>
       </dl>
       <dl>
         <dt>特色服务</dt>
-        <dd><a href="">延保服务</a></dd>
         <dd><a href="">礼品卡</a></dd>
         <dd><a href="">积分兑换</a></dd>
       </dl>
@@ -154,50 +268,64 @@
   </div><!-- 站点地图 end-->
 
   <!-- 页面底部 -->
-  <div class="w">
+  <div class="w-big">
     <div id="footer">
       <div class="links">
         <a href="">关于我们</a>|
         <a href="">联系我们</a>|
         <a href="">联系客服</a>|
-        <a href="">商家入驻</a>|
-        <a href="">营销中心</a>|
+        <a href="">艺术机构入驻</a>|
+        <a href="">连锁展示厅</a>|
         <a href="">社区</a>
       </div>
       <div class="copyright">
-        <p>Copyright © 2010 - 2016  深圳市一虎一席艺术有限公司 版权所有 | 京ICP证XXXXXXX号 |  消费者维权热线：4000000000</p>
+        <p>Copyright © 2013 - 2017  深圳市一虎一席艺术有限公司 版权所有 | 粤ICP备:16104018号-1</p>
       </div>
       <div class="authentication">
         <a target="_blank" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007080200026">
-          <img width="103" height="32" alt="经营性网站备案中心" src="/images/auth_icons/2.png" class="err-product">
+          <img width="103" height="32" alt="经营性网站备案中心" src="images/auth_icons/2.png" class="err-product">
         </a>
         
         <a target="_blank" id="urlknet" tabindex="-1" href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&amp;ct=df&amp;pa=294005">
-          <img border="true" width="103" height="32" oncontextmenu="return false;" name="CNNIC_seal" alt="可信网站" src="/images/auth_icons/3.png" class="err-product">
+          <img border="true" width="103" height="32" oncontextmenu="return false;" name="CNNIC_seal" alt="可信网站" src="images/auth_icons/3.png" class="err-product">
         </a>
         <a target="_blank" href="http://www.bj.cyberpolice.cn/index.do">
-          <img width="103" height="32" alt="网络警察" src="/images/auth_icons/4.jpg" class="err-product">
+          <img width="103" height="32" alt="网络警察" src="images/auth_icons/4.jpg" class="err-product">
         </a>
         <a target="_blank" href="https://search.szfw.org/cert/l/CX20120111001803001836">
-          <img width="103" height="32" src="/images/auth_icons/5.png" class="err-product">
+          <img width="103" height="32" src="images/auth_icons/5.png" class="err-product">
         </a>
         <a target="_blank" href="http://www.12377.cn">
-          <img width="103" height="32" src="/images/auth_icons/6.jpg">
+          <img width="103" height="32" src="images/auth_icons/6.jpg">
         </a>
         <a target="_blank" href="http://www.12377.cn/node_548446.htm">
-          <img width="103" height="32" src="/images/auth_icons/1.jpg">
+          <img width="103" height="32" src="images/auth_icons/1.jpg">
         </a>
       </div>
     </div>
-  </div>
+  </div><!-- 页面底部 end -->
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
-  <script src="/libs/requirejs/require.js" data-main="scripts/home.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/libs/jquery/dist/jquery.js"></script>
+  <script src="/libs/handlebars/handlebars.js"></script>
+  <script src="/libs/jqzoom/js/jquery.jqzoom.min.js"></script>
+  <script src="/libs/waterfall/waterfall.js"></script>
+  <script src="/libs/jquery.slideBox/jquery.slideBox.js"></script>
+  <script src="/libs/waterflow/waterflow.js"></script>
+  <script src="/libs/layer/layer.js"></script>
+  <script src="/libs/jquery_lazyload/jquery.lazyload.js"></script>
+  <script src="/libs/kindeditor/kindeditor.js"></script>
+  <script src="/libs/plupload/js/plupload.full.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   
-  <!-- build:js scripts/main.js -->
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js" type="text/javascript" charset="utf-8"></script>
+  <!-- endbuild -->
+
+  <!-- build:js scripts/search.js -->
+  <script src="scripts/search.js" type="text/javascript" charset="utf-8"></script>
   <!-- endbuild -->
 </body>
 </html>
