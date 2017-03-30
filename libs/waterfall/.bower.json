@@ -1,0 +1,12 @@
+{
+  "name": "waterfall",
+  "_cacheHeaders": {
+    "Last-Modified": "Tue, 14 Apr 2015 14:24:59 GMT",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "main": "waterfall.min.js",
+  "_source": "http://wlog.cn/demo/waterfall/js/waterfall.js",
+  "_target": "*",
+  "_originalSource": "http://wlog.cn/demo/waterfall/js/waterfall.js",
+  "_direct": true
+}

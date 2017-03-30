@@ -1,0 +1,16 @@
+{
+  "name": "jqzoom",
+  "main": "js/jquery.jqzoom.min.js",
+  "homepage": "https://github.com/kangax/jqzoom",
+  "version": "2.3.0",
+  "_release": "2.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.3.0",
+    "commit": "b1ef41b2c5ec32512442b2f9143488551c60ff32"
+  },
+  "_source": "https://github.com/kangax/jqzoom.git",
+  "_target": "^2.3.0",
+  "_originalSource": "jqzoom",
+  "_direct": true
+}

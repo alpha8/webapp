@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>一虎一席名家书画交易网与艺术生活社区</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta http-equiv="x-dns-prefetch-control" content="on" />
+  <!-- <link rel="dns-prefetch" href="http://localhost" /> -->
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" type="text/css" href="/libs/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/libs/jquery.slideBox/jquery.slideBox.css">
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body>
+  <!-- 顶部固定导航栏 -->
+  <div class="topbar">
+    <div class="topbar-wrap">
+      <div class="topbar-head">
+        <ul>
+          <li><a href="home.html#follow" target="_blank" class="follow"><i class="fa fa-heart"></i> 我的待阅 <em class="badge">(0)</em></a></li>
+          <li><a href="home.html#history" target="_blank" class="history"><i class="fa fa-paw"></i> 我的足迹 <em class="badge">(0)</em></a></li>
+        </ul>
+      </div>
+      <div class="topbar-nav"></div>
+      <div class="topbar-info">
+        <ul>
+          <li><a href="home.html" target="_blank"><i class="fa fa-user"></i> 个人中心</a></li>
+        </ul>
+      </div>
+    </div>
+  </div><!-- 顶部固定导航栏 end -->
+  <div class="topbar-fixed"></div>
+
+  <!-- 页面顶部 -->
+  <div class="w">
+    <div class="header">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo.png" alt="一虎一席名家书画交易网与艺术生活社区" width="294" height="88" />
+        </a>
+      </div>
+      <div class="settleup">
+        <div class="cart-icons">
+          <i class="fa fa-shopping-cart"></i>
+          <a href="shop_cart.html" target="_blank">我的购物车</a>
+          <i class="shopping-amount">0</i>
+        </div>
+      </div>
+      <div class="search">
+        <form name="searchForm" action="search.html">
+          <div class="btn-group">
+            <input type="text" autocomplete="off" placeholder="搜索关键字" id="keyword" name="keyword" class="searchKey">
+            <input type="submit" value="搜索" class="button">
+          </div>
+        </form>
+      </div>
+    </div> 
+  </div><!-- 页面顶部 end-->
+
+  <div class="main">
+    <!-- 导航工具条 -->
+    <div class="w">
+      <div class="navbar">
+        <ul class="grid">
+          <li class="nav-header"><a href="">交&nbsp;&nbsp;易</a></li>
+          <li class="nav-list">
+            <a href="index.html#free-trade">无忧体验区</a>
+            <a href="index.html#new-arrival">每周特卖<span class="placeholder hidden-sm hidden-xs hidden-md">7折</span><span class="badge hidden-sm hidden-xs hidden-md">7折</span></a>
+            <a href="index.html">全部作品</a>
+            <a href="index.html">众筹合购</a>
+            <a href="index.html">阳光拍卖<span class="placeholder hidden-sm hidden-xs hidden-md">特惠</span><span class="badge hidden-sm hidden-xs hidden-md">特惠</span></a>
+            <a href="index.html">书法定制<span class="placeholder hidden-sm hidden-xs hidden-md">热销</span><span class="badge hidden-sm hidden-xs hidden-md">热销</span></a>
+          </li>
+          <li class="nav-header"><a href="news.html">价格指数</a></li>
+          <li class="nav-list">
+            <a class="wideline" href="news.html">查询</a>
+            <a class="wideline" href="news.html">排行榜</a>
+            <a class="wideline" href="news.html">估值服务</a>
+          </li>
+          <li class="nav-header"><a href="news.html"><em class="title">生活艺术空间</em><em class="hidden-xs hidden-sm hidden-md">[一席一艺.三百席]</em></a></li>
+          <li class="nav-list">
+            <a class="flex" href="news.html"><u class="hidden-xs hidden-sm hidden-md">一虎一席</u>茶室雅集作品<span class="placeholder hidden-sm hidden-xs hidden-md">经典大作</span><span class="badge hidden-sm hidden-xs hidden-md">经典大作</span></a>
+            <a class="flex" href="news.html"><u class="hidden-xs hidden-sm hidden-md">一虎一席</u>老茶博物馆</a>
+            <a class="flex" href="tea-search.html">茶室雅集商品<span class="placeholder hidden-sm hidden-xs hidden-md">热销</span><span class="badge hidden-sm hidden-xs hidden-md">热销</span></a>
+          </li>
+        </ul>
+
+        <ul class="grid">
+          <li class="nav-header"><a href="news.html">展&nbsp;&nbsp;示</a></li>
+          <li class="nav-list">
+            <a class="wideline" href="news.html">名家与新锐</a>
+            <a class="wideline" href="news.html">知名画廊</a>
+            <a class="wideline" href="news.html">相关画展</a>
+          </li>
+          <li class="nav-header"><a href="news.html">资&nbsp;&nbsp;讯</a></li>
+          <li class="nav-list">
+            <a class="wideline" href="news.html">500名家库</a>
+            <a class="wideline" href="news.html">每日艺讯<span class="placeholder hidden-sm hidden-xs hidden-md">精选</span><span class="badge hidden-sm hidden-xs hidden-md">精选</span></a>
+            <a class="wideline" href="news.html">艺术课堂</a>
+          </li>
+          <li class="nav-header"><a href="">社&nbsp;&nbsp;区</a></li>
+          <li class="nav-list">
+            <a class="wideline flex" href="">个人空间<span>(作品藏品交流)</span></a>
+            <a class="wideline flex" href="activity.html">官方活动</a>
+          </li>
+        </ul>
+      </div>
+    </div> <!-- 导航工具条 end -->
+
+    <!-- 广告轮播区域 -->
+    <script type="text/x-handlebars-template" id="sliders-tpl">
+    <ul class="items">
+    {{#posters}}
+    <li><a href="{{url}}" title="{{name}}"><img src="{{ps fileId}}" height="300"></a></li>
+    {{/posters}}
+    </ul>
+    </script>
+    <div class="w">
+      <div class="sliders">
+        <div id="bannerSlider" class="slideBox"></div>
+      </div>
+    </div><!-- 广告轮播区域 end -->
+
+    <!-- 注册/登录区域 -->
+    <div class="w">
+      <div class="signUp">
+        <button id="btnSignUp" class="btn btn-primary" onclick="Yihu.openSignUpDialog()">便捷注册</button>
+        <ul>
+          <li>* 展示您想转让的收藏品</li>
+          <li>* 获得VIP特惠与高级服务</li>
+          <li>* 将感兴趣的作品放入收藏夹中</li>
+        </ul>
+      </div>
+      <div class="signIn">
+        <form name="signIn" class="form-horizontal">
+          <div class="form-group">
+            <label for="">帐号：</label>
+            <input type="text" name="userName" id="userName" tabindex="1" placeholder="邮箱或手机号" class="form-control uname" />
+            <button type="button" class="btn btn-primary" tabindex="3" onclick="Yihu.login($('#userName').val(), $('#password').val())"><i class="fa fa-sign-in"></i>&nbsp;登录</button>
+          </div>
+
+          <div class="form-group">
+            <label for="">密码：</label>
+            <input type="password" name="password" id="password" tabindex="2" placeholder="密码" class="form-control pass"/>
+          </div>
+
+          <p><a href="javascript:void(0)" onclick="Yihu.switchLogin('.reset-passwd')">忘记密码</a></p>
+        </form>
+
+        <div class="login-success">
+          <div class="profile">
+            <img src="images/profile_small.jpg" alt="" width="80" height="80" />
+          </div>
+          <ul class="info">
+            <li><a href="home.html"><i class="fa fa-user"></i> 个人中心</a></li>
+            <li><a href="javascript:void(0)" onclick="Yihu.logout()"><i class="fa fa-power-off"></i> 安全退出</a></li>
+            <li><a href="javascript:void(0)" onclick="Yihu.switchLogin('.change-passwd')"><i class="fa fa-edit"></i> 修改密码</a></li>
+          </ul>
+        </div>
+      </div>
+      <span class="clr"></span>
+
+      <div class="black-overlay">
+        <div id="login_frame">
+          <img src="images/logo.png" alt="一虎一席名家书画交易网与艺术生活社区" width="294" height="88" id="logo" />
+          <div class="login">
+            <div class="holder">
+              <div class="with-line">使用手机号/邮箱登录</div>
+              <form class="mail-login">
+                <div class="form-group">
+                  <input type="text" name="email" id="email" placeholder="邮箱或手机号" class="clear-input user-icon"/><b class="correctIco"></b>
+                  <div class="tip"></div>
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password" id="passwd" placeholder="密码" class="clear-input pass-icon" />
+                </div>
+                <div class="form-group">
+                  <a href="javascript:void(0)" onclick="Yihu.login($('#email').val(), $('#passwd').val())" class="btn btn18">
+                    <span class="text">登录</span>
+                  </a>
+                </div>
+              </form>
+              <a href="javascript:void(0)" class="reset-password" onclick="Yihu.switchLogin('.reset-passwd')">忘记密码</a>
+              <div class="switch-back">还没有帐号？<a href="javascript:void(0)" onclick="Yihu.switchLogin('.email-signup')">点击注册»</a></div>
+            </div>
+          </div>
+          <div class="reset-passwd">
+            <div class="holder">
+              <div class="with-line">找回密码</div>
+              <form class="reset-form">
+                <div class="form-group">
+                  <input type="text" name="email" id="reset-email" placeholder="邮箱或手机号" class="clear-input user-icon" onblur="Yihu.checkEmail($('#reset-email'), true)"/><b class="correctIco"></b>
+                  <div class="tip"></div>
+                </div>
+                <div class="form-group">
+                  <a href="javascript:void(0)" onclick="Yihu.forgetPwd($('#reset-email').val())" class="btn btn18">
+                    <span class="text">重置</span>
+                  </a>
+                </div>
+              </form>
+              <a href="javascript:void(0)" class="back" onclick="Yihu.switchLogin('.login')">« 又想起来了</a>
+            </div>
+          </div>
+          <div class="change-passwd">
+            <div class="holder">
+              <div class="with-line">修改密码</div>
+              <form class="change-form">
+                <div class="form-group">
+                  <input type="password" name="password" id="orginalPwd" placeholder="原始密码" class="clear-input pass-icon remote-check" /><b class="correctIco"></b>
+                  <div class="tip"></div>
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password" id="newPwd" placeholder="新密码" class="clear-input pass-icon" /><b class="correctIco"></b>
+                  <div class="tip"></div>
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password" id="confirmPwd" placeholder="确认密码" class="clear-input pass-icon" samePassword="#newPwd"/><b class="correctIco"></b>
+                  <div class="tip"></div>
+                </div>
+                <div class="form-group">
+                  <a href="javascript:void(0)" onclick="Yihu.changePwd($('#orginalPwd').val(),$('#newPwd').val(),$('#confirmPwd').val())" class="btn btn18">
+                    <span class="text">保存</span>
+                  </a>
+                </div>
+              </form>
+              <a href="javascript:void(0)" class="back" onclick="Yihu.switchLogin('.login')">« 重新登录</a>
+            </div>
+          </div>
+          <div class="email-signup">
+            <div class="signup-success">
+              <div class="with-line">注册成功</div>
+              <div class="text">
+                验证邮件已经发送到<span class="email">email</span>，请<span class="check-mail">注意查收邮件</a>激活账号。</span>
+                <!-- <br>没有收到激活邮件？请耐心等待，或者<a class="resend">重新发送<span class="countdown">30</span> -->
+              </div>
+              <a href="javascript:void(0)" class="login-link" onclick="Yihu.switchLogin('.login')">« 返回登录页</a>
+            </div>
+            <div class="signup-form">
+              <div class="holder">
+                <!-- <div class="with-line">使用手机号/邮箱注册</div> -->
+                <ul class="tab">
+                  <li class="active"><a href="#mobileReg">手机注册</a></li>
+                  <li><a href="#emailReg">邮箱注册</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="mobileReg">
+                    <form>
+                      <div class="form-group">
+                        <input type="text" name="mobile" id="reg-mobile" placeholder="手机号码" class="clear-input phone" maxlength="13" /><b class="correctIco"></b>
+                        <div class="tip"></div>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="verifycode" id="verifycode" check-mobile="#reg-mobile" placeholder="手机验证码" class="clear-input verify-code"/><b class="correctIco"></b>
+                        <button class="btn btn-primary btn47" id="btnVerifyCode" check-mobile="#reg-mobile">获取手机验证码</button>
+                        <div class="tip"></div> 
+                      </div>
+                      <!-- <div class="form-group">
+                        <input type="text" name="userName" id="userName" placeholder="用户名" class="clear-input vip-icon" maxlength="15"/><b class="correctIco"></b>
+                        <div class="tip"></div>
+                      </div> -->
+                      <div class="form-group">
+                        <input type="password" name="newPassword" id="newPassword" placeholder="密码" class="clear-input pass-icon"/><b class="correctIco"></b>
+                        <div class="tip"></div>
+                      </div>
+                      <div class="form-group">
+                        <input type="password" name="rePassword" id="rePassword" placeholder="确认密码" class="clear-input pass-icon" samePassword="#newPassword"/><b class="correctIco"></b>
+                        <div class="tip"></div>
+                      </div>
+                      <div class="form-group">
+                        <a href="javascript:void(0)" onclick="Yihu.signUp($('#reg-mobile').val(), $('#newPassword').val(), $('#rePassword').val(), 'phone')" class="btn btn18">
+                          <span class="text">注册</span>
+                        </a>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="tab-pane" id="emailReg">
+                    <form>
+                      <div class="form-group">
+                        <input type="text" name="email" id="reg-email" placeholder="电子邮箱" class="clear-input email" /><b class="correctIco"></b>
+                        <div class="tip"></div>
+                      </div>
+                      <!-- <div class="form-group">
+                        <input type="text" name="userName" id="userName2" placeholder="用户名" class="clear-input vip-icon" maxlength="15"/><b class="correctIco"></b>
+                        <div class="tip"></div>
+                      </div> -->
+                      <div class="form-group">
+                        <input type="password" name="newPassword" id="newPassword2" placeholder="密码" class="clear-input pass-icon" /><b class="correctIco"></b>
+                        <div class="tip"></div>
+                      </div>
+                      <div class="form-group">
+                        <input type="password" name="rePassword" id="rePassword2" placeholder="确认密码" class="clear-input pass-icon" samePassword="#newPassword2" /><b class="correctIco"></b>
+                        <div class="tip"></div>
+                      </div>
+                      <div class="form-group">
+                        <a href="javascript:void(0)" onclick="Yihu.signUp($('#reg-email').val(), $('#newPassword2').val(), $('#rePassword2').val())" class="btn btn18">
+                          <span class="text">注册</span>
+                        </a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                
+                <a href="javascript:void(0)" class="back-signup" onclick="Yihu.switchLogin('.login')">« 直接登录</a>
+              </div>
+            </div>
+          </div>
+          <div class="close"><a href="javascript:void(0)" onclick="Yihu.closeDialog()"><i>&times;</i></a></div>
+        </div>
+      </div>
+
+    </div><!-- 注册/登录区域 end -->
+
+    <!-- 名家书画展示 -->
+    <div class="w">
+      <div class="m">
+        <div class="mt" id="art">
+          <h2><i class="fa fa-diamond"></i>名家书画的丰富价值</h2>
+        </div>
+        <div class="mc">
+          <ul class="tab">
+            <li class="active"><a href="#indoor">室内效果</a></li>
+            <li data-trigger="article" data-id="5832d61e06f47f6519a20dd3"><a href="#valuable">价值链</a></li>
+            <li data-trigger="article" data-id="5832d64b06f47f6519a20dd5"><a href="#investment">投资指南</a></li>
+          </ul>
+          <div class="tab-content">
+          <script type="text/x-handlebars-template" id="waterflow-tpl">
+            {{#artworks}}
+              <div class="block">
+                <div class="thumbnail">
+                  <a href="product_detail.html?id={{id}}" title="[{{artworkAuthor.value}}] {{name}}" target="_blank">
+                    {{#if pictures}}
+                    <img src="{{ps pictures.[0].id}}?h=280" alt="" width="{{pictures.[0].thHeight.width}}" height="280" />
+                    {{else}}
+                    <img src="images/transparent.png" alt="" width="208" height="280" />
+                    {{/if}}
+                  </a>
+                </div>
+                <div class="extra">
+                  <div class="info fl">
+                    <ul>
+                      <li class="artist">【{{artworkAuthor.value}}】{{name}}</li>
+                      <li class="red-price">￥{{easyPrice this.price}}</li>
+                    </ul>                      
+                  </div>
+                  <div class="btns fr">                    
+                    {{#isMarked this.collected}}
+                    <button class="btn selected"><i class="fa fa-heart"></i> 已关注</button>
+                    {{else}}
+                    <button class="btn" onclick="Yihu.mark('{{id}}', 1, this)"><i class="fa fa-heart"></i> 待阅</button>
+                    {{/isMarked}}
+                  </div>
+                </div>
+              </div>
+            {{/artworks}}
+            </script>
+            <script type="text/x-handlebars-template" id="article-tpl">
+            {{{content}}}
+            </script>
+
+            <!-- 室内效果 -->
+            <div class="tab-pane active" id="indoor">
+              <ul class="category">
+                <li class="first"><a href="#guestRoom" data-name="hall"><span>客厅</span><em>(0)</em></a></li>
+                <li class="active"><a href="#masterRoom" data-name="masterRoom"><span>主人房</span><em>(0)</em></a></li>
+                <li><a href="#bookRoom" data-name="bookRoom"><span>书房</span><em>(0)</em></a></li>
+                <li><a href="#kidsRoom" data-name="childrenRoom"><span>儿童房</span><em>(0)</em></a></li>
+                <li><a href="#restaurant" data-name="dinning"><span>饭厅</span><em>(0)</em></a></li>
+                <li><a href="#doubles" data-name="corridor"><span>复式楼道</span><em>(0)</em></a></li>
+              </ul>
+
+              <div class="waterflow active" id="masterRoom"><!--主人房 -->
+                <div class="picasa"></div>
+              </div>
+            </div><!-- 室内效果 end -->
+
+            <!-- 价值链 -->
+            <div class="tab-pane" id="valuable">
+              <p>价值链</p>
+            </div><!-- 价值链 end -->
+
+            <!-- 投资指南 -->
+            <div class="tab-pane" id="investment">
+              <p>投资指南</p>
+            </div><!-- 投资指南 end -->
+
+          </div>
+        </div>
+      </div>
+    </div><!-- 名家书画展示 end -->
+
+    <!-- 交易展示位 -->
+    <a name="new-arrival"></a>
+    <div class="w">
+      <div class="m" id="trade">
+        <div class="mt">
+          <h2><i class="fa fa-slideshare"></i>交易</h2>
+        </div>
+
+        <!-- 最新上架 -->
+        <div class="mc">
+          <div class="title">
+            <h2><i class="fa fa-gift"></i> 最新上架</h2>
+          </div>
+          <div class="right">
+            <ul class="tab">
+              <li class="active"><a href="#today">今日<em>(0)</em></a></li>
+              <li><a href="#week">本周<em>(0)</em></a></li>
+              <li><a href="#month">本月<em>(0)</em></a></li>
+            </ul>
+          </div>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="today">
+              <ul class="category">
+                <li class="first active" data-cat="chinapaint"><a href="#chinaPaint" data-name="chinesePalonging"><span>国画</span><em>(0)</em></a></li>
+                <li data-cat="oilpaint"><a href="#oilPaint" data-name="oilPalonging"><span>油画</span><em>(0)</em></a></li>
+                <li data-cat="colour"><a href="#waterColour" data-name="watercolor"><span>水彩</span><em>(0)</em></a></li>
+                <li data-cat="calligraphy"><a href="#calligraphy" data-name="calligraphy"><span>书法</span><em>(0)</em></a></li>
+              </ul>
+              <div class="active waterflow" id="chinaPaint">
+                <div class="picasa"></div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="week">
+              <p>本周</p>
+            </div>
+
+            <div class="tab-pane" id="month">
+              <p>本月</p>
+            </div>
+
+          </div>
+        </div><!-- 最新上架 end -->  
+
+        <!-- 无忧体验区 -->  
+        <a name="free-trade"></a>
+        <div class="mc">
+          <div class="title">
+            <h2><i class="fa fa-gift"></i> 无忧体验区 + 首单7折</h2>
+          </div>
+          <div class="right">
+            <ul class="tab" id="lab">
+              <li class="active" data-trigger="waterfall" data-cat="chinapaint"><a href="#gh" data-name="chinesePalonging"><span>国画</span><em>(0)</em></a></li>
+              <li data-trigger="waterfall" data-cat="oilpaint"><a href="#yh" data-name="oilPalonging"><span>油画</span><em>(0)</em></a></li>
+              <li data-trigger="waterfall" data-cat="colour"><a href="#sc" data-name="watercolor"><span>水彩</span><em>(0)</em></a></li>
+              <li data-trigger="waterfall" data-cat="calligraphy"><a href="#sf" data-name="calligraphy"><span>书法</span><em>(0)</em></a></li>
+              <li class="dropdown">
+                <a href="#all" data-name="p-all"><span>所有价格区</span><i class="fa fa-caret-down"></i><em class="num">(0)</em></a>
+                <ul class="dropdown-menu">
+                  <li data-trigger="waterfall"><a href="#p1_99" data-count="199" data-query="1-99" data-name="p1_99">1-99万<em class="num">(0)</em></a></li>
+                  <li data-trigger="waterfall"><a href="#p100_999" data-count="22" data-query="100-199" data-name="p100_999">100-199万<em class="num">(0)</em></a></li>
+                  <li data-trigger="waterfall"><a href="#p1000_1999" data-count="332" data-query="1000-1999" data-name="p1000_1999">1000-1999万<em class="num">(0)</em></a></li>
+                  <li data-trigger="waterfall"><a href="#p2000up" data-count="112" data-query="2000" data-name="p2000up">2000万以上<em class="num">(0)</em></a></li>
+                  <li data-trigger="waterfall"><a href="#all" data-count="248" data-query="all" data-name="p-all">所有价格区<em class="num">(0)</em></a></li>
+                </ul>
+              </li>
+              <span class="tips">(由高至低)</span>
+            </ul>
+          </div>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="gh">
+              <dl>
+                <dt>介绍 XXXXXXXX</dt>
+                <dd class="intro">
+                  <p>
+                    介绍 XXX 首单七折，XXXXX<br/> 
+                    .x.x.x.xlsddfsjlfsf...XXXXX<br/>
+                    .x.x.x.xlsddfsjlfsf...XXXXX<br/>
+                    .x.x.x.xlsddfsjlfsf...XXXXX<br/>
+                  </p>
+                </dd>
+                <dd class="text-right"><button class="btn small-btn btn-detail">详情</button></dd>
+              </dl>
+
+              <div class="waterflow show">
+                <div class="picasa"></div>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- 无忧体验区 --> 
+
+      </div>
+    </div><!-- 交易展示位 end -->  
+  </div>
+
+  <!-- 侧边导航条 -->
+  <div class="toolbar-wrap">
+    <div class="toolbar">
+      <div class="toolbar-footer">
+        <div class="toolbar-tab toolbar-tab-top">
+          <a href="javascript:void(0)" id="goTop" onclick="Yihu.goTop()">
+            <i class="tab-ico"></i>
+            <em class="tab-text">返回顶部</em>
+          </a>
+        </div>
+        <div class="toolbar-tab toolbar-tab-feedback">
+          <a href="javascript:void(0)">
+            <i class="tab-ico"></i>
+            <em class="tab-text">反馈</em>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 侧边导航条 end -->
+
+  <!-- 站点地图 -->
+  <div class="w">
+    <div id="sitemap">
+      <dl>
+        <dt>购物指南</dt>
+        <dd><a href="">购物流程</a></dd>
+        <dd><a href="">会员介绍</a></dd>
+        <dd><a href="">常见问题</a></dd>
+        <dd><a href="">联系客服</a></dd>
+      </dl>
+      <dl>
+        <dt>配送方式</dt>
+        <dd><a href="">上门自提</a></dd>
+        <dd><a href="">配送服务查询</a></dd>
+        <dd><a href="">配送费收取标准</a></dd>
+      </dl>
+      <dl>
+        <dt>支付方式</dt>
+        <dd><a href="">货到付款</a></dd>
+        <dd><a href="">在线支付</a></dd>
+        <dd><a href="">分期付款</a></dd>
+        <dd><a href="">邮局汇款</a></dd>
+        <dd><a href="">公司转账</a></dd>
+      </dl>
+      <dl>
+        <dt>售后服务</dt>
+        <dd><a href="">售后政策</a></dd>
+        <dd><a href="">价格保护</a></dd>
+        <dd><a href="">退款说明</a></dd>
+        <dd><a href="">取消订单</a></dd>
+        <dd><a href="">返修/退换货</a></dd>
+      </dl>
+      <dl>
+        <dt>特色服务</dt>
+        <dd><a href="">延保服务</a></dd>
+        <dd><a href="">礼品卡</a></dd>
+        <dd><a href="">积分兑换</a></dd>
+      </dl>
+    </div>
+  </div><!-- 站点地图 end-->
+
+  <!-- 页面底部 -->
+  <div class="w">
+    <div id="footer">
+      <div class="links">
+        <a href="">关于我们</a>|
+        <a href="">联系我们</a>|
+        <a href="">联系客服</a>|
+        <a href="">商家入驻</a>|
+        <a href="">营销中心</a>|
+        <a href="">社区</a>
+      </div>
+      <div class="copyright">
+        <p>Copyright © 2010 - 2016  深圳市一虎一席艺术有限公司 版权所有 | 京ICP证XXXXXXX号 |  消费者维权热线：4000000000</p>
+      </div>
+      <div class="authentication">
+        <a target="_blank" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007080200026">
+          <img width="103" height="32" alt="经营性网站备案中心" src="images/auth_icons/2.png" class="err-product">
+        </a>
+        
+        <a target="_blank" id="urlknet" tabindex="-1" href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&amp;ct=df&amp;pa=294005">
+          <img border="true" width="103" height="32" oncontextmenu="return false;" name="CNNIC_seal" alt="可信网站" src="images/auth_icons/3.png" class="err-product">
+        </a>
+        <a target="_blank" href="http://www.bj.cyberpolice.cn/index.do">
+          <img width="103" height="32" alt="网络警察" src="images/auth_icons/4.jpg" class="err-product">
+        </a>
+        <a target="_blank" href="https://search.szfw.org/cert/l/CX20120111001803001836">
+          <img width="103" height="32" src="images/auth_icons/5.png" class="err-product">
+        </a>
+        <a target="_blank" href="http://www.12377.cn">
+          <img width="103" height="32" src="images/auth_icons/6.jpg">
+        </a>
+        <a target="_blank" href="http://www.12377.cn/node_548446.htm">
+          <img width="103" height="32" src="images/auth_icons/1.jpg">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/libs/jquery/dist/jquery.js"></script>
+  <script src="/libs/handlebars/handlebars.js"></script>
+  <script src="/libs/jqzoom/js/jquery.jqzoom.min.js"></script>
+  <script src="/libs/waterfall/waterfall.js"></script>
+  <script src="/libs/jquery.slideBox/jquery.slideBox.js"></script>
+  <script src="/libs/waterflow/waterflow.js"></script>
+  <script src="/libs/layer/layer.js"></script>
+  <script src="/libs/jquery_lazyload/jquery.lazyload.js"></script>
+  <script src="/libs/kindeditor/kindeditor.js"></script>
+  <script src="/libs/plupload/js/plupload.full.min.js"></script>
+  <script src="/libs/fly/requestAnimationFrame.js"></script>
+  <script src="/libs/fly/jquery.fly.min.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js" type="text/javascript" charset="utf-8"></script>
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js" type="text/javascript" charset="utf-8"></script>
+  <!-- endbuild -->
+</body>
+</html>
