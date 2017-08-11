@@ -95,6 +95,7 @@
 			
 			wrapper.find('.nums').find('a:eq('+index+')').addClass('active').siblings().removeClass('active');
 			wrapper.find('.title').find('a').attr('href', active_a.attr('href')).text(active_a.attr('title'));
+			wrapper.siblings(".slideBottom").find('li:eq('+index+')').addClass('current').siblings().removeClass('current');
 
 			ul.stop().animate(param, settings.duration*1000, settings.easing, function() {
 				active.removeClass('active');
@@ -126,6 +127,20 @@
 		}, function(){
 			wrapper.data('timeid', window.setTimeout(start, settings.delay*1000));//ADD.JENA.201303141309
 		});	
+
+		wrapper.siblings(".slideBottom").find("li").hover(function(){
+			stop();
+			$(this).addClass('current').siblings().removeClass('current');
+			var index = $(this).index();
+			var active = ul.find('li:eq('+index+')');
+			active.addClass('active').siblings().removeClass('active');
+
+			offset = index * li_width * -1;
+			param = {'left':offset + 'px' };
+			ul.stop().animate(param, settings.duration*1000, settings.easing, function() {});
+		}, function(){
+			wrapper.data('timeid', window.setTimeout(start, settings.delay*1000));//ADD.JENA.201303141309
+		});
 		//首张图片加载完毕后执行初始化
 		var imgLoader = new Image();
 		imgLoader.onload = function(){

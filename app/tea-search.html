@@ -49,6 +49,51 @@
   </div><!-- 面包屑导航 end -->
 
   <!-- 商品搜索区 -->
+  <script type="text/x-handlebars-template" id="search-tpl">
+  {{#childrens}}
+  <div class="selectLine s-{{propertyName}} {{#if status}}hide lv2Line{{/if}}">
+    <div class="sl-wrap">
+      <div class="sl-key"><span>{{value}}</span></div>
+      <div class="sl-value">
+        <div class="sl-v-list">
+          <div class="sl-scroll-list">
+            <ul class="valueList">
+              <li class="selectAll selected"><a href="javascript:void(0)" data-name="{{propertyName}}" data-value="" onclick="Search.go(this)">全部</a></li>
+              {{#each childrens}}
+                {{#if childrens}}
+                <li trigger="toggle"><a href="javascript:void(0)" onclick="Search.go(this)" data-name="{{../../propertyName}}" data-value="{{propertyName}}" data-show=".s-{{../propertyName}}">{{value}}<em>(0)</em> <i class="fa fa-angle-down"></i></a></li>
+                {{else}}
+                <li><a href="javascript:void(0)" onclick="Search.go(this)" data-name="{{../../propertyName}}" data-value="{{propertyName}}"><i></i>{{value}}<em>(0)</em></a></li>
+                {{/if}}
+              {{/each}}
+            </ul>
+          </div>
+          <div class="scrollBtns">
+            <i class="fa fa-arrow-up up" onclick="Search.moveUp(this)"></i>
+            <i class="fa fa-arrow-down down" onclick="Search.moveDown(this)"></i>
+          </div>
+        </div>
+
+        <div class="sl-b-selected">
+          <span class="sl-b-key">已选条件：</span>
+          <ul class="sl-v-list multi-selected">
+            <input type="hidden" name="{{propertyName}}" id="{{propertyName}}" value="" />
+          </ul>
+        </div>
+        <div class="sl-btns">
+          <a href="javascript:void(0)" class="btn btn-success" onclick="Search.multiGo(this)">确定</a>
+          <a href="javascript:void(0)" class="btn btn-default btn-dispose">取消</a>
+        </div>
+      </div>
+      <div class="sl-ext">
+        <a href="javascript:void(0)" class="sl-e-more">更多<i></i></a>
+        <a href="javascript:void(0)" class="sl-e-multiple"><i></i>多选</a>
+      </div>
+    </div>
+  </div>
+  {{/childrens}}  
+  </script>
+
   <div class="w-big">
     <div class="searchBox">
       <div class="selector">
@@ -57,206 +102,14 @@
             <div class="sl-key"><span>关键字</span></div>
             <div class="sl-value">
               <div class="sl-v-list">
-                <input type="text" name="keyword" id="txtKeyword" class="searchKey" placeholder="柴烧 杯" />
+                <input type="text" name="keyword" id="txtKeyword" class="searchKey" placeholder="正山小种 绿茶 茶器" onchange="Search.go(this)" />
                 <input type="radio" name="matcher" value="in" checked>匹配其中之一&nbsp;&nbsp;
                 <input type="radio" name="matcher" value="all">全部匹配
               </div>
             </div>
           </div>
         </div>
-        <div class="selectLine s-type twoline">
-          <div class="sl-wrap">
-            <div class="sl-key"><span>类型</span></div>
-            <div class="sl-value">
-              <div class="sl-v-list">
-                <div class="sl-scroll-list">
-                  <ul class="valueList">
-                    <li class="selectAll"><a href="javascript:void(0)">全部</a></li>
-                    <li class="selected"><a href="javascript:void(0)"><i></i>杯<em>(100)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>杯托<em>(88)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>盖碗<em>(11)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>茶壶<em>(11)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>紫砂壶<em>(888)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>茶盘<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>干泡壶承<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>煮水煮茶器物<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>茶叶罐<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>公道杯<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>茶漏<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>水盂<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>茶席巾<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>茶巾<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>柴烧器皿<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>竹木器物<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>盘型容器<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>花器<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>茶具收纳容器<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>茶席小雕塑<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>茶宠<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>茶刀<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>开茶盒<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>茶叶袋<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>礼品袋<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>香道具<em>(66)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>其它茶道配件<em>(66)</em></a></li>
-                  </ul>
-                </div>
-                <div class="scrollBtns">
-                  <i class="fa fa-arrow-up up" onclick="Search.moveUp(this)"></i>
-                  <i class="fa fa-arrow-down down" onclick="Search.moveDown(this)"></i>
-                </div>
-              </div>
-              <div class="sl-b-selected">
-                <span class="sl-b-key">已选条件：</span>
-                <ul class="sl-v-list multi-selected">
-                  <li class="selected"><a href=""><i></i>全部</a></li>
-                </ul>
-              </div>
-              <div class="sl-btns">
-                <a href="javascript:void(0)" class="btn btn-success">确定</a>
-                <a href="javascript:void(0)" class="btn btn-default btn-dispose">取消</a>
-              </div>
-            </div>
-            <div class="sl-ext">
-              <a href="javascript:void(0)" class="sl-e-more">更多<i></i></a>
-              <a href="javascript:void(0)" class="sl-e-multiple"><i></i>多选</a>
-            </div>
-          </div>
-        </div>
-        <div class="selectLine s-topic">
-          <div class="sl-wrap">
-            <div class="sl-key"><span>图案主题</span></div>
-            <div class="sl-value">
-              <div class="sl-v-list">
-                <ul class="valueList">
-                  <li class="selected selectAll"><a href="javascript:void(0)">全部</a></li>
-                  <li><a href="javascript:void(0)"><i></i>无图案<em>(108)</em></a></li>
-                  <li><a href="javascript:void(0)"><i></i>书法<em>(88)</em></a></li>
-                  <li><a href="javascript:void(0)"><i></i>山水风景<em>(11)</em></a></li>
-                  <li><a href="javascript:void(0)"><i></i>花鸟动植物<em>(11)</em></a></li>
-                  <li><a href="javascript:void(0)"><i></i>人物<em>(11)</em></a></li>
-                  <li><a href="javascript:void(0)"><i></i>抽象<em>(11)</em></a></li>
-                </ul>
-              </div>
-              <div class="sl-btns">
-                <a href="javascript:void(0)" class="btn btn-success">确定</a>
-                <a href="javascript:void(0)" class="btn btn-default btn-dispose">取消</a>
-              </div>
-            </div>
-            <div class="sl-ext">
-              <a href="javascript:void(0)" class="sl-e-more">更多<i></i></a>
-              <a href="javascript:void(0)" class="sl-e-multiple"><i></i>多选</a>
-            </div>
-          </div>
-        </div>
-        <div class="selectLine s-price">
-          <div class="sl-wrap">
-            <div class="sl-key"><span>单价</span></div>
-            <div class="sl-value">
-              <div class="sl-v-list">
-                <ul class="valueList">
-                  <li class="selected selectAll"><a href="javascript:void(0)">全部</a></li>
-                  <li><a href="javascript:void(0)">1000以上<em>(108)</em></a></li>
-                  <li><a href="javascript:void(0)">500-999<em>(88)</em></a></li>
-                  <li><a href="javascript:void(0)">100-499<em>(11)</em></a></li>
-                  <li><a href="javascript:void(0)">0-99<em>(11)</em></a></li>
-                </ul>
-              </div>
-              <div class="sl-btns">
-                <a href="javascript:void(0)" class="btn btn-success">确定</a>
-                <a href="javascript:void(0)" class="btn btn-default btn-dispose">取消</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="selectLine s-artist">
-          <div class="sl-wrap">
-            <div class="sl-key"><span>艺术家</span></div>
-            <div class="sl-value">
-              <div class="sl-v-list">
-                <div class="sl-scroll-list">
-                  <ul class="valueList">
-                    <li class="selected selectAll"><a href="">全部</a></li>
-                    <li><a href="javascript:void(0)"><i></i>毛贞元<em>(108)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>齐白石<em>(88)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>张大千<em>(11)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>李苦禅<em>(11)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>徐悲鸿<em>(11)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>李可染<em>(11)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>赵无极<em>(11)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>何香凝<em>(11)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>黄宾虹<em>(11)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>范曾<em>(11)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>谢稚柳<em>(11)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>刘大为<em>(108)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>吴冠中<em>(88)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>傅抱石<em>(88)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>何家英<em>(88)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>赵一诚<em>(88)</em></a></li>
-                    <li><a href="javascript:void(0)"><i></i>韩美林<em>(88)</em></a></li>
-                  </ul>
-                </div>
-                <div class="scrollBtns">
-                  <i class="fa fa-arrow-up up" onclick="Search.moveUp(this)"></i>
-                  <i class="fa fa-arrow-down down" onclick="Search.moveDown(this)"></i>
-                </div>
-              </div>
-              <div class="sl-btns">
-                <a href="javascript:void(0)" class="btn btn-success">确定</a>
-                <a href="javascript:void(0)" class="btn btn-default btn-dispose">取消</a>
-              </div>
-            </div>
-            <div class="sl-ext">
-              <a href="javascript:void(0)" class="sl-e-more">更多<i></i></a>
-              <a href="javascript:void(0)" class="sl-e-multiple"><i></i>多选</a>
-            </div>
-          </div>
-        </div>
-        <div class="selectLine s-time">
-          <div class="sl-wrap">
-            <div class="sl-key"><span>上架时间</span></div>
-            <div class="sl-value">
-              <div class="sl-v-list">
-                <ul class="valueList">
-                  <li class="selected selectAll"><a href="javascript:void(0)">全部<em>(888)</em></a></li>
-                  <li><a href="javascript:void(0)">半年<em>(108)</em></a></li>
-                  <li><a href="javascript:void(0)">三月<em>(108)</em></a></li>
-                  <li><a href="javascript:void(0)">两月<em>(18)</em></a></li>
-                  <li><a href="javascript:void(0)">一月<em>(108)</em></a></li>
-                  <li><a href="javascript:void(0)">两周<em>(88)</em></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="selectLine s-more-options">
-          <div class="sl-wrap">
-            <div class="sl-key"><span>更多选项</span></div>
-            <div class="sl-value">
-              <div class="sl-v-list">
-                <ul class="valueList">
-                  <li trigger="toggle"><a href="javascript:void(0)" data-show=".s-materials">材质 <i class="fa fa-angle-down"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="selectLine s-materials hide">
-          <div class="sl-wrap">
-            <div class="sl-key"><span>材质</span></div>
-            <div class="sl-value">
-              <div class="sl-v-list">
-                <ul class="valueList">
-                  <li><a href="javascript:void(0)">金属</a></li>
-                  <li><a href="javascript:void(0)">陶瓷</a></li>
-                  <li><a href="javascript:void(0)">石料</a></li>
-                  <li><a href="javascript:void(0)">其他</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        
+        <div class="placeholder"></div>
       </div>
 
       <div class="m-list">
@@ -286,21 +139,25 @@
               <div class="thumbnail">
                 <a href="product_detail.html?id={{id}}" target="_blank" title="{{name}}">
                   {{#if pictures}}
-                  <img src="{{ps pictures.[0].id}}?w=236" alt="" width="{{pictures.[0].thWidth.width}}" height="{{pictures.[0].thWidth.height}}" />
+                  <img src="{{ps pictures.[0].id}}?w=360" alt="" width="360" height="{{pictures.[0].thWidth.height}}" />
                   {{else}}
-                  <img src="images/transparent.png" alt="" height="236" width="136" />
+                  <img src="images/transparent.png" alt="" height="360" width="136" />
                   {{/if}}
                 </a>
               </div>
               <div class="extra">
                 <div class="info fl">
                   <ul>
-                    <li>【{{name}}】{{artworkAuthor.name}}</li>
+                    <li>[{{artworkAuthor.value}}] {{name}}</li>
                     <li class="red-price">￥{{easyPrice this.price}}</li>
                   </ul>                      
                 </div>
                 <div class="btns fr">
-                  <button class="btn" onclick="Yihu.mark('{{id}}', 1, this)"><i class="fa fa-heart"></i> 待阅</button>
+                  {{#isMarked this.collected}}
+                  <button class="btn selected">已收藏</button>
+                  {{else}}
+                  <button class="btn" onclick="Yihu.mark('{{id}}', 1, this)">收藏</button>
+                  {{/isMarked}}
                 </div>
               </div>
             </div>
@@ -431,6 +288,8 @@
   <script src="/libs/jquery_lazyload/jquery.lazyload.js"></script>
   <script src="/libs/kindeditor/kindeditor.js"></script>
   <script src="/libs/plupload/js/plupload.full.min.js"></script>
+  <script src="/libs/fly/requestAnimationFrame.js"></script>
+  <script src="/libs/fly/jquery.fly.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   
@@ -438,8 +297,8 @@
   <script src="scripts/app.js" type="text/javascript" charset="utf-8"></script>
   <!-- endbuild -->
 
-  <!-- build:js scripts/search.js -->
-  <script src="scripts/search.js" type="text/javascript" charset="utf-8"></script>
+  <!-- build:js scripts/tea-search.js -->
+  <script src="scripts/tea-search.js" type="text/javascript" charset="utf-8"></script>
   <!-- endbuild -->
 </body>
 </html>

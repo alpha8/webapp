@@ -29,7 +29,7 @@
     </div>
     <img src="images/sprite/head.png" alt="" usemap="#Map" border="0" hidefocus="true">
     <map name="Map">
-      <area shape="rect" coords="661,15,728,37" href="home.html#follow" target="_blank" alt="我的待阅/关注">
+      <area shape="rect" coords="661,15,728,37" href="home.html#fol收藏/关注">
       <area shape="rect" coords="760,13,797,38" href="home.html#history" target="_blank" alt="我的足迹">
       <area shape="rect" coords="828,15,897,37" href="home.html" target="_blank" alt="个人空间">
       <area shape="rect" coords="927,14,980,38" href="shop_cart.html" target="_blank" alt="购物车">
@@ -56,18 +56,23 @@
       <div class="preview-wrap">
         <div class="preview" id="preview">
           <div id="spec-n1" class="main-img">
-            <img id="spec-img" width="405" border="0" jqimg="{{ps pictures.[0].id}}" src="{{ps pictures.[0].id}}?w=405&h=405" alt="{{name}}" height="405" />
+            <img id="spec-img" width="640" border="0" jqimg="{{ps pictures.[0].id}}" src="{{ps pictures.[0].id}}?w=640&h=640" alt="{{name}}" height="640" />
             <i></i>
           </div>
           <div class="spec-list">
-            <a id="spec-forward" href="javascript:void(0)" class="arrow-prev"><i class="sprite-arrow-prev"></i></a>
-            <a id="spec-backward" href="javascript:void(0)" class="arrow-next"><i class="sprite-arrow-next"></i></a>
+            <a id="spec-forward" href="javascript:void(0)" class="arrow-prev"><i class="fa fa-chevron-up"></i></a>
+            <a id="spec-backward" href="javascript:void(0)" class="arrow-next"><i class="fa fa-chevron-down"></i></a>
             <div id="spec-list" class="spec-items">
               <ul>
               {{#each pictures}}
-                <li><img alt="{{../name}}" data-url="{{ps this.id}}" data-preview="{{ps this.id}}?w=405&h=405" src="{{ps this.id}}?h=90" height="90"></li>
+                <li onmouseover="Shop.showPic(this)" onclick="Shop.showPic(this)"><img alt="{{../name}}" data-url="{{ps this.id}}" data-preview="{{ps this.id}}?w=640&h=640" src="{{ps this.id}}?h=106&w=106" width="106" height="106"></li>
               {{/each}}
               </ul>
+            </div>
+            <div id="product-icons" class="hide">
+              {{#each pictures}}
+                <li onmouseover="Shop.showPic(this)" onclick="Shop.showPic(this)"><img alt="{{../name}}" data-url="{{ps this.id}}" data-preview="{{ps this.id}}?w=640&h=640" src="{{ps this.id}}?h=106&w=106" width="106" height="106"></li>
+              {{/each}}
             </div>
           </div>
           
@@ -77,9 +82,7 @@
       <!-- 商品简介：名称、库存等 -->
       <div class="itemInfo-wrap">
         <div class="sku-name">{{name}}</div>
-        <div class="news">
-          <div class="item" title="{{name}}">{{name}}</div>
-        </div>
+        <div class="desc">{{name}}</div>
 
         <div class="summary">
           <div class="summary-pno-wrap">
@@ -101,11 +104,12 @@
                 <span class="num">{{price}}</span>
               </dd>
             </dl>
+            <input type="hidden" name="price" id="price" value="{{price}}" />
           </div>
         </div>
 
         <div class="summary p-choose-wrap">
-          <!-- 物流配送 -->
+          <!-- 物流配送
           <dl class="summary-stock">
             <dt>配 送 至</dt>
             <dd>
@@ -122,32 +126,46 @@
                 <div class="delivery fl">免运费</div>
               </div>
             </dd>
-          </dl>
+          </dl> -->
 
           <!-- 款式 -->
+          {{#if artworkModels}}
           <dl id="choose-color">
-            <dt>选择颜色</dt>
+            <dt>商品款式</dt>
             <dd class="li clearfix p-choose">
-              <div class="item selected">
-                <b></b>
-                <a href="javascript:void(0)" title="卷袖款" data-price="5000.00">
-                  <img src="{{ps pictures.[0].id}}?w=40&h=40" width="40" height="40">
-                  <i>卷袖款</i>
-                </a>
-              </div>
+              {{#each artworkModels}}
               <div class="item">
                 <b></b>
-                <a href="javascript:void(0)" title="红木框" data-price="5000.00">
-                  <img src="{{ps pictures.[0].id}}?w=40&h=40" width="40" height="40">
-                  <i>红木框</i>
+                <a href="javascript:void(0)" title="{{this.name}}" data-price="{{this.price}}" data-width="{{this.width}}" data-height="{{this.height}}" data-unit="{{this.unit}}">
+                  {{#if this.icons}}
+                  <img src="{{ps icons.[0].id}}?w=40&h=40" width="40" height="40" />
+                  {{else}}
+                  <img src="images/transparent.png" alt="" width="40" height="40" />
+                  {{/if}}
+                  <i>{{this.name}}</i>
                 </a>
+                <div class="hide model-icons">
+                {{#each icons}}
+                  <li onmouseover="Shop.showPic(this)" onclick="Shop.showPic(this)"><img alt="{{../name}}" data-url="{{ps this.id}}" data-preview="{{ps this.id}}?w=640&h=640" src="{{ps this.id}}?h=106&w=106" width="106" height="106"></li>
+                {{/each}}
+                </div>
               </div>
-              <div class="item">
-                <b></b>
-                <a href="javascript:void(0)" title="梨花木框" data-price="20000.00">
-                  <img src="{{ps pictures.[0].id}}?w=40&h=40" width="40" height="40">
-                  <i>梨花木框</i>
-                </a>
+              {{/each}}
+            </dd>
+          </dl>
+          {{/if}}
+        </div>
+
+        <div class="item-amount">
+          <dl>
+            <dt>购买数量</dt>
+            <dd>
+              <div class="choose-amount">
+                <div class="wrap-input">
+                  <input type="text" class="text buy-num" value="1" id="buy-num" />
+                  <a href="javascript:void(0)" class="btn-reduce disabled">-</a>
+                  <a href="javascript:void(0)" class="btn-add">+</a>
+                </div>
               </div>
             </dd>
           </dl>
@@ -155,17 +173,17 @@
 
         <!-- 加入购物车，数量选择 -->
         <div id="choose-btns" class="choose-btns clearfix">
-          <div class="choose-amount">
+          <!--<div class="choose-amount">
             <div class="wrap-input">
               <input type="text" class="text buy-num" value="1" id="buy-num" />
               <a href="javascript:void(0)" class="btn-reduce disabled">-</a>
               <a href="javascript:void(0)" class="btn-add">+</a>
             </div>
-          </div>
+          </div>-->
 
-          <a href="javascript:void(0)" class="btn-lg btn-red" onclick="Yihu.addCart('{{id}}', '{{name}}', $('#buy-num').val(),'{{ps pictures.[0].id}}?w=80&h=80');">加入购物车</a>
-          <a href="javascript:void(0)" class="btn-lg btn-green">立即购买</a>
-          <a href="javascript:void(0)" class="btn-lg btn-white">到货通知</a>
+          <a href="javascript:void(0)" class="btn-lg btn-bgold" onclick="Yihu.addCart('{{id}}', '{{name}}', $('#buy-num').val(),'{{ps pictures.[0].id}}?w=80&h=80');">加入购物车</a>
+          <a href="javascript:void(0)" class="btn-lg btn-gold">立即购买</a>
+          <a href="javascript:void(0)" class="btn-lg btn-gold">到货通知</a>
         </div>  
       </div>
     </div>
@@ -177,7 +195,6 @@
         <div class="tab-main" data-fixed="detail-top-fixed">
           <ul class="tab-header">
             <li class="current" data-toggle="#goods">商品介绍</li>
-            <li data-toggle="#guarantee">售后保障</li>
             <li data-toggle="#comments">商品评价<span>(500)</span></li>
           </ul>
           <div class="extra">
@@ -193,8 +210,8 @@
               <li>作品名称：{{name}}</li>
               <li>作品编号：{{id}}</li>
               <li>作品单价：￥{{price}}</li>
-              <li>艺术家：{{artworkAuthor.name}}</li>
-              <li>分类：{{artworkCategory.name}}</li>
+              <li>艺术家：{{artworkAuthor.value}}</li>
+              <li>分类：{{artworkCategory.parent.value}}</li>
             </ul>
 
             <div class="detail-content">
@@ -202,24 +219,6 @@
             </div>
           </div>
           
-          <div class="item guarantee" id="guarantee">
-            <div class="panel">
-              <div class="panel-header"><h3>售后保障</h3></div>
-              <div class="panel-body">
-                <div class="item-detail">
-                  <dl class="service-agree">
-                    <dt>正品保障</dt>
-                    <dd></dd>
-                    <dt>无忧退换货</dt>
-                    <dd></dd>
-                    <dt>专家鉴定</dt>
-                    <dd></dd>
-                  </dl>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="item comments" id="comments">
             <div class="panel">
               <div class="panel-header"><h3>商品评价</h3></div>
@@ -363,12 +362,16 @@
         <div class="extra">
           <div class="info fl">
             <ul>
-              <li class="artist">【{{artworkAuthor.value}}】{{name}}</li>
+              <li class="artist">[{{artworkAuthor.value}}] {{name}}</li>
               <li class="red-price">￥{{easyPrice this.price}}</li>
             </ul>                      
           </div>
           <div class="btns fr">
-            <button class="btn" onclick="Yihu.mark('{{id}}', 1, this)"><i class="fa fa-heart"></i> 待阅</button>
+            {{#isMarked this.collected}}
+            <button class="btn selected">已收藏</button>
+            {{else}}
+            <button class="btn" onclick="Yihu.mark('{{id}}', 1, this)">收藏</button>
+            {{/isMarked}}
           </div>
         </div>
       </div>
@@ -422,7 +425,7 @@
         <div class="extra">
           <div class="info fl">
             <ul>
-              <li class="artist">【{{name}}】</li>
+              <li class="artist">[{{name}}]</li>
               <li class="red-price">￥{{easyPrice this.price}}</li>
             </ul>                      
           </div>
@@ -553,6 +556,8 @@
   <script src="/libs/jquery_lazyload/jquery.lazyload.js"></script>
   <script src="/libs/kindeditor/kindeditor.js"></script>
   <script src="/libs/plupload/js/plupload.full.min.js"></script>
+  <script src="/libs/fly/requestAnimationFrame.js"></script>
+  <script src="/libs/fly/jquery.fly.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 

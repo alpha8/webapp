@@ -70,7 +70,7 @@
     height: 480
   });
 
-  var tips = ["芝麻开门", "齐白石", "毛贞元", "王子武", "黄宾虹", "李可染", "毕加索"];
+  var tips = ['芝麻开门', '齐白石', '毛贞元', '王子武', '黄宾虹', '李可染', '毕加索'];
   $('.invite-code').attr('placeholder', tips[Math.round(Math.random()*(tips.length-1))]);
   
   $('.joinus').bind('touchstart click', function(e){

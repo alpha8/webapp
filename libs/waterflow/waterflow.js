@@ -18,8 +18,8 @@
         prefix: 'waterflow',
         fitHeight: true, // fit the parent element height
         colHeight: 338,  // row width
-        gutterWidth: 0, // the brick element horizontal gutter
-        gutterHeight: 0, // the brick element vertical gutter
+        gutterWidth: 15, // the brick element horizontal gutter
+        gutterHeight: 15, // the brick element vertical gutter
         minRow: 1,  // min columns
         maxRow: undefined, // max columns, if undefined,max columns is infinite
         maxPage: 10, // max page, if undefined,max page is infinite
@@ -127,7 +127,7 @@
         // });
                 
         this.$element.css(this.options.containerStyle).addClass(prefix + '-container');
-        this.$element.after('<div id="' + prefix + '-loading" style="position: absolute;top: 50%;left: 50%;">' +options.loadingMsg+ '</div><div id="' + prefix + '-message" style="text-align:center;color:#999;"></div>');
+        this.$element.after('<div id="' + prefix + '-loading" style="position: absolute;top: 50%;left: 50%;">' +options.loadingMsg+ '</div><div id="' + prefix + '-message" style="text-align:center;color:#999; position: absolute; top:0px; left:50%; margin-left:-106px;"></div>');
         
         this.$loading = $('#' + prefix + '-loading');
         this.$message = $('#' + prefix + '-message');
@@ -163,6 +163,25 @@
 
         //bind scroll
         this._doScroll();
+      },
+
+      /*
+       * opts
+       * @param {Object} opts
+       * @param {Function} callback
+       */
+      option: function( opts, callback ){
+        if ( $.isPlainObject( opts ) ){
+          this.options = $.extend(true, this.options, opts);
+          this.rowWidthArray = []; // columns height array 
+          
+          if ( typeof callback === 'function' ) {
+            callback();
+          }
+          
+          // re init
+          this._init();
+        } 
       },
 
       /*

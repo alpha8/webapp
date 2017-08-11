@@ -65,16 +65,30 @@ var Cart = window.Cart = {
   minus:function(o){
     var quantity = $(o).siblings('input.text-amount');
     if(quantity.val() > 1){
-      quantity.val(Number(quantity.val())-1);
+      var id = $(o).closest('.item-form').find('input[name=\'id\']').val();
+      Yihu.doGet(ctx + '/shoppingCart/reduce/{0}'.format(id), {}, function(data){
+        if(data.result == 1){
+          console.log('[Cart] Reducing operation is failed, caused by ' + data.message);
+        }else{
+          quantity.val(Number(quantity.val())-1);
+          Cart.changeAmount(quantity);
+        }
+      });
     }
-    Cart.changeAmount(quantity);
   },
 
   //商品数量-1
   plus: function(o){
-    var quantity = $(o).siblings('input.text-amount');
-    quantity.val(Number(quantity.val())+1);
-    Cart.changeAmount(quantity);
+    var id = $(o).closest('.item-form').find('input[name=\'id\']').val();
+    Yihu.doGet(ctx + '/shoppingCart/plus/{0}'.format(id), {}, function(data){
+      if(data.result == 1){
+        console.log('[Cart] Adding operation is failed, caused by ' + data.message);
+      }else{
+        var quantity = $(o).siblings('input.text-amount');
+        quantity.val(Number(quantity.val())+1);
+        Cart.changeAmount(quantity);
+      }
+    });
   },
 
   //删除商品
@@ -173,15 +187,15 @@ var Cart = window.Cart = {
   cashOut: function(o){
     var carts = [];
     $('.checkbox:checked').siblings('input[name=\'pid\']').map(function(){ 
-      carts.push({id: $(this).val(), count: $(this).closest(".item-form").find(".text-amount").val() || 0 });
+      carts.push({id: $(this).val(), count: $(this).closest('.item-form').find('.text-amount').val() || 0 });
     });
 
-    $(o).text("结 算 中...").addClass("disabled");
+    $(o).text('结 算 中...').addClass('disabled');
     var url = Yihu.constants.webCtx + '/shoppingCart/second';
     Yihu.doPost(url, { carts: carts }, function(data){
-      $(o).text("结 算").removeClass("disabled");
+      $(o).text('结 算').removeClass('disabled');
       if(data.result != 1){
-        location.href = location.href.replace("shop_cart.html", "checkout.html");
+        location.href = location.href.replace('shop_cart.html', 'checkout.html');
       }
     });
 

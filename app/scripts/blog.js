@@ -62,6 +62,7 @@ var ctx = Yihu.constants.webCtx, psCtx = Yihu.constants.psCtx, cmsCtx = Yihu.con
           $('input[name=\'summary\']').val(data.summary);
           $('input[name=\'title\']').val(data.title);
           $('input[name=\'isPublic\'][value='+ data.public+']').prop('checked', true);
+          $('input[name=\'layout\'][value='+ (data.public || 'big') +']').prop('checked', true);
           if(data.icon){
             var html = '<div class="upload-box" id="{0}">'+
                           '<img src="{1}?w=346&h=196" alt="" layer-src="{1}" />'+
@@ -71,6 +72,8 @@ var ctx = Yihu.constants.webCtx, psCtx = Yihu.constants.psCtx, cmsCtx = Yihu.con
           }
         }
       });
+    }else{
+      $('input[name=\'layout\'][value=\'big\']').prop('checked', true);
     }
     setTimeout(function(){
       var saveKey = prefix + (saveId || 'new');
@@ -182,11 +185,13 @@ var ctx = Yihu.constants.webCtx, psCtx = Yihu.constants.psCtx, cmsCtx = Yihu.con
       var userName = user.userName || user.emailAddress;
       var articleForm = {
         title:$('input[name=\'title\']').val(),
+        subTitle: $('input[name=\'subTitle\']').val() || '',
         author: userName,
         content: Yihu.replaceLazyHtml($('#editor').val()),
         keyword: [],
         summary:$('input[name=\'summary\']').val(),
         public:$('input[name=\'isPublic\']').prop('checked'),
+        layout: $('input[name=\'layout\']:checked').val() || 'big',
         status: 1,
         icon: $('.uploadlist').data('pid') || '',
         createBy: (user && user.userId) || 'anonymous'

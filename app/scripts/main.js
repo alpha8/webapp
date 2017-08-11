@@ -357,6 +357,31 @@
       $('.login-success').show().siblings().hide();
     }
 
+    //加载轮播广告
+    if($('.sliders').length){
+      var bannerTpl = 
+      '<div id="bannerSliders" class="slideBox">' + 
+        '<ul class="items">{{#posters}}<li><a {{#if url}}href="{{url}}" target="_blank" {{else}}href="javascript:;"{{/if}} title="{{title}}"><img src="{{ps fileId}}" height="484" width="1210"></a></li>{{/posters}}</ul>' +
+      '</div>' + 
+      '<div class="slideBottom"><ul>{{#posters}}<li><a {{#if url}}href="{{url}}" target="_blank" {{else}}href="javascript:;"{{/if}} title="{{title}}"><i class="fa fa-dot-circle-o"></i> <span>{{title}}</span></a></li>{{/posters}}</ul></div>';
+      Yihu.doGet(Yihu.constants.webCtx + '/poster/list', {}, function(data){
+        var template = Handlebars.compile(bannerTpl);
+        $('.sliders').html(template(data));
+        
+        //广告轮播
+        $('#bannerSliders').slideBox({
+          duration : 0.3,//滚动持续时间，单位：秒
+          easing : 'linear',//swing,linear//滚动特效
+          delay : 3,//滚动延迟时间，单位：秒
+          hideClickBar : false,//不自动隐藏点选按键
+          hideBottomBar: true,
+          clickBarRadius : 10,
+          height: 484
+        });
+
+      });
+    }
+
     //获取手机验证码
     $('#btnVerifyCode').bind('touchstart click', function(e){
       e.preventDefault();
@@ -417,7 +442,7 @@
           return false;
         }
         var picasa = selector + ' .waterflow >.picasa';
-        var panel = self.data("panel");
+        var panel = self.data('panel');
         if(panel && (!$(panel + '>.picasa').length)){
           var htm = '<div class="waterflow" id="{0}"><div class="picasa"></div></div>'.format(panel.replace('#',''));
           $('#'+prefix).append(htm);
@@ -432,7 +457,7 @@
 
         var keyword = self.find('span').text();
         var category = self.data('cat');
-        var time = self.data("time");
+        var time = self.data('time');
 
         var params = { pageSize: 10};
         if(category){
@@ -484,7 +509,7 @@
     });
 
     //tab下拉菜单事件绑定
-    $('.tab .dropdown-menu>li').bind('touchstart click', function(e){
+    $('.tab .dropdown-menu>li').on('touchstart click', function(e){
       e.preventDefault();
 
       var nodeA = $(this).children('a');
@@ -496,7 +521,7 @@
       $(selector).addClass('active').siblings().removeClass('active');
       
       var target = $(this).parent().siblings('a');
-      target.children('span').text(text);
+      target.children('span').text(text.substring(0, text.indexOf('(')));
       target.children('em').text('('+nodeA.data('count')+')');
 
       var triggerEvent = $(this).data('trigger');
@@ -643,16 +668,28 @@
         $('a[data-name=\'oilPalonging\']>em').text('('+ data.oilPalonging + ')');
         $('a[data-name=\'watercolor\']>em').text('('+ data.watercolor + ')');
         $('a[data-name=\'calligraphy\']>em').text('('+ data.calligraphy + ')');
+        $('a[data-name=\'p1_99\']').data('count', data.p1_99);
+        $('a[data-name=\'p100_999\']').data('count', data.p100_999);
+        $('a[data-name=\'p1000_1999\']').data('count', data.p1000_1999);
+        $('a[data-name=\'p2000up\']').data('count', data.p2000up);
         $('a[data-name=\'p1_99\']>em').text('('+ data.p1_99 + ')');
         $('a[data-name=\'p100_999\']>em').text('('+ data.p100_999 + ')');
         $('a[data-name=\'p1000_1999\']>em').text('('+ data.p1000_1999 + ')');
         $('a[data-name=\'p2000up\']>em').text('('+ data.p2000up + ')');
 
         var total = data.p1_99 + data.p100_999 + data.p1000_1999 + data.p2000up;
+        $('a[data-name=\'p-all\']').data('count', total);
         $('a[data-name=\'p-all\']>em').text('('+ total + ')');
       }
     });
 
   });
+
+  //关闭dropdown菜单
+  // $(document).off("mousedown",closeDropdownMenu).on("mousedown",closeDropdownMenu);
+  // $(window).off("resize",closeDropdownMenu).on("resize",closeDropdownMenu);
+  // function closeDropdownMenu(){
+  //   $(".dropdown-menu").hide();
+  // }
 
 })(jQuery);

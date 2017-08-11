@@ -2,8 +2,8 @@
 var Yihu = {
   constants: {
     psCtx : 'http://www.yihuyixi.com/ps',
-    webCtx : 'http://localhost:8080/yihu',
-    cmsCtx : 'http://localhost:8080/cms',
+    webCtx : 'http://www.yihuyixi.com/yihu',
+    cmsCtx : 'http://www.yihuyixi.com/cms',
     like: {
       artwork: 1,
       article: 2
@@ -14,6 +14,12 @@ var Yihu = {
     }
   },
   version: '1.0'
+};
+
+// 配置
+window.CONFIG = {
+  appkey: 'af1edc0739d6187cecffd39b751d284f',
+  url:'https://app.netease.im'
 };
 
 /**
@@ -31,43 +37,34 @@ Handlebars.registerHelper('plus',function(v1, v2){
 });
 
 /**
- * 显示友好的价格格式，如：1万元，2万元
+ * 显示友好的价格格式
+ *  小于1万元：显示为 8290元.
+    大于1万元：如果没有百元十元零头，则显示为 12.65万元，
+               如果有百元十元零头（折扣价时），则显示为126552元
  */
 Handlebars.registerHelper('easyPrice',function(price){
   if(typeof(price) == 'number'){
-    var delta = (price+'').indexOf('.') > -1 ? 2 : 0;
-    var num = price.toFixed(delta);
-    var billion = (num / 100000000).toFixed(delta);
-    var million = (num / 10000).toFixed(delta);
+    var pn = parseFloat(price);
+    var num = pn.toFixed(2), str = num +'';
+    var suffix = str.substring(str.indexOf('.')+1);
+    var mod = pn % 100;
 
-    if(num.indexOf('.') > -1){
-      var suffix = '';
-      if(billion >= 1){
-        suffix = billion.substring(billion.indexOf('.')+1);
-        if(suffix == '00'){
-          return billion.substring(0, billion.indexOf('.')) + '亿元';
-        }
-        return billion + '亿元';        
-      }else if(million >= 1){
-        suffix = million.substring(million.indexOf('.')+1);
-        if(suffix == '00'){
-          return million.substring(0, million.indexOf('.')) + '万元';
-        }
-        return million + '万元';  
-      }else{
+    if(pn < 10000){
+      //1w以下显示
+      return suffix ? pn.toFixed(0) + '元' : num + '元';
+    }else if(pn >= 10000 && pn < 1000000){
+      //1w-100w显示
+      if(mod > 0){
         return num + '元';
+      }else{
+        return (pn / 10000) + '万元';
       }
     }else{
-      if(billion >= 1){
-        return billion + '亿元';
-      }else if(million >= 1){
-        return million + '万元';  
-      }else{
-        return num + '元';
-      }
+      //other
+      return num + '元';
     }
   }else{
-    return price;
+    return price + '元';
   }
 });
 
@@ -178,16 +175,16 @@ Handlebars.registerHelper('iconlist',function(id, items, options){
   var out = '';
   if(!items){
     for(var i=0; i<2; i++){
-      out += '<div class="half-thumbnail"><a href="article.html?id={0}"><img src="images/transparent.png" alt="" width="100%" height="176" border="0"/></a><span class="cancel-pin">待阅已取消</span></div>'.format(id);
+      out += '<div class="half-thumbnail" style="' + (i==1 ? 'float: right' : '') + '"><a href="article.html?id={0}"><img src="images/transparent.png" alt="" width="100%" height="176" border="0"/></a><span class="cancel-pin">待阅已取消</span></div>'.format(id);
     }
     return out;
   }
 
   for(var j=0, l=items.length; j<l; j++) {
     var item = items[j];
-    out += '<div class="half-thumbnail"><a href="article.html?id={0}"><img src="images/transparent.png" alt="" width="100%" height="176" border="0" style="background:url({1}?h=176) no-repeat center center; background-size: cover;"/></a><span class="cancel-pin">待阅已取消</span></div>'.format(id, Yihu.constants.psCtx + '/download/' + item.id);
+    out += '<div class="half-thumbnail" style="' + (j==1 ? 'float: right' : '') + '"><a href="article.html?id={0}"><img src="images/transparent.png" alt="" width="100%" height="176" border="0" style="background:url({1}?h=176) no-repeat center center; background-size: cover;"/></a><span class="cancel-pin">待阅已取消</span></div>'.format(id, Yihu.constants.psCtx + '/download/' + item.id);
     if(l<2){
-      out += '<div class="half-thumbnail"><a href="article.html?id={0}"><img src="images/transparent.png" alt="" width="100%" height="176" border="0"/></a><span class="cancel-pin">待阅已取消</span></div>'.format(id);
+      out += '<div class="half-thumbnail" style="float:right"><a href="article.html?id={0}"><img src="images/transparent.png" alt="" width="100%" height="176" border="0"/></a><span class="cancel-pin">待阅已取消</span></div>'.format(id);
     }
   }
   return out;

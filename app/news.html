@@ -29,7 +29,7 @@
     </div>
     <img src="images/sprite/head.png" alt="" usemap="#Map" border="0" hidefocus="true">
     <map name="Map">
-      <area shape="rect" coords="661,15,728,37" href="home.html#follow" target="_blank" alt="我的待阅/关注">
+      <area shape="rect" coords="661,15,728,37" href="home.html#follow" target="_blank" alt="我的收藏/关注">
       <area shape="rect" coords="760,13,797,38" href="home.html#history" target="_blank" alt="我的足迹">
       <area shape="rect" coords="828,15,897,37" href="home.html" target="_blank" alt="个人空间">
       <area shape="rect" coords="927,14,980,38" href="shop_cart.html" target="_blank" alt="购物车">
@@ -77,17 +77,23 @@
                 {{#if postTime}}<span><i class="fa fa-clock-o"></i> 发布时间：{{postTime}}</span>{{/if}}
                 {{#if comments}}<span><i class="fa fa-comments-o"></i> {{comments}}</span>{{/if}}
                 <span><i class="fa fa-eye"></i> 阅读量：{{pv}}</span>
-                <span onclick="Yihu.mark('{{id}}', 2, this)" class="star"><i class="fa fa-heart"></i> 待阅</span>
+                {{#isMarked this.collected}}
+                <span class="star selected"><i class="fa fa-heart"></i> 已收藏</span>
+                {{else}}
+                <span onclick="Yihu.mark('{{id}}', 2, this)" class="star"><i class="fa fa-heart"></i> 收藏</span>
+                {{/isMarked}}
               </div>
               <div class="intro">
                 &nbsp;&nbsp;{{summary}}
               </div>
+              {{#if keyword}}
               <ul class="tags">
                 <li><i class="fa fa-tags"></i> 标签：</li>
                 {{#each keyword}}
                 <li class="tag">{{this}}</li>
                 {{/each}}
               </ul>
+              {{/if}}
             </div>
           </li>
         {{/articles}}

@@ -68,7 +68,7 @@
     <li class="box" id="{{id}}">
       <div class="section">
         <div class="line-concat"></div>
-        <span class="point-time point-green"></span>
+        <span class="point-time {{#compare status '2' }}}point-gray{{else}}point-gold{{/compare}}"></span>
         <ol class="acti-items">
           <li><i class="fa fa-clock-o"></i> 时间：{{startTime}} ~ {{endTime}}</li>
           <li><i class="fa fa-location-arrow"></i> 地点：<a href="javascript:void(0)">{{address}}</a></li>
@@ -260,6 +260,8 @@
   <script src="/libs/jquery_lazyload/jquery.lazyload.js"></script>
   <script src="/libs/kindeditor/kindeditor.js"></script>
   <script src="/libs/plupload/js/plupload.full.min.js"></script>
+  <script src="/libs/fly/requestAnimationFrame.js"></script>
+  <script src="/libs/fly/jquery.fly.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   

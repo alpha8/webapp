@@ -324,7 +324,7 @@ Yihu.switchLogin = function(id){
 //加入我的待阅
 Yihu.mark = function(id, module, o, fromCart, cancel){
   var self = o ? $(o) : $(this);
-  if(self.hasClass("selected")){
+  if(self.hasClass('selected')){
     return;
   }
 
@@ -336,7 +336,7 @@ Yihu.mark = function(id, module, o, fromCart, cancel){
       top: self.offset().top - top //开始位置（必填） 
     }, 
     end: { 
-      left: $(".top-navbar").offset().left + 695, //结束位置（必填） 
+      left: $('.top-navbar').offset().left + 695, //结束位置（必填） 
       top: 25, //结束位置（必填） 
       width: 0, //结束时宽度 
       height: 0 //结束时高度 
@@ -368,7 +368,7 @@ Yihu.mark = function(id, module, o, fromCart, cancel){
   }, function(data){
     layer.msg('加入我的待阅成功！');
     if(o && !cancel){
-      $(o).addClass('selected').html('<i class="fa fa-heart"></i> 已关注');
+      $(o).addClass('selected').html('已关注');
     }
     return;
   });
@@ -393,11 +393,11 @@ Yihu.unFollow = function(id, module, o){
         }else{
           $(o).closest('.block').addClass('locked').find('.cancel-pin').fadeIn();
         }
-        $(o).removeClass('selected').html('<i class="fa fa-heart"></i> 重新待阅').unbind().removeAttr('onclick').bind('click touchstart', function(e){
+        $(o).removeClass('selected').html('重新待阅').unbind().removeAttr('onclick').bind('click touchstart', function(e){
           e.preventDefault();
           Yihu.mark(id, module, o, false, true);
 
-          $(o).addClass('selected').html('<i class="fa fa-heart"></i> 取消待阅').unbind().bind('click touchstart', function(e1){
+          $(o).addClass('selected').html('取消待阅').unbind().bind('click touchstart', function(e1){
             e1.preventDefault();
             Yihu.unFollow(id, module, o);
           });
@@ -525,4 +525,8 @@ Yihu.restoreRawHtml = function(html){
     html = html.replace('src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"', '').replace(str, 'img src="'+src+'"');
   }
   return html;
+};
+
+Yihu.launchIM = function(){
+  layer.msg('咨询模块还在开发中！', { icon: 4, time: 1500 });
 };

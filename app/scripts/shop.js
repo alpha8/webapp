@@ -1,4 +1,4 @@
-var ctx = Yihu.constants.webCtx, psCtx = Yihu.constants.psCtx;
+var ctx = Yihu.constants.webCtx, cmsCtx = Yihu.constants.cmsCtx, psCtx = Yihu.constants.psCtx;
 (function($) {
   $(document).ready(function(){
     var id = Yihu.getReqParams('id');
@@ -15,24 +15,30 @@ var ctx = Yihu.constants.webCtx, psCtx = Yihu.constants.psCtx;
         });
 
         var settings = {
-          xzoom:540, 
-          yzoom:540
+          xzoom:640, 
+          yzoom:640
         };
         $('#spec-n1').jqueryzoom(settings);
+        _doScroll();
 
-        var li = $('#spec-list li');
-        $('#spec-list>ul').css('width', li.length * 180+'px');
+        // var li = $('#spec-list li');
+        // $('#spec-list>ul').css('width', li.length * 180+'px');
 
         //向下翻页商品缩略图列表
         $('#spec-backward').bind('touchstart click', function(e){
           e.preventDefault();
           var ul = $('#spec-list>ul');
-          var left = parseInt(ul.css('left'));
+          var top = parseInt(ul.css('top'));
 
-          var containerWidth = parseInt($('#spec-list').css('width'));
-          var ulWidth = parseInt(ul.css('width'));
-          if(containerWidth - ulWidth < left-4){
-            ul.css('left', parseInt(left)-100+'px');
+          var height = parseInt($('.spec-list').css('height'));
+          var h = parseInt(ul.css('height'));
+          if(height - top <= h){
+            ul.css('top', top-120+'px');
+            $('#spec-forward').removeClass('disabled');
+          }
+
+          if(height - top >= h - 120){
+            $(this).addClass('disabled');
           }
         });
 
@@ -41,24 +47,38 @@ var ctx = Yihu.constants.webCtx, psCtx = Yihu.constants.psCtx;
           e.preventDefault();
 
           var ul = $('#spec-list>ul');
-          var left = parseInt(ul.css('left'));
-          if(left<0){
-            ul.css('left', left+100+'px');
+          var top = parseInt(ul.css('top'));
+          if(top < 0){
+            ul.css('top', top+120+'px');
+            $('#spec-backward').removeClass('disabled');
+          }
+
+          if(top >= -120){
+            $(this).addClass('disabled');
           }
         });
 
         //商品缩略图列表切换
-        $('#spec-list li').hover(function(e){
-          e.preventDefault();
-          var img = $(this).find('img');
-          $('#spec-img').attr('src', img.data('preview')).attr('jqimg', img.data('url'));
-        });
+        // $('#spec-list li').hover(function(e){
+        //   e.preventDefault();
+        //   var img = $(this).find('img');
+        //   $('#spec-img').attr('src', img.data('preview')).attr('jqimg', img.data('url'));
+        // });
         
         //颜色和款式选择
         $('#choose-color .item').bind('touchstart click', function(e){
           e.preventDefault();
 
-          $(this).addClass('selected').siblings().removeClass('selected');
+          var self = $(this);
+          if(!!self.hasClass('selected')){
+            $('#spec-list>ul').html($('#product-icons').html());
+            $('.summary-price .num').text(parseFloat($('#price').val()));
+          }else{
+            $('#spec-list>ul').html(self.find('.model-icons').html());
+            $('.summary-price .num').text(parseFloat(self.find('a').data('price')));
+          }
+          self.toggleClass('selected').siblings().removeClass('selected');
+          _doScroll();
         });
 
         //自减购买数量
@@ -188,7 +208,7 @@ var ctx = Yihu.constants.webCtx, psCtx = Yihu.constants.psCtx;
           }
         }
 
-        if($(window).scrollTop() <= $('.tab-body').offset().top){
+        if($(window).scrollTop() <= $('.tab-body').offset().top + 3){
           if($('.tab-main').hasClass('detail-top-fixed')){
             $('.tab-main').removeClass('detail-top-fixed');
             // $('.topbar').show();
@@ -229,6 +249,16 @@ var ctx = Yihu.constants.webCtx, psCtx = Yihu.constants.psCtx;
       Shop.loadSysRecommendList();
     }, 500);
   });
+
+  function _doScroll(){
+    if($('#spec-list>ul').height() <= $('.spec-list').height()){
+      $('#spec-forward').hide();
+      $('#spec-backward').hide();
+    }else{
+      $('#spec-forward').show().addClass('disabled');
+      $('#spec-backward').show();
+    }
+  }
 
 })(jQuery);
 
@@ -297,7 +327,13 @@ var Shop = window.Shop = {
         }
       }
     });
-  }
+  },
+
+  //商品缩略图列表切换
+  showPic: function(o){
+    var img = $(o).find('img');
+    $('#spec-img').attr('src', img.data('preview')).attr('jqimg', img.data('url'));
+  }        
 
 };
 
@@ -584,7 +620,7 @@ var Comment = window.Comment = {
   //加载最新评论列表
   loadCommentList: function(){
     var id = Yihu.getReqParams('id');
-    Yihu.doGet(ctx + '/comment/list?productId={0}'.format(id), {}, function(data){
+    Yihu.doGet(cmsCtx + '/comment/list?productId={0}'.format(id), {}, function(data){
       var tpl = $('#comments-tpl').html();
       var template = Handlebars.compile(tpl);
       $('.comments-list').html(template(data));
@@ -649,6 +685,9 @@ var Comment = window.Comment = {
         layer.msg('评论提交成功，待系统审核！');
         $('#message').val('');
         $('.wb_counter>.wordNum').text(300);
+
+        $('#img-list li').remove();
+        $('.upload-imglist').hide();
         Comment.loadCommentList();
 
       }else{

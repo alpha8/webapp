@@ -1,19 +1,22 @@
 var psCtx = Yihu.constants.psCtx + '/download', ctx = Yihu.constants.webCtx, cmsCtx = Yihu.constants.cmsCtx;
+var userArticleFlow;  //用户博文瀑布流对象
+var uid;  //登录用户ID
+
 (function($) {
   $(document).ready(function(){
     //广告轮播
-    $('#bannerSliders').slideBox({
-      duration : 0.3,//滚动持续时间，单位：秒
-      easing : 'linear',//swing,linear//滚动特效
-      delay : 3,//滚动延迟时间，单位：秒
-      hideClickBar : false,//不自动隐藏点选按键
-      hideBottomBar: true,
-      clickBarRadius : 10,
-      height: 680
-    });
+    // $('#bannerSliders').slideBox({
+    //   duration : 0.3,//滚动持续时间，单位：秒
+    //   easing : 'linear',//swing,linear//滚动特效
+    //   delay : 3,//滚动延迟时间，单位：秒
+    //   hideClickBar : false,//不自动隐藏点选按键
+    //   hideBottomBar: true,
+    //   clickBarRadius : 10,
+    //   height: 680
+    // });
     
     var user = Yihu.store.get('user');
-    var uid = (user && user.userId) || 0;
+    uid = (user && user.userId) || 0;
     var reqUid = Yihu.getReqParams('uid');
     if(reqUid){
       uid = reqUid;
@@ -105,7 +108,7 @@ var psCtx = Yihu.constants.psCtx + '/download', ctx = Yihu.constants.webCtx, cms
 
     //美术投稿
     var colHeight = 291; //window.innerWidth<= 768 ? 110 : 186;
-    $('#postArt>.picasa').waterflow({
+    userArticleFlow = new Waterflow('#postArt>.picasa', {
       itemCls: 'article2017-box',
       prefix: 'userArticle',
       colHeight: colHeight, 
@@ -278,8 +281,14 @@ var Home = window.Home = {
         btn: ['确定','取消'] //按钮
       }, function(){
         Yihu.doDelete(cmsCtx + '/article/' + id, {}, function(data){
-          if(data.result === 0){
+          if(data.result === 1){
             layer.msg('文章删除成功', {icon: 1});
+
+            $('#postArt>.picasa').html('');
+            userArticleFlow.option({
+              params: { pageSize: 10,userId: uid},
+              state: { curPage:1, hasNext: true}
+            });
           }else{
             layer.msg('删除失败，请稍候重试');
           }

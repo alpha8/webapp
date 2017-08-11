@@ -1,5 +1,7 @@
 var ctx = Yihu.constants.webCtx, psCtx = Yihu.constants.psCtx, cmsCtx = Yihu.constants.cmsCtx, pivot = Yihu.constants.searchPivot.artwork;
-var colWidth = window.innerWidth<= 768 ? 250 : window.innerWidth>= 1100 ? 375 : 320;
+//var colWidth = window.innerWidth<= 768 ? 250 : window.innerWidth>= 1100 ? 375 : 320;
+
+var cache = {};
 
 (function($) {
   $(document).ready(function(){
@@ -50,8 +52,9 @@ var colWidth = window.innerWidth<= 768 ? 250 : window.innerWidth>= 1100 ? 375 : 
             nodeI.toggleClass('fa-angle-down').toggleClass('fa-angle-up');
 
             var showId = nodeA.data('show');
+            var typeValue = nodeA.data('value');
             if(showId){
-              $(showId).toggle();
+              $(showId).removeClass(typeValue).addClass(typeValue).toggle();
             }
             //self.toggleClass('selected');
           }else{
@@ -72,12 +75,51 @@ var colWidth = window.innerWidth<= 768 ? 250 : window.innerWidth>= 1100 ? 375 : 
 
       Yihu.doGet(ctx + '/artwork/search/records', {}, function(data){
         if(data){
-          $('.valueList li>a').each(function(i, item){
+          for(var i=0, len=data.length; i<len; i++){
+            var item = data[i];
+            var subjectTotal = item && item.subjectTotals;
+
+            var subject = {};
+            for(var j=0, length=subjectTotal.length; j<length; j++){
+              var subItem = subjectTotal[j];
+              subject[subItem.name] = {
+                count: subItem.count,
+                priceTotals: subItem.priceTotals
+              };
+            }
+            cache[item.name] = {
+              count: item.count, 
+              subjectTotals: subject
+            };
+          }
+
+          $('.s-type .valueList li>a').each(function(i, item){
             var value = $(item).data('value');
             if(value !== ''){
-              $(item).children('em').text('(' + data[value] + ')');
+              var count = cache[value].count || 0;
+              $(item).children('em').text('(' + count + ')');
             }
           });
+          $('.s-theme .valueList li>a').each(function(i, item){
+            var valueTheme = $(item).data('value');
+            if(valueTheme !== ''){
+              var count = cache[''].subjectTotals[valueTheme].count || 0;
+              $(item).children('em').text('(' + count + ')');
+            }
+          });
+          $('.s-price .valueList li>a').each(function(i, item){
+            var valuePrice = $(item).data('value');
+            if(valuePrice !== ''){
+              var priceTotals = cache[''].subjectTotals[''].priceTotals;
+              for(var p=0, len=priceTotals.length; p<len; p++){
+                var price = priceTotals[p];
+                if(valuePrice == price.name){
+                  $(item).children('em').text('(' + (price.count || 0) + ')');
+                }
+              }
+            }
+          });
+
         }
       });
 
@@ -140,11 +182,38 @@ var Search = window.Search = {
       $('input[type=\'hidden\']').val('');
       $('.valueList li').removeClass('selected');
       $('.valueList li.selectAll').addClass('selected');
+
+      if(value){
+        $('.lv2Line:not(.' + value+')').hide();
+      }
     }
+
     if(key){
       $('#'+key).val(value);
     }
     Search.search();
+
+    var selectedType = $('#type').val(), selectedPrice = $('#price').val(), selectedTheme = $('#theme').val();
+    $('.s-theme .valueList li>a').each(function(i, item){
+      var valueTheme = $(item).data('value');
+      if(valueTheme !== ''){
+        var count = cache[selectedType || ''].subjectTotals[valueTheme].count || 0;
+        $(item).children('em').text('(' + count + ')');
+      }
+    });
+    $('.s-price .valueList li>a').each(function(i, item){
+      var valuePrice = $(item).data('value');
+      if(valuePrice !== ''){
+        var priceTotals = cache[selectedType || ''].subjectTotals[selectedTheme || ''].priceTotals;
+        for(var p=0, len=priceTotals.length; p<len; p++){
+          var price = priceTotals[p];
+          if(valuePrice == price.name){
+            $(item).children('em').text('(' + (price.count || 0) + ')');
+          }
+        }
+      }
+    });
+
   },
 
   multiGo:function(o){
@@ -171,7 +240,7 @@ var Search = window.Search = {
       itemCls: 'box',
       prefix: 'goods',
       maxPage: 2,
-      colWidth: colWidth,
+      colWidth: 375,
       gutterWidth: 10,
       maxCol: 3,
       params: {pageSize: 10},

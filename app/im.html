@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>一虎一席IM</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" type="text/css" href="/libs/font-awesome/css/font-awesome.min.css">
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <link rel="stylesheet" href="im/css/jquery-ui.css"/>
+  <link rel="stylesheet" href="im/css/contextMenu/jquery.contextMenu.css"/>
+  <link rel="stylesheet" href="im/css/main.css"/>
+   <!-- build:css styles/im.css -->
+  <link rel="stylesheet" type="text/css" href="styles/im.css">
+  <!-- endbuild -->
+</head>
+<body>
+  <!-- IM聊天窗口 start -->
+  <div id="ui-im-chat">
+    <!-- <ul class="im-unselect im-chat-list" style="height: 519px; display:none;">
+      <li class="im-friend100001 im-chatlist-friend100001 im-this" im-event="tabChat">
+        <img src="images/profile_small.jpg">
+        <span>客服小虎</span>
+        <i class="im-icon" im-event="closeChat">ဇ</i>
+      </li>
+      <li class="im-friend100002 im-chatlist-friend100002" im-event="tabChat">
+        <img src="images/profile_small.jpg">
+        <span>郑立坚</span>
+        <i class="im-icon" im-event="closeChat">ဇ</i>
+      </li>
+    </ul> -->
+    <div class="im-chat-box chat-box">
+      <div class="im-chat im-chat-friend ui-show">
+        <div class="im-unselect im-chat-title">
+          <div class="im-chat-other">
+            <img class="im-friend100001" src="images/profile_small.jpg">
+            <span class="im-chat-username" im-event="">客服小虎  </span>
+            <p class="im-chat-status">
+              <span style="color:#FF5722;">在线</span>
+            </p>
+          </div>
+        </div>
+        <div class="im-chat-main chat-content box-sizing" style="height: 261px;" id="chatContent">
+          <!-- <ul>
+            <li>
+              <div class="im-chat-user">
+                <img src="images/profile_small.jpg"><cite>客服小虎<i>2017-04-05 17:52:58</i></cite>
+              </div>
+              <div class="im-chat-text">嗨，你好！欢迎体验im。</div>
+            </li>
+            <li class="im-chat-mine">
+              <div class="im-chat-user">
+                <img src="images/sprite/logo.jpg"><cite><i>2017-04-06 10:25:34</i>用户小A</cite>
+              </div>
+              <div class="im-chat-text">ssgsdgs</div>
+            </li>
+          </ul> -->
+        </div>
+
+        <!-- 云记录 -->
+        <div class="cloudMsgContainer hide"></div>
+
+        <div class="im-chat-footer">
+          <div class="im-unselect im-chat-tool">
+            <span class="im-icon im-tool-face" title="选择表情" im-event="face"></span>
+            <span class="im-icon im-tool-image" title="上传图片" data-type="image">
+              <input type="file" name="file" multiple="multiple" id="uploadImage">
+            </span>
+            <span class="im-icon im-tool-file" title="发送文件" data-type="file">
+              <input type="file" name="file" multiple="multiple" id="uploadFile">
+            </span>
+            <!-- <span class="im-icon im-tool-audio" title="发送网络音乐" im-event="media" data-type="audio"></span>
+            <span class="im-icon im-tool-video" title="发送网络视频" im-event="media" data-type="video"></span>
+            <span class="im-icon im-tool-code" title="代码" im-event="extend" lay-filter="code"></span> -->
+            <span class="im-tool-log" im-event="chatLog"><i class="im-icon"></i>聊天记录</span>
+          </div>
+          <div class="im-chat-textarea">
+            <textarea id="messageText"></textarea>
+          </div>
+          <div class="im-chat-bottom">
+            <div class="im-chat-send">
+              <span class="im-send-close" im-event="closeThisChat">关闭</span>
+              <span class="im-send-btn" im-event="send">发送</span>
+              <span class="im-send-set" im-event="setSend">
+                <em class="im-edge"></em>
+              </span>
+              <ul class="layui-anim im-menu-box layui-anim-upbit">
+                <li class="im-this" im-event="setSend" im-type="Enter"><i class="im-icon"></i>按Enter键发送消息</li>
+                <li im-event="setSend" im-type="Ctrl+Enter"><i class="im-icon"></i>按Ctrl+Enter键发送消息</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- IM聊天窗口 end -->
+
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/libs/jquery/dist/jquery.js"></script>
+  <script src="/libs/layer/layer.js"></script>
+  <script src="/libs/handlebars/handlebars.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js" type="text/javascript" charset="utf-8"></script>
+  <!-- endbuild -->
+  
+  <script src="im/js/3rd/NIM_Web_SDK_v3.5.0.js" type="text/javascript" charset="utf-8"></script>
+  <script src="im/js/3rd/jquery-ui.min.js"></script>
+  <script src="im/js/3rd/contextMenu/jquery.ui.position.js"></script>
+  <script src="im/js/3rd/contextMenu/jquery.contextMenu.js"></script>
+  <script src="im/js/cache.js" type="text/javascript" charset="utf-8"></script>
+  <script src="im/js/util.js" type="text/javascript" charset="utf-8"></script>
+  <script src="im/js/ui.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/libs/layer/layer.js"></script>
+  <script src="scripts/im.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>

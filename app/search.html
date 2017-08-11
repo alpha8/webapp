@@ -29,7 +29,7 @@
     </div>
     <img src="images/sprite/head.png" alt="" usemap="#Map" border="0" hidefocus="true">
     <map name="Map">
-      <area shape="rect" coords="661,15,728,37" href="home.html#follow" target="_blank" alt="我的待阅/关注">
+      <area shape="rect" coords="661,15,728,37" href="home.html#follow" target="_blank" alt="我的收藏/关注">
       <area shape="rect" coords="760,13,797,38" href="home.html#history" target="_blank" alt="我的足迹">
       <area shape="rect" coords="828,15,897,37" href="home.html" target="_blank" alt="个人空间">
       <area shape="rect" coords="927,14,980,38" href="shop_cart.html" target="_blank" alt="购物车">
@@ -172,21 +172,25 @@
               <div class="thumbnail">
                 <a href="product_detail.html?id={{id}}" target="_blank" title="{{name}}">
                   {{#if pictures}}
-                  <img src="{{ps pictures.[0].id}}?w=236" alt="" width="{{pictures.[0].thWidth.width}}" height="{{pictures.[0].thWidth.height}}" />
+                  <img src="{{ps pictures.[0].id}}?w=360" alt="" width="360" height="{{pictures.[0].thWidth.height}}" />
                   {{else}}
-                  <img src="images/transparent.png" alt="" height="236" width="136" />
+                  <img src="images/transparent.png" alt="" height="360" width="136" />
                   {{/if}}
                 </a>
               </div>
               <div class="extra">
                 <div class="info fl">
                   <ul>
-                    <li>【{{artworkAuthor.value}}】{{name}}</li>
+                    <li>[{{artworkAuthor.value}}] {{name}}</li>
                     <li class="red-price">￥{{easyPrice this.price}}</li>
                   </ul>                      
                 </div>
                 <div class="btns fr">
-                  <button class="btn" onclick="Yihu.mark('{{id}}', 1, this)"><i class="fa fa-heart"></i> 待阅</button>
+                  {{#isMarked this.collected}}
+                  <button class="btn selected">已收藏</button>
+                  {{else}}
+                  <button class="btn" onclick="Yihu.mark('{{id}}', 1, this)">收藏</button>
+                  {{/isMarked}}
                 </div>
               </div>
             </div>
@@ -317,6 +321,8 @@
   <script src="/libs/jquery_lazyload/jquery.lazyload.js"></script>
   <script src="/libs/kindeditor/kindeditor.js"></script>
   <script src="/libs/plupload/js/plupload.full.min.js"></script>
+  <script src="/libs/fly/requestAnimationFrame.js"></script>
+  <script src="/libs/fly/jquery.fly.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   
