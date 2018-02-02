@@ -43,9 +43,6 @@ _winScroll = function(c) {
         }
     });
 },
-_isWifi = (navigator.connection || navigator.mozConnection || navigator.webkitConnection || {
-    type: 'unknown'
-}).type.toString().replace('2', 'wifi') == 'wifi',
 
 isMobile = function() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobi/i.test(navigator.userAgent) ||
